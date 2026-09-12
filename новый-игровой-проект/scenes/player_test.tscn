@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bmfccva6ss2md" path="res://scenes/revolver.tscn" id="1_a8v3n"]
 [ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="1_fdpfy"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/base_bullet.tres" id="2_6p80c"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
 
@@ -17,6 +18,7 @@
 
 [node name="PlayerTest" type="Node3D" unique_id=658327225]
 script = ExtResource("1_fdpfy")
+starting_bullet = ExtResource("2_6p80c")
 
 [node name="Head" type="Area3D" parent="." unique_id=1659543030 groups=["Head"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4508152, 0)
@@ -58,3 +60,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42054662, 1.9360634, -0.94
 
 [node name="at_head" type="Marker3D" parent="Positions" unique_id=1502542462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9884398, 2.2363873, 0.6019726)
+
+[connection signal="fired" from="hand/Revolver" to="." method="_on_revolver_fired"]

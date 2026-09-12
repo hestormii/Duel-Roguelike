@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bmfccva6ss2md"]
 
 [ext_resource type="Script" uid="uid://dtrlegxhs6u1w" path="res://scripts/revolver.gd" id="1_37vaw"]
+[ext_resource type="PackedScene" uid="uid://x8ijks6jx2px" path="res://scenes/trail.tscn" id="2_rlopr"]
 
 [node name="Revolver" type="Node3D" unique_id=14257377]
 script = ExtResource("1_37vaw")
+trail_scene = ExtResource("2_rlopr")
 
 [node name="body" type="Node3D" parent="." unique_id=1637426185]
 

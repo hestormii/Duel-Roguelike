@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://x8ijks6jx2px"]
+
+[ext_resource type="Script" uid="uid://72kr3qf0sbhd" path="res://scenes/trail.gd" id="1_rsj4o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=496286032]
+mesh = SubResource("BoxMesh_g4v7s")
+script = ExtResource("1_rsj4o")

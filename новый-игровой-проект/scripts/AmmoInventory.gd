@@ -1,4 +1,3 @@
-# res://scripts/ammo_inventory.gd — Autoload name: "AmmoInventory"
 extends Node
 
 var stock: Dictionary = {} # BulletData -> int
