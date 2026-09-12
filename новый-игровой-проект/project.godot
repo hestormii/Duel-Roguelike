@@ -14,6 +14,10 @@ config/name="Gunslinger Roguelike"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AmmoInventory="*uid://cmn0gtfhm5kx5"
+
 [display]
 
 window/stretch/mode="canvas_items"

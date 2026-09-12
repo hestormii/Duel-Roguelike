@@ -4,13 +4,25 @@ extends Node3D
 @onready var at_pistol: Marker3D = $Positions/at_pistol
 @onready var at_head: Marker3D = $Positions/at_head
 var at_head_view: bool = true
+@onready var hand: Area3D = $hand
+@onready var revolver: Node3D = $hand/Revolver
 
+@export var pitch_limit_deg: float = 12.0
+@export var yaw_limit_deg: float = 8.0
+@export var aim_sensitivity: float = 0.05
+
+var aim_offset := Vector2.ZERO
 
 func _ready() -> void:
+	revolver.fired.connect(_on_revolver_fired)
 	camera_3d.global_position = at_head.global_position
+
 
 func _process(_delta: float) -> void:
 	chage_view()
+	if not at_head_view:
+		hand.rotation_degrees.y = aim_offset.x
+		hand.rotation_degrees.x = aim_offset.y
 
 
 func chage_view():
@@ -20,3 +32,24 @@ func chage_view():
 	elif Input.is_action_just_pressed("WheelDown") and at_head_view == false:
 		camera_3d.global_position = at_head.global_position
 		at_head_view = true
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and not at_head_view:
+		aim_offset.x = clamp(aim_offset.x - event.relative.x * aim_sensitivity, -yaw_limit_deg, yaw_limit_deg)
+		aim_offset.y = clamp(aim_offset.y - event.relative.y * aim_sensitivity, -pitch_limit_deg, pitch_limit_deg)
+		
+
+func _on_revolver_fired(bullet: BulletData, hit_result: Dictionary) -> void:
+	if bullet == null:
+		return # play dry-fire click sfx
+	if hit_result.is_empty():
+		return # missed entirely
+
+	var hit_area: Area3D = hit_result.collider
+	var multiplier := 1.0
+	for group_name in ["Head", "Body", "Hand"]:
+		if hit_area.is_in_group(group_name):
+			multiplier = {"Head": 3.0, "Body": 1.0, "Hand": 0.5}[group_name]
+			break
+	var final_damage := bullet.damage * multiplier
