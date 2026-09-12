@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://d1aj5bfrhj7ey"]
+
+[ext_resource type="PackedScene" uid="uid://bmfccva6ss2md" path="res://scenes/revolver.tscn" id="1_a8v3n"]
+[ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="1_fdpfy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yf5fn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yf5fn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yf5fn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_57qmd"]
+
+[node name="PlayerTest" type="Node3D" unique_id=658327225]
+script = ExtResource("1_fdpfy")
+
+[node name="Head" type="Area3D" parent="." unique_id=1659543030 groups=["Head"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4508152, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=2016119687]
+mesh = SubResource("SphereMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head" unique_id=595374879]
+shape = SubResource("SphereShape3D_yf5fn")
+
+[node name="Body" type="Area3D" parent="." unique_id=891058814 groups=["Body"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=611670651]
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=2006629955]
+mesh = SubResource("CapsuleMesh_yf5fn")
+
+[node name="hand" type="Area3D" parent="." unique_id=1258717570]
+transform = Transform3D(0.6313177, 0, 0, 0, 0.6420988, 0, 0, 0, 0.6010872, -0.43521667, 1.5676534, -0.7558517)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hand" unique_id=986583678]
+mesh = SubResource("SphereMesh_yf5fn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hand" unique_id=2086330704]
+shape = SubResource("SphereShape3D_57qmd")
+
+[node name="Revolver" parent="hand" unique_id=14257377 instance=ExtResource("1_a8v3n")]
+transform = Transform3D(-0.9999999, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.39488554)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=748557078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -0.62500006)
+
+[node name="Positions" type="Node3D" parent="." unique_id=49002885]
+
+[node name="at_pistol" type="Marker3D" parent="Positions" unique_id=986615044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42054662, 1.9360634, -0.94533134)
+
+[node name="at_head" type="Marker3D" parent="Positions" unique_id=1502542462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9884398, 2.2363873, 0.6019726)
