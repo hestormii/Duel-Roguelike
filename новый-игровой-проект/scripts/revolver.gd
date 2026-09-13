@@ -28,7 +28,7 @@ func shoot() -> void:
 		return
 
 	var from := muzzle.global_position
-	var to := from - muzzle.global_transform.basis.z * 100.0
+	var to := from - muzzle.global_transform.basis.z * -100.0
 	var query := PhysicsRayQueryParameters3D.create(from, to)
 	query.collide_with_areas = true
 	query.collide_with_bodies = false

@@ -1,4 +1,4 @@
-extends Node3D
+extends Duelist
 
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var at_pistol: Marker3D = $Positions/at_pistol
@@ -57,7 +57,7 @@ func _on_revolver_fired(bullet: BulletData, hit_result: Dictionary) -> void:
 	var multiplier := 1.0
 	for group_name in ["Head", "Body", "Hand"]:
 		if hit_area.is_in_group(group_name):
-			multiplier = {"Head": 3.0, "Body": 1.0, "Hand": 0.5}[group_name]
-			print("hit")
+			multiplier = {"Head": 5.0, "Body": 2.0, "Hand": 0.5}[group_name]
 			break
 	var final_damage := bullet.damage * multiplier
+	hit_area.owner.take_damage(final_damage)

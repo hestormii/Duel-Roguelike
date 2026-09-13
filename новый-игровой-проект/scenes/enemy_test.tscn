@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bbrasmoetb5u2"]
 
+[ext_resource type="Script" uid="uid://cp28t26xpavpp" path="res://scripts/enemy_test.gd" id="1_y7jog"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_yf5fn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
@@ -9,6 +11,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_57qmd"]
 
 [node name="enemy_test" type="Node3D" unique_id=1597997189]
+script = ExtResource("1_y7jog")
 
 [node name="head" type="Area3D" parent="." unique_id=436017734 groups=["Head"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
