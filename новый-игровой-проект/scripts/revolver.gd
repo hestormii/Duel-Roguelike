@@ -38,7 +38,7 @@ func shoot() -> void:
 	_spawn_trail(from, impact_point)
 
 	fired.emit(bullet, result)
-	print("pass")
+	print("shooted")
 
 func _spawn_trail(from: Vector3, to: Vector3) -> void:
 	if trail_scene == null:

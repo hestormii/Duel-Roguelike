@@ -25,3 +25,7 @@ sides = 7
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=109914770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3168004, 2.9231517)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=977751576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.29999998, 10.998329)
+size = Vector3(0.2, 0.2, 17.09977)

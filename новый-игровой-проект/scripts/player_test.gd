@@ -58,5 +58,6 @@ func _on_revolver_fired(bullet: BulletData, hit_result: Dictionary) -> void:
 	for group_name in ["Head", "Body", "Hand"]:
 		if hit_area.is_in_group(group_name):
 			multiplier = {"Head": 3.0, "Body": 1.0, "Hand": 0.5}[group_name]
+			print("hit")
 			break
 	var final_damage := bullet.damage * multiplier

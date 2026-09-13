@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bbrasmoetb5u2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yf5fn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_d0u6y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_57qmd"]
+
+[node name="enemy_test" type="Node3D" unique_id=1597997189]
+
+[node name="head" type="Area3D" parent="." unique_id=436017734 groups=["Head"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head" unique_id=674819760]
+mesh = SubResource("SphereMesh_yf5fn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="head" unique_id=1313579099]
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="body" type="Area3D" parent="." unique_id=1040087097 groups=["Body"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=2059079941]
+mesh = SubResource("CapsuleMesh_d0u6y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="body" unique_id=1956182000]
+shape = SubResource("CapsuleShape3D_57qmd")
