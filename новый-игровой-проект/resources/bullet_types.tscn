@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ceo2c62a4gsj1"]
+
+[ext_resource type="Script" uid="uid://da2o8jcnc37mk" path="res://resources/BulletTypes.gd" id="1_cc0dv"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="3_etcun"]
+[ext_resource type="Resource" uid="uid://dembw0qswl8ib" path="res://resources/bullets/sleep_bullet.tres" id="4_b3ekt"]
+[ext_resource type="Resource" uid="uid://d2ct2bn0kwtkt" path="res://resources/bullets/heal_bullet.tres" id="4_etcun"]
+[ext_resource type="Resource" uid="uid://cp3whlrk6g4xm" path="res://resources/bullets/fullHPdamageBullet.tres" id="5_b3ekt"]
+[ext_resource type="Resource" uid="uid://caq6b3p01jjyq" path="res://resources/bullets/poison_bullet.tres" id="6_2c7d3"]
+
+[node name="BulletTypes" type="Node" unique_id=123773344]
+script = ExtResource("1_cc0dv")
+all_bullets = [ExtResource("3_etcun"), ExtResource("4_b3ekt"), ExtResource("4_etcun"), ExtResource("5_b3ekt"), ExtResource("6_2c7d3")]

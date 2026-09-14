@@ -2,6 +2,8 @@ class_name Duelist extends Node3D
 
 @export var max_health: float = 100.0
 var current_health: float = max_health
+signal died(who: Duelist)
+
 
 func _ready() -> void:
 	current_health = max_health
@@ -13,4 +15,5 @@ func take_damage(amount: float) -> void:
 		die()
 
 func die() -> void:
-	current_health = 0
+	died.emit(self)
+	queue_free()

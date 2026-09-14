@@ -28,12 +28,15 @@ func _process(_delta: float) -> void:
 		hand.rotation_degrees.x = aim_offset.y
 	if Input.is_action_just_pressed("shoot_placeholder"):
 		revolver.shoot()
+	if Input.is_action_just_pressed("reload"):
+		reload_revolver()
 
 func chage_view():
 	if Input.is_action_just_pressed("WheelUp") and at_head_view == true:
 		camera_3d.global_position = at_pistol.global_position
 		at_head_view = false
 		_reset_aim()
+		print(revolver.chambers)
 	elif Input.is_action_just_pressed("WheelDown") and at_head_view == false:
 		camera_3d.global_position = at_head.global_position
 		at_head_view = true
@@ -61,3 +64,7 @@ func _on_revolver_fired(bullet: BulletData, hit_result: Dictionary) -> void:
 			break
 	var final_damage := bullet.damage * multiplier
 	hit_area.owner.take_damage(final_damage)
+
+func reload_revolver():
+		revolver.reload()
+		print(AmmoInventory.stock)

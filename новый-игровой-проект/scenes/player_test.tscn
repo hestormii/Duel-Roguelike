@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bmfccva6ss2md" path="res://scenes/revolver.tscn" id="1_a8v3n"]
 [ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="1_fdpfy"]
-[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/base_bullet.tres" id="2_6p80c"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="2_6p80c"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
 

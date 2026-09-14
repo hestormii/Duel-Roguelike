@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bquwhdx4qb0u7"]
 
+[ext_resource type="Script" uid="uid://ba47u2sgyyobg" path="res://scripts/test_world.gd" id="1_3263u"]
 [ext_resource type="PackedScene" uid="uid://d1aj5bfrhj7ey" path="res://scenes/player_test.tscn" id="1_kyfjp"]
 [ext_resource type="PackedScene" uid="uid://bbrasmoetb5u2" path="res://scenes/enemy_test.tscn" id="2_amxg5"]
 
@@ -15,6 +16,7 @@ background_mode = 2
 sky = SubResource("Sky_yf5fn")
 
 [node name="TestWorld" type="Node3D" unique_id=540476424]
+script = ExtResource("1_3263u")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1906312286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24584961, 0)
@@ -31,3 +33,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.40
 
 [node name="enemy_test" parent="." unique_id=1597997189 instance=ExtResource("2_amxg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.234865, 0, 0.4783659)
+
+[connection signal="died" from="PlayerTest" to="." method="_on_player_test_died"]
+[connection signal="died" from="enemy_test" to="." method="_on_enemy_test_died"]

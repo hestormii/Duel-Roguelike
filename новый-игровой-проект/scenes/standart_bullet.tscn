@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn45doc5xscyx"]
 
 [ext_resource type="Script" uid="uid://dd1hs8y0p2c1b" path="res://scenes/standart_bullet.gd" id="1_35u3g"]
-[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/base_bullet.tres" id="2_w6vxe"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="2_w6vxe"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://d2ct2bn0kwtkt"]
+
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_0abvf"]
+[ext_resource type="Texture2D" uid="uid://djrla5kbpg1ae" path="res://HealBullet.png" id="1_vcj3e"]
+
+[resource]
+script = ExtResource("1_0abvf")
+id = &"HealBl"
+display_name = "Heal Bullet"
+icon = ExtResource("1_vcj3e")
+rarity = 1
+metadata/_custom_type_script = "uid://by0bn2qng7ah5"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://caq6b3p01jjyq"]
+
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_11spm"]
+[ext_resource type="Texture2D" uid="uid://dk8ij0sn6tdkk" path="res://PoisonBullet.png" id="1_g6cfy"]
+
+[resource]
+script = ExtResource("1_11spm")
+id = &"PoisonBL"
+display_name = "Poison Bullet"
+damage = 2
+icon = ExtResource("1_g6cfy")
+rarity = 1
+metadata/_custom_type_script = "uid://by0bn2qng7ah5"

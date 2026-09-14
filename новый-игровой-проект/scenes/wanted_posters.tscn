@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cbmu63flpycxh"]
 
+[ext_resource type="Script" uid="uid://cha5jhevlwo2d" path="res://scripts/wanted_posters.gd" id="1_ue7vn"]
+
 [node name="WantedPosters" type="Control" unique_id=885765011]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ue7vn")
 
 [node name="PosterOne" type="Control" parent="." unique_id=398516811]
 layout_mode = 1
@@ -41,6 +44,14 @@ offset_right = 130.0
 offset_bottom = 40.0
 text = "Name"
 
+[node name="reward" type="Label" parent="PosterOne/ColorRect" unique_id=426665312]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 49.0
+offset_right = 130.0
+offset_bottom = 72.0
+text = "reward"
+
 [node name="PosterTwo" type="Control" parent="." unique_id=38810047]
 layout_mode = 1
 anchors_preset = 8
@@ -55,7 +66,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect2" type="ColorRect" parent="PosterTwo" unique_id=718364488]
+[node name="ColorRect" type="ColorRect" parent="PosterTwo" unique_id=718364488]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -70,15 +81,27 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.50928617, 0.50928617, 0.50928617, 1)
 
-[node name="Name2" type="Label" parent="PosterTwo" unique_id=402025547]
+[node name="reward" type="Label" parent="PosterTwo/ColorRect" unique_id=1724309033]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.5
+offset_top = 58.5
+offset_right = 28.5
+offset_bottom = 81.5
+grow_horizontal = 2
+text = "reward"
+
+[node name="Name2" type="Label" parent="PosterTwo/ColorRect" unique_id=402025547]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -23.0
-offset_top = -142.0
+offset_top = 22.5
 offset_right = 24.0
-offset_bottom = -119.0
+offset_bottom = 45.5
 grow_horizontal = 2
 text = "Name"
 
@@ -96,7 +119,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect3" type="ColorRect" parent="PosterThree" unique_id=1316329077]
+[node name="ColorRect" type="ColorRect" parent="PosterThree" unique_id=1316329077]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,7 +134,22 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.50928617, 0.50928617, 0.50928617, 1)
 
-[node name="Name3" type="Label" parent="PosterThree" unique_id=780628781]
+[node name="reward" type="Label" parent="PosterThree/ColorRect" unique_id=623090674]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -119.0
+offset_right = 28.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "reward"
+
+[node name="Name3" type="Label" parent="PosterThree/ColorRect" unique_id=780628781]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,3 +163,7 @@ offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Name"
+
+[connection signal="gui_input" from="PosterOne/ColorRect" to="." method="_on_color_rect_gui_input" binds= [0]]
+[connection signal="gui_input" from="PosterTwo/ColorRect" to="." method="_on_color_rect_gui_input" binds= [1]]
+[connection signal="gui_input" from="PosterThree/ColorRect" to="." method="_on_color_rect_gui_input" binds= [2]]
