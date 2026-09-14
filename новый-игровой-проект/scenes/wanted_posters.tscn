@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://cbmu63flpycxh"]
+
+[node name="WantedPosters" type="Control" unique_id=885765011]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PosterOne" type="Control" parent="." unique_id=398516811]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = -183.0
+offset_right = -382.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PosterOne" unique_id=285810144]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 207.0
+offset_bottom = 369.0
+grow_horizontal = 2
+color = Color(0.50928617, 0.50928617, 0.50928617, 1)
+
+[node name="Name" type="Label" parent="PosterOne/ColorRect" unique_id=272211773]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 17.0
+offset_right = 130.0
+offset_bottom = 40.0
+text = "Name"
+
+[node name="PosterTwo" type="Control" parent="." unique_id=38810047]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="PosterTwo" unique_id=718364488]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -184.5
+offset_right = 113.5
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.50928617, 0.50928617, 0.50928617, 1)
+
+[node name="Name2" type="Label" parent="PosterTwo" unique_id=402025547]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = -142.0
+offset_right = 24.0
+offset_bottom = -119.0
+grow_horizontal = 2
+text = "Name"
+
+[node name="PosterThree" type="Control" parent="." unique_id=427949301]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 267.0
+offset_top = -20.0
+offset_right = 307.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect3" type="ColorRect" parent="PosterThree" unique_id=1316329077]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -184.5
+offset_right = 113.5
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.50928617, 0.50928617, 0.50928617, 1)
+
+[node name="Name3" type="Label" parent="PosterThree" unique_id=780628781]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -162.0
+offset_right = 23.5
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"

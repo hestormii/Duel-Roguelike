@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bi37464gxvvsj"]
+
+[node name="BulletPick" type="Control" unique_id=915266090]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="firstBullet" type="Control" parent="." unique_id=1621783273]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="firstBullet" unique_id=1386197501]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 118.0
+offset_right = 393.0
+offset_bottom = 510.0
+color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+
+[node name="Label" type="Label" parent="firstBullet/ColorRect" unique_id=744850037]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Bullet Name"
+
+[node name="secondBullet" type="Control" parent="." unique_id=664850494]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="secondBullet" unique_id=749858742]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 118.0
+offset_right = 710.0
+offset_bottom = 510.0
+color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+
+[node name="Label2" type="Label" parent="secondBullet/ColorRect" unique_id=2055612777]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Bullet Name"
+
+[node name="thirdBullet" type="Control" parent="." unique_id=352858603]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="thirdBullet" unique_id=2114215918]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 118.0
+offset_right = 1006.0
+offset_bottom = 510.0
+color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+
+[node name="Label3" type="Label" parent="thirdBullet/ColorRect" unique_id=1296166618]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Bullet Name"

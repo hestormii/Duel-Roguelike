@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://dembw0qswl8ib"]
+
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_j4lsm"]
+[ext_resource type="Texture2D" uid="uid://b00lpajixkpyv" path="res://SleepBullet.png" id="1_srf28"]
+
+[resource]
+script = ExtResource("1_j4lsm")
+id = &"SleepBl"
+display_name = "Sleep Bullet"
+damage = 5
+icon = ExtResource("1_srf28")
+rarity = 1
+metadata/_custom_type_script = "uid://by0bn2qng7ah5"
