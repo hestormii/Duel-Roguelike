@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d1aj5bfrhj7ey"]
 
-[ext_resource type="PackedScene" uid="uid://bmfccva6ss2md" path="res://scenes/revolver.tscn" id="1_a8v3n"]
 [ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="1_fdpfy"]
 [ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="2_6p80c"]
+[ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="3_6p80c"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
 
@@ -47,8 +47,8 @@ mesh = SubResource("SphereMesh_yf5fn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hand" unique_id=2086330704]
 shape = SubResource("SphereShape3D_57qmd")
 
-[node name="Revolver" parent="hand" unique_id=14257377 instance=ExtResource("1_a8v3n")]
-transform = Transform3D(-0.9999999, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.39488554)
+[node name="revolver" parent="hand" unique_id=1931098905 instance=ExtResource("3_6p80c")]
+transform = Transform3D(0.2736207, 0, 0, 0, 0.24710345, 0, 0, 0, 0.35145175, 0, 0.7546401, 0.617134)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=748557078]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -0.62500006)
@@ -56,9 +56,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -0.62500006)
 [node name="Positions" type="Node3D" parent="." unique_id=49002885]
 
 [node name="at_pistol" type="Marker3D" parent="Positions" unique_id=986615044]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42054662, 1.9360634, -0.94533134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42054662, 1.845225, -0.7201292)
 
 [node name="at_head" type="Marker3D" parent="Positions" unique_id=1502542462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9884398, 2.2363873, 0.6019726)
 
-[connection signal="fired" from="hand/Revolver" to="." method="_on_revolver_fired"]
+[node name="Label" type="Label" parent="." unique_id=765381215]
+offset_left = 300.0
+offset_top = 87.0
+offset_right = 340.0
+offset_bottom = 110.0
+
+[connection signal="fired" from="hand/revolver" to="." method="_on_revolver_fired"]

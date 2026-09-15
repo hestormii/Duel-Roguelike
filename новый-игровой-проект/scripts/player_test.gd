@@ -5,13 +5,14 @@ extends Duelist
 @onready var at_head: Marker3D = $Positions/at_head
 var at_head_view: bool = true
 @onready var hand: Area3D = $hand
-@onready var revolver: Node3D = $hand/Revolver
+@onready var revolver: Node3D = $hand/revolver
 
 @export var pitch_limit_deg: float = 12.0
 @export var yaw_limit_deg: float = 8.0
 @export var aim_sensitivity: float = 0.05
 @export var starting_bullet: BulletData
 @export var starting_bullet_count: int = 6
+@onready var duel_manager = get_node("../DuelManager")
 
 
 var aim_offset := Vector2.ZERO
@@ -27,9 +28,18 @@ func _process(_delta: float) -> void:
 		hand.rotation_degrees.y = aim_offset.x
 		hand.rotation_degrees.x = aim_offset.y
 	if Input.is_action_just_pressed("shoot_placeholder"):
-		revolver.shoot()
+		if duel_manager.phase == duel_manager.Phase.DUEL and shot_crystall > 0:
+			revolver.shoot()
+			duel_manager.on_shot_fired(self)
 	if Input.is_action_just_pressed("reload"):
 		reload_revolver()
+	if Input.is_action_just_pressed("action pass"):
+		duel_manager.player_passed()
+	if duel_manager.phase == duel_manager.Phase.PREPARATION:
+		$Label.text = "Action crystal aviable: " + str(action_crystall)
+	if duel_manager.phase == duel_manager.Phase.DUEL:
+		$Label.text = "Shot crystal aviable: " + str(shot_crystall)
+
 
 func chage_view():
 	if Input.is_action_just_pressed("WheelUp") and at_head_view == true:

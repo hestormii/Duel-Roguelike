@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ba47u2sgyyobg" path="res://scripts/test_world.gd" id="1_3263u"]
 [ext_resource type="PackedScene" uid="uid://d1aj5bfrhj7ey" path="res://scenes/player_test.tscn" id="1_kyfjp"]
+[ext_resource type="PackedScene" uid="uid://dr4bfj43gg80v" path="res://scenes/duel_manager.tscn" id="3_3263u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
 sky_horizon_color = Color(0.46764356, 0.6508456, 0.98640686, 1)
@@ -36,4 +37,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.575471, 0, 0)
 [node name="EnemyPos" type="Marker3D" parent="." unique_id=2109921094]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3084693, 0, 0)
 
-[connection signal="died" from="PlayerTest" to="." method="_on_player_test_died"]
+[node name="DuelManager" parent="." unique_id=78510389 instance=ExtResource("3_3263u")]

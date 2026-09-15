@@ -3,15 +3,13 @@ extends Node3D
 const BULLET_PICK = preload("res://scenes/bullet_pick.tscn")
 const WANTED_POSTERS = preload("res://scenes/wanted_posters.tscn")
 @onready var enemy_pos: Marker3D = $EnemyPos
+@onready var player: Duelist = $PlayerTest
+@onready var duel_manager: Node = $DuelManager
 
 func _ready() -> void:
+	duel_manager.duel_ended.connect(_on_duel_ended)
 	chose_next_target()
 
-func _on_enemy_test_died(who: Duelist) -> void:
-	chose_the_bullet()
-
-func _on_player_test_died(who: Duelist) -> void:
-	pass
 
 func chose_the_bullet() -> void:
 	var picker = BULLET_PICK.instantiate()
@@ -35,4 +33,8 @@ func _on_bounty_chosen(bounty: BountyData) -> void:
 	var enemy = bounty.enemy_scene.instantiate()
 	add_child(enemy)
 	enemy.global_position = enemy_pos.global_position
-	enemy.died.connect(_on_enemy_test_died)
+	duel_manager.start_duel(player, enemy)
+
+func _on_duel_ended(winner: Duelist) -> void:
+	print("duel won by: ", winner.name)
+	chose_the_bullet()

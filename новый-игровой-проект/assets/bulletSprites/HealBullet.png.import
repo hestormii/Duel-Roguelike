@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtq5fg2nt5ld3"
-path="res://.godot/imported/MoredamagetofullHPBullet.png-4ddeb91a7087e1992c3f22c01bc27902.ctex"
+uid="uid://djrla5kbpg1ae"
+path="res://.godot/imported/HealBullet.png-bd9e0b745d0b8996d61d2baa644cee61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MoredamagetofullHPBullet.png"
-dest_files=["res://.godot/imported/MoredamagetofullHPBullet.png-4ddeb91a7087e1992c3f22c01bc27902.ctex"]
+source_file="res://assets/bulletSprites/HealBullet.png"
+dest_files=["res://.godot/imported/HealBullet.png-bd9e0b745d0b8996d61d2baa644cee61.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://cp3whlrk6g4xm"]
 
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_ngyes"]
-[ext_resource type="Texture2D" uid="uid://dtq5fg2nt5ld3" path="res://MoredamagetofullHPBullet.png" id="1_py1vb"]
+[ext_resource type="Texture2D" uid="uid://dtq5fg2nt5ld3" path="res://assets/bulletSprites/MoredamagetofullHPBullet.png" id="1_py1vb"]
 
 [resource]
 script = ExtResource("1_ngyes")

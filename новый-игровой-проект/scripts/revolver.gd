@@ -8,6 +8,7 @@ signal fired(bullet: BulletData, hit_result: Dictionary)
 var chambers: Array[BulletData] = []
 var current_index: int = 0
 
+
 @onready var muzzle: Marker3D = $Marker3D
 
 func _ready() -> void:
@@ -28,7 +29,7 @@ func shoot() -> void:
 		return
 
 	var from := muzzle.global_position
-	var to := from - muzzle.global_transform.basis.z * -100.0
+	var to := from - muzzle.global_transform.basis.z * 100.0
 	var query := PhysicsRayQueryParameters3D.create(from, to)
 	query.collide_with_areas = true
 	query.collide_with_bodies = false

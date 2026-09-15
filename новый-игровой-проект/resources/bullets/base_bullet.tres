@@ -2,14 +2,10 @@
 
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_dg6u4"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w6vxe"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-
 [resource]
 script = ExtResource("1_dg6u4")
 id = &"BaseBL"
 display_name = "Standart Bullet"
 damage = 5
-icon = SubResource("CompressedTexture2D_w6vxe")
 pickup_max = 10
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

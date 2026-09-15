@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dr4bfj43gg80v"]
+
+[ext_resource type="Script" uid="uid://dpw12ucttab1y" path="res://scripts/duel_manager.gd" id="1_k7dtr"]
+
+[node name="DuelManager" type="Node" unique_id=78510389]
+script = ExtResource("1_k7dtr")
+
+[node name="Secundant" type="Timer" parent="." unique_id=1877341416]
+one_shot = true
+
+[node name="Phase" type="Label" parent="." unique_id=854246656]
+offset_left = 511.0
+offset_top = 75.0
+offset_right = 551.0
+offset_bottom = 98.0
+
+[connection signal="timeout" from="Secundant" to="." method="_on_secundant_timeout"]
