@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 AmmoInventory="*uid://cmn0gtfhm5kx5"
-BountyRegistry="*uid://cflyalsk377v4"
 BulletTypes="*uid://ceo2c62a4gsj1"
+EnemyTypes="*uid://c0bxqt84g8805"
 
 [display]
 

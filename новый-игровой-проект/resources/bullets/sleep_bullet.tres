@@ -10,4 +10,5 @@ display_name = "Sleep Bullet"
 damage = 5
 icon = ExtResource("1_srf28")
 rarity = 1
+pickup_max = 4
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

@@ -10,4 +10,5 @@ display_name = "Poison Bullet"
 damage = 2
 icon = ExtResource("1_g6cfy")
 rarity = 1
+pickup_max = 5
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

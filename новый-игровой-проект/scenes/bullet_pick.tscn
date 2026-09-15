@@ -51,6 +51,18 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Bullet Name"
 
+[node name="amount" type="Label" parent="firstBullet/ColorRect" unique_id=2084811460]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 39.0
+offset_right = 48.0
+offset_bottom = 62.0
+grow_horizontal = 2
+text = "amount"
+
 [node name="secondBullet" type="Control" parent="." unique_id=664850494]
 layout_mode = 1
 anchors_preset = 8
@@ -90,6 +102,18 @@ offset_right = 48.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "Bullet Name"
+
+[node name="amount2" type="Label" parent="secondBullet/ColorRect1" unique_id=1112365034]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 39.0
+offset_right = 52.0
+offset_bottom = 62.0
+grow_horizontal = 2
+text = "amount"
 
 [node name="thirdBullet" type="Control" parent="." unique_id=352858603]
 layout_mode = 1
@@ -131,7 +155,18 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Bullet Name"
 
-[connection signal="bullet_chosen" from="." to="." method="_on_bullet_chosen"]
+[node name="amount3" type="Label" parent="thirdBullet/ColorRect2" unique_id=1826423094]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 39.0
+offset_right = 50.0
+offset_bottom = 62.0
+grow_horizontal = 2
+text = "amount"
+
 [connection signal="gui_input" from="firstBullet/ColorRect" to="." method="_on_color_rect_gui_input"]
 [connection signal="gui_input" from="secondBullet/ColorRect1" to="." method="_on_color_rect_1_gui_input"]
 [connection signal="gui_input" from="thirdBullet/ColorRect2" to="." method="_on_color_rect_2_gui_input"]

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c0bxqt84g8805"]
+
+[ext_resource type="Script" uid="uid://cflyalsk377v4" path="res://resources/BountyRegistry.gd" id="1_sp51b"]
+[ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="2_0ftuk"]
+[ext_resource type="Resource" uid="uid://eh3q7auyy77j" path="res://resources/enemies/BaseEnemy.tres" id="3_0eege"]
+
+[node name="enemy_types" type="Node" unique_id=739115751]
+script = ExtResource("1_sp51b")
+all_enemies = Array[ExtResource("2_0ftuk")]([ExtResource("3_0eege")])

@@ -1,6 +1,6 @@
 extends Node
 
-var stock: Dictionary = {} # BulletData -> int
+var stock: Dictionary = {}
 
 func add(bullet: BulletData, amount: int = 1) -> void:
 	stock[bullet] = stock.get(bullet, 0) + amount

@@ -7,3 +7,5 @@ class_name BulletData extends Resource
 #@export var effects: Array[StatusEffect] 
 @export var icon: Texture2D
 @export var rarity: int
+@export var pickup_min: int = 1
+@export var pickup_max: int = 1

@@ -18,22 +18,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -422.0
-offset_top = -183.0
-offset_right = -382.0
-offset_bottom = -143.0
+offset_left = -288.0
+offset_top = -20.0
+offset_right = -248.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="PosterOne" unique_id=285810144]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 207.0
-offset_bottom = 369.0
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -184.5
+offset_right = 113.5
+offset_bottom = 184.5
 grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.50928617, 0.50928617, 0.50928617, 1)
 
 [node name="Name" type="Label" parent="PosterOne/ColorRect" unique_id=272211773]
@@ -66,7 +70,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="PosterTwo" unique_id=718364488]
+[node name="ColorRect1" type="ColorRect" parent="PosterTwo" unique_id=718364488]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.50928617, 0.50928617, 0.50928617, 1)
 
-[node name="reward" type="Label" parent="PosterTwo/ColorRect" unique_id=1724309033]
+[node name="reward1" type="Label" parent="PosterTwo/ColorRect1" unique_id=1724309033]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -93,7 +97,7 @@ offset_bottom = 81.5
 grow_horizontal = 2
 text = "reward"
 
-[node name="Name2" type="Label" parent="PosterTwo/ColorRect" unique_id=402025547]
+[node name="Name2" type="Label" parent="PosterTwo/ColorRect1" unique_id=402025547]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -112,29 +116,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 267.0
+offset_left = 257.0
 offset_top = -20.0
-offset_right = 307.0
+offset_right = 297.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="PosterThree" unique_id=1316329077]
+[node name="ColorRect2" type="ColorRect" parent="PosterThree" unique_id=1316329077]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -113.5
+offset_left = -124.5
 offset_top = -184.5
-offset_right = 113.5
+offset_right = 102.5
 offset_bottom = 184.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.50928617, 0.50928617, 0.50928617, 1)
 
-[node name="reward" type="Label" parent="PosterThree/ColorRect" unique_id=623090674]
+[node name="reward2" type="Label" parent="PosterThree/ColorRect2" unique_id=623090674]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -149,7 +153,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "reward"
 
-[node name="Name3" type="Label" parent="PosterThree/ColorRect" unique_id=780628781]
+[node name="Name3" type="Label" parent="PosterThree/ColorRect2" unique_id=780628781]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,6 +168,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Name"
 
-[connection signal="gui_input" from="PosterOne/ColorRect" to="." method="_on_color_rect_gui_input" binds= [0]]
-[connection signal="gui_input" from="PosterTwo/ColorRect" to="." method="_on_color_rect_gui_input" binds= [1]]
-[connection signal="gui_input" from="PosterThree/ColorRect" to="." method="_on_color_rect_gui_input" binds= [2]]
+[connection signal="bounty_chosen" from="." to="." method="_on_bounty_chosen"]
+[connection signal="gui_input" from="PosterOne/ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="gui_input" from="PosterTwo/ColorRect1" to="." method="_on_color_rect_1_gui_input"]
+[connection signal="gui_input" from="PosterThree/ColorRect2" to="." method="_on_color_rect_2_gui_input"]

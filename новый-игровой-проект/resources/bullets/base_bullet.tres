@@ -11,4 +11,5 @@ id = &"BaseBL"
 display_name = "Standart Bullet"
 damage = 5
 icon = SubResource("CompressedTexture2D_w6vxe")
+pickup_max = 10
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

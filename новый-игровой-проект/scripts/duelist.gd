@@ -17,3 +17,9 @@ func take_damage(amount: float) -> void:
 func die() -> void:
 	died.emit(self)
 	queue_free()
+
+func heal(amount: float):
+	current_health = max(0.0, current_health + amount)
+	print("healed: ", amount)
+	if current_health > max_health:
+		current_health = max_health
