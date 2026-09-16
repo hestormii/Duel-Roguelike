@@ -17,17 +17,18 @@ var offered: Array[BountyData] = []
 
 func _ready() -> void:
 	populate()
+	animation()
 
 func populate() -> void:
 	offered.clear()
 	var pool := EnemyTypes.all_enemies.duplicate()
 	pool.shuffle()
 	for i in min(name_labels.size(), pool.size()):
-		name_labels[i].text = pool.get(i).display_name
-		reward_labels[i].text = "$%d" % pool[i].reward
+		var enemy: BountyData = pool.get(i)
+		var reward_amount = randi_range(enemy.reward_min, enemy.reward_max)
+		name_labels[i].text = enemy.display_name
+		reward_labels[i].text = "$%d" % reward_amount
 		offered.append(pool.get(i))
-		pool.remove_at(0)
-
 
 func _on_color_rect_gui_input(event: InputEvent) -> void:
 	_try_choose(event, 0)
@@ -42,3 +43,14 @@ func _try_choose(event: InputEvent, index: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		bounty_chosen.emit(offered[index])
 		queue_free()
+
+func animation():
+	var tween_one := create_tween().set_loops()
+	var tween_two := create_tween().set_loops()
+	var tween_three := create_tween().set_loops()
+	tween_one.tween_property(get_child(0), "rotation_degrees", 1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween_one.tween_property(get_child(0), "rotation_degrees", -1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween_two.tween_property(get_child(1), "rotation_degrees", 1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween_two.tween_property(get_child(1), "rotation_degrees", -1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween_three.tween_property(get_child(2), "rotation_degrees", 1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween_three.tween_property(get_child(2), "rotation_degrees", -1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

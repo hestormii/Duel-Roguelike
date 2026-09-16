@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c1t2ogmhvxe23"]
+
+[ext_resource type="Script" uid="uid://cyxrh22qbgrek" path="res://scripts/duelist.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="2_4ra3w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c26uo"]
+albedo_color = Color(0.41087762, 0.41087765, 0.4108776, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yntvc"]
+material = SubResource("StandardMaterial3D_c26uo")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yntvc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_c26uo"]
+
+[node name="Enemy" type="Node3D" unique_id=750803531]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_md0e3")
+max_health = 125.0
+metadata/_custom_type_script = "uid://cyxrh22qbgrek"
+
+[node name="head" type="Node3D" parent="." unique_id=424757114]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head" unique_id=1845195644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3631914, 0)
+mesh = SubResource("SphereMesh_yntvc")
+
+[node name="body" type="Node3D" parent="." unique_id=2109088651]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=677727634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_yntvc")
+
+[node name="hand" type="Node3D" parent="." unique_id=1402926301]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hand" unique_id=1112195665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82627964, 1.3510828, 0.7583808)
+mesh = SubResource("SphereMesh_c26uo")
+
+[node name="revolver" parent="hand" unique_id=1931098905 instance=ExtResource("2_4ra3w")]
+transform = Transform3D(-0.255, 0, 3.8503927e-08, 0, 0.255, 0, -3.8503927e-08, 0, -0.255, -0.90656257, 2.1060112, 0.4951098)

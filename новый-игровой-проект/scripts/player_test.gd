@@ -13,6 +13,11 @@ var at_head_view: bool = true
 @export var starting_bullet: BulletData
 @export var starting_bullet_count: int = 6
 @onready var duel_manager = get_node("../DuelManager")
+@onready var body_part_aim: Control = $UI/BodyPartAim
+@onready var head_aim: Button = $UI/BodyPartAim/Head
+@onready var body_aim: Button = $UI/BodyPartAim/Body
+@onready var hand_aim: Button = $UI/BodyPartAim/Hand
+@onready var progress_bar: ProgressBar = $UI/ProgressBar
 
 
 var aim_offset := Vector2.ZERO
@@ -21,6 +26,8 @@ func _ready() -> void:
 	camera_3d.global_position = at_head.global_position
 	AmmoInventory.add(starting_bullet, starting_bullet_count)
 	revolver.reload()
+	body_part_aim.hide()
+	progress_bar.max_value = max_health
 
 func _process(_delta: float) -> void:
 	chage_view()
@@ -28,17 +35,20 @@ func _process(_delta: float) -> void:
 		hand.rotation_degrees.y = aim_offset.x
 		hand.rotation_degrees.x = aim_offset.y
 	if Input.is_action_just_pressed("shoot_placeholder"):
-		if duel_manager.phase == duel_manager.Phase.DUEL and shot_crystall > 0:
-			revolver.shoot()
-			duel_manager.on_shot_fired(self)
+		duel_manager.player_react()
+	if duel_manager.phase == duel_manager.Phase.TARGETING:
+		body_part_aim.show()
+	else:
+		body_part_aim.hide()
 	if Input.is_action_just_pressed("reload"):
 		reload_revolver()
 	if Input.is_action_just_pressed("action pass"):
 		duel_manager.player_passed()
 	if duel_manager.phase == duel_manager.Phase.PREPARATION:
-		$Label.text = "Action crystal aviable: " + str(action_crystall)
+		$UI/Label.text = "Action crystal aviable: " + str(action_crystall)
 	if duel_manager.phase == duel_manager.Phase.DUEL:
-		$Label.text = "Shot crystal aviable: " + str(shot_crystall)
+		$UI/Label.text = "Shot crystal aviable: " + str(shot_crystall)
+	progress_bar.value = current_health
 
 
 func chage_view():
@@ -56,10 +66,17 @@ func _reset_aim() -> void:
 	hand.rotation_degrees.y = 0.0
 	hand.rotation_degrees.x = 0.0
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and at_head_view:
-		aim_offset.x = clamp(aim_offset.x - event.relative.x * aim_sensitivity, -yaw_limit_deg, yaw_limit_deg)
-		aim_offset.y = clamp(aim_offset.y - event.relative.y * aim_sensitivity, -pitch_limit_deg, pitch_limit_deg)
+func pop_bullet() -> BulletData:
+	return revolver.pop_bullet()
+
+func has_bullets() -> bool:
+	for chamber in revolver.chambers:
+		if chamber != null:
+			return true
+	for count in AmmoInventory.stock.values():
+		if count > 0:
+			return true
+	return false
 
 func _on_revolver_fired(bullet: BulletData, hit_result: Dictionary) -> void:
 	if bullet == null:
@@ -78,3 +95,11 @@ func _on_revolver_fired(bullet: BulletData, hit_result: Dictionary) -> void:
 func reload_revolver():
 		revolver.reload()
 		print(AmmoInventory.stock)
+
+
+func _on_head_pressed() -> void:
+	duel_manager.player_queue_shot("Head")
+func _on_body_pressed() -> void:
+	duel_manager.player_queue_shot("Body")
+func _on_hand_pressed() -> void:
+	duel_manager.player_queue_shot("Hand")

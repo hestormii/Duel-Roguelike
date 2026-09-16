@@ -61,10 +61,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42054662, 1.845225, -0.720
 [node name="at_head" type="Marker3D" parent="Positions" unique_id=1502542462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9884398, 2.2363873, 0.6019726)
 
-[node name="Label" type="Label" parent="." unique_id=765381215]
+[node name="UI" type="Control" parent="." unique_id=851324355]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI" unique_id=765381215]
+layout_mode = 0
 offset_left = 300.0
 offset_top = 87.0
 offset_right = 340.0
 offset_bottom = 110.0
 
+[node name="BodyPartAim" type="Control" parent="UI" unique_id=518593580]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Head" type="Button" parent="UI/BodyPartAim" unique_id=402677179]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 110.0
+offset_right = 302.0
+offset_bottom = 172.0
+text = "Head"
+
+[node name="Body" type="Button" parent="UI/BodyPartAim" unique_id=1090598499]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 201.0
+offset_right = 304.0
+offset_bottom = 268.0
+text = "Body"
+
+[node name="Hand" type="Button" parent="UI/BodyPartAim" unique_id=1245113876]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 202.0
+offset_right = 428.0
+offset_bottom = 266.0
+text = "Hand"
+
+[node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=1199744194]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 389.0
+offset_right = 163.0
+offset_bottom = 416.0
+
 [connection signal="fired" from="hand/revolver" to="." method="_on_revolver_fired"]
+[connection signal="pressed" from="UI/BodyPartAim/Head" to="." method="_on_head_pressed"]
+[connection signal="pressed" from="UI/BodyPartAim/Body" to="." method="_on_body_pressed"]
+[connection signal="pressed" from="UI/BodyPartAim/Hand" to="." method="_on_hand_pressed"]

@@ -8,10 +8,3 @@ script = ExtResource("2_3v8vv")
 
 [node name="Barrel" parent="." index="0" unique_id=2100467532]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.8084211, -4.274455)
-
-[node name="Marker3D" type="Marker3D" parent="." index="4" unique_id=35400794]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17480034, -7.5347047)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="." index="5" unique_id=1399277693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29052734, -39.897346)
-size = Vector3(0.3671875, 0.32714844, 66.38849)

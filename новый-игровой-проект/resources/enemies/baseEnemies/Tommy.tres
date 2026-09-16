@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://bbf3hrtecvdv1"]
+
+[ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="1_66hmv"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="1_uwvd8"]
+[ext_resource type="PackedScene" uid="uid://c1t2ogmhvxe23" path="res://scenes/enemy.tscn" id="2_m5xut"]
+
+[resource]
+script = ExtResource("1_66hmv")
+id = &"TomEM"
+display_name = "Tommy"
+reward = 115
+enemy_scene = ExtResource("2_m5xut")
+bullet_amount = 6
+bullet = ExtResource("1_uwvd8")
+reward_min = 100
+reward_max = 120
+metadata/_custom_type_script = "uid://uid4knejs72t"

@@ -19,31 +19,12 @@ func reload() -> void:
 		if chambers[i] == null:
 			chambers[i] = AmmoInventory.draw_random()
 
-func shoot() -> void:
+func pop_bullet() -> BulletData:
 	var bullet: BulletData = chambers[current_index]
 	chambers[current_index] = null
 	current_index = (current_index + 1) % CYLINDER_SIZE
-
+	return bullet
+	
 	if bullet == null:
 		fired.emit(null, {})
 		return
-
-	var from := muzzle.global_position
-	var to := from - muzzle.global_transform.basis.z * 100.0
-	var query := PhysicsRayQueryParameters3D.create(from, to)
-	query.collide_with_areas = true
-	query.collide_with_bodies = false
-
-	var result := get_world_3d().direct_space_state.intersect_ray(query)
-	var impact_point: Vector3 = result.position if result else to
-	_spawn_trail(from, impact_point)
-
-	fired.emit(bullet, result)
-	print("shooted")
-
-func _spawn_trail(from: Vector3, to: Vector3) -> void:
-	if trail_scene == null:
-		return
-	var trail: MeshInstance3D = trail_scene.instantiate()
-	get_tree().current_scene.add_child(trail)
-	trail.draw(from, to)

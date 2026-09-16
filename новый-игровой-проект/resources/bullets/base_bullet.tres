@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://bh6uob1ylwm2x"]
 
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_dg6u4"]
+[ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_mp06t"]
+[ext_resource type="Texture2D" uid="uid://b0if7echcx65" path="res://assets/bulletSprites/StandartBullet.png" id="2_0ladf"]
 
 [resource]
 script = ExtResource("1_dg6u4")
 id = &"BaseBL"
 display_name = "Standart Bullet"
 damage = 5
+icon = ExtResource("2_0ladf")
 pickup_max = 10
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

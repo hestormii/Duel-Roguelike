@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cflyalsk377v4" path="res://resources/BountyRegistry.gd" id="1_sp51b"]
 [ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="2_0ftuk"]
-[ext_resource type="Resource" uid="uid://eh3q7auyy77j" path="res://resources/enemies/BaseEnemy.tres" id="3_0eege"]
+[ext_resource type="Resource" uid="uid://eh3q7auyy77j" path="res://resources/enemies/baseEnemies/BaseEnemy.tres" id="3_0eege"]
+[ext_resource type="Resource" uid="uid://djs8supcbk67l" path="res://resources/enemies/baseEnemies/Billy.tres" id="4_qsjrg"]
+[ext_resource type="Resource" uid="uid://bbf3hrtecvdv1" path="res://resources/enemies/baseEnemies/Tommy.tres" id="5_bb6x6"]
+[ext_resource type="Resource" uid="uid://ba636sbnhlxso" path="res://resources/enemies/baseEnemies/Daemon.tres" id="6_jttxv"]
 
 [node name="enemy_types" type="Node" unique_id=739115751]
 script = ExtResource("1_sp51b")
-all_enemies = Array[ExtResource("2_0ftuk")]([ExtResource("3_0eege")])
+all_enemies = Array[ExtResource("2_0ftuk")]([ExtResource("3_0eege"), ExtResource("4_qsjrg"), ExtResource("5_bb6x6"), ExtResource("6_jttxv")])

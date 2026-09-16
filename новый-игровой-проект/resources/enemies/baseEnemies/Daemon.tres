@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://ba636sbnhlxso"]
+
+[ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="1_d24re"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="1_qie1h"]
+[ext_resource type="PackedScene" uid="uid://c1t2ogmhvxe23" path="res://scenes/enemy.tscn" id="2_krbpp"]
+
+[resource]
+script = ExtResource("1_d24re")
+id = &"DaemonEM"
+display_name = "Daemon"
+reward = 120
+enemy_scene = ExtResource("2_krbpp")
+bullet_amount = 6
+bullet = ExtResource("1_qie1h")
+reward_min = 110
+reward_max = 130
+metadata/_custom_type_script = "uid://uid4knejs72t"

@@ -34,6 +34,7 @@ func _on_bounty_chosen(bounty: BountyData) -> void:
 	add_child(enemy)
 	enemy.global_position = enemy_pos.global_position
 	duel_manager.start_duel(player, enemy)
+	enemy.load_bullets(bounty.bullet, bounty.bullet_amount)
 
 func _on_duel_ended(winner: Duelist) -> void:
 	print("duel won by: ", winner.name)
