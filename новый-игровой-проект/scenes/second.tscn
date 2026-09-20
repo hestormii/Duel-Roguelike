@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://cw8somcvblnfn"]
+
+[ext_resource type="Script" uid="uid://b1kq1300f3xe1" path="res://scripts/second.gd" id="1_efdx0"]
+[ext_resource type="Texture2D" uid="uid://y77khb133a6a" path="res://assets/Poster.png" id="2_qe6vs"]
+[ext_resource type="FontFile" uid="uid://chlb6u2pvb2ag" path="res://assets/Qabaxel.ttf" id="3_k3pxv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yntvc"]
+albedo_color = Color(0.5198213, 0.5198213, 0.5198212, 1)
+
+[node name="Second" type="Node3D" unique_id=385805783]
+script = ExtResource("1_efdx0")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1753220010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2666208, 1.6394825, 0)
+
+[node name="UI" type="Control" parent="." unique_id=183439671]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="UI" unique_id=1877529244]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 162.0
+offset_right = 389.0
+offset_bottom = 170.0
+scale = Vector2(1.92, 1.92)
+text = "Go on the Duel"
+
+[node name="Room" type="Node3D" parent="." unique_id=462210484]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room" unique_id=1952016586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24517822, 0)
+size = Vector3(8.713867, 0.50964355, 6.8779297)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Room" unique_id=2127943707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5302429, 3.357727)
+size = Vector3(8.713867, 4.060486, 0.16247559)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Room" unique_id=69341037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5302429, -3.310161)
+size = Vector3(8.713867, 4.060486, 0.16247559)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Room" unique_id=1544338751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.991455, 1.5302429, 0.07652712)
+size = Vector3(0.73095703, 4.060486, 6.935852)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Room" unique_id=1966275544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4994116, 1.5302429, 0.07652712)
+size = Vector3(0.73095703, 4.060486, 6.935852)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Room" unique_id=619139225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37557125, 3.4001007, 0.07652712)
+size = Vector3(8.978638, 0.32077026, 6.935852)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Room" unique_id=1832228032]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3, 0)
+spot_range = 4.73
+spot_attenuation = -0.47
+spot_angle = 85.4
+
+[node name="counter" type="Node3D" parent="." unique_id=1705155744]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="counter" unique_id=1649085409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20458984, 0.13812256, -1.6558228)
+size = Vector3(2.9189453, 1.2762451, 1.6883545)
+material = SubResource("StandardMaterial3D_yntvc")
+
+[node name="orig_pos" type="Marker3D" parent="." unique_id=842237847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2666208, 1.6394825, 0)
+
+[node name="counter_pos" type="Marker3D" parent="." unique_id=1988936824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.796164, -1.4226516)
+
+[node name="PosterUI" type="Control" parent="." unique_id=1501318141]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PosterOne" type="Control" parent="PosterUI" unique_id=1725208016]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 220.0
+offset_top = 300.0
+offset_right = 260.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PosterUI/PosterOne" unique_id=1608521676]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -184.5
+offset_right = 113.5
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.50980395, 0.50980395, 0.50980395, 0)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PosterUI/PosterOne/ColorRect" unique_id=1591106931]
+layout_mode = 0
+offset_right = 226.5
+offset_bottom = 370.5
+texture = ExtResource("2_qe6vs")
+
+[node name="Name" type="Label" parent="PosterUI/PosterOne/ColorRect" unique_id=21538084]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 118.5
+offset_right = 130.0
+offset_bottom = 141.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="reward" type="Label" parent="PosterUI/PosterOne/ColorRect" unique_id=1964839548]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 150.5
+offset_right = 139.0
+offset_bottom = 173.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "reward"
+
+[node name="Wanted" type="Label" parent="PosterUI/PosterOne/ColorRect" unique_id=2101035942]
+layout_mode = 0
+offset_left = 16.5
+offset_top = 48.5
+offset_right = 112.5
+offset_bottom = 71.5
+scale = Vector2(1.975, 1.975)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_k3pxv")
+text = "WANTED"
+uppercase = true
+
+[node name="PosterTwo" type="Control" parent="PosterUI" unique_id=397820375]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 492.0
+offset_top = 300.0
+offset_right = 532.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PosterUI/PosterTwo" unique_id=1273917953]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -184.5
+offset_right = 113.5
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.50980395, 0.50980395, 0.50980395, 0)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PosterUI/PosterTwo/ColorRect" unique_id=611301277]
+layout_mode = 0
+offset_right = 226.5
+offset_bottom = 370.5
+texture = ExtResource("2_qe6vs")
+
+[node name="Name" type="Label" parent="PosterUI/PosterTwo/ColorRect" unique_id=1930589151]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 118.5
+offset_right = 130.0
+offset_bottom = 141.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="reward" type="Label" parent="PosterUI/PosterTwo/ColorRect" unique_id=50495808]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 150.5
+offset_right = 139.0
+offset_bottom = 173.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "reward"
+
+[node name="Wanted" type="Label" parent="PosterUI/PosterTwo/ColorRect" unique_id=1309605596]
+layout_mode = 0
+offset_left = 16.5
+offset_top = 48.5
+offset_right = 112.5
+offset_bottom = 71.5
+scale = Vector2(1.975, 1.975)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_k3pxv")
+text = "WANTED"
+uppercase = true
+
+[node name="PosterThree" type="Control" parent="PosterUI" unique_id=1301924140]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 772.0
+offset_top = 300.0
+offset_right = 812.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PosterUI/PosterThree" unique_id=70716004]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -184.5
+offset_right = 113.5
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.50980395, 0.50980395, 0.50980395, 0)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PosterUI/PosterThree/ColorRect" unique_id=529498181]
+layout_mode = 0
+offset_right = 226.5
+offset_bottom = 370.5
+texture = ExtResource("2_qe6vs")
+
+[node name="Name" type="Label" parent="PosterUI/PosterThree/ColorRect" unique_id=1102417034]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 118.5
+offset_right = 130.0
+offset_bottom = 141.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="reward" type="Label" parent="PosterUI/PosterThree/ColorRect" unique_id=239767753]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 150.5
+offset_right = 139.0
+offset_bottom = 173.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "reward"
+
+[node name="Wanted" type="Label" parent="PosterUI/PosterThree/ColorRect" unique_id=1755800317]
+layout_mode = 0
+offset_left = 16.5
+offset_top = 48.5
+offset_right = 112.5
+offset_bottom = 71.5
+scale = Vector2(1.975, 1.975)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_k3pxv")
+text = "WANTED"
+uppercase = true
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="gui_input" from="PosterUI/PosterOne/ColorRect" to="." method="_on_color_rect_gui_input" binds= [0]]
+[connection signal="gui_input" from="PosterUI/PosterTwo/ColorRect" to="." method="_on_color_rect_gui_input" binds= [1]]
+[connection signal="gui_input" from="PosterUI/PosterThree/ColorRect" to="." method="_on_color_rect_gui_input" binds= [2]]

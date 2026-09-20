@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_0abvf"]
 [ext_resource type="Texture2D" uid="uid://djrla5kbpg1ae" path="res://assets/bulletSprites/HealBullet.png" id="1_vcj3e"]
+[ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_yos3g"]
 
 [resource]
 script = ExtResource("1_0abvf")
@@ -11,4 +12,6 @@ damage = 1
 icon = ExtResource("1_vcj3e")
 rarity = 1
 pickup_max = 3
+price_min = 5
+price_max = 15
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

@@ -41,7 +41,7 @@ offset_right = 113.5
 offset_bottom = 184.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.50928617, 0.50928617, 0.50928617, 1)
+color = Color(0.50980395, 0.50980395, 0.50980395, 0)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PosterOne/ColorRect" unique_id=1782605606]
 layout_mode = 0
@@ -106,7 +106,7 @@ offset_right = 113.5
 offset_bottom = 184.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.50928617, 0.50928617, 0.50928617, 1)
+color = Color(0.50980395, 0.50980395, 0.50980395, 0)
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="PosterTwo/ColorRect1" unique_id=400846885]
 layout_mode = 0
@@ -180,7 +180,7 @@ offset_right = 102.5
 offset_bottom = 184.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.50928617, 0.50928617, 0.50928617, 1)
+color = Color(0.50980395, 0.50980395, 0.50980395, 0)
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="PosterThree/ColorRect2" unique_id=1249887716]
 layout_mode = 0

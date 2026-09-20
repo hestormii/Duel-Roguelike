@@ -1,5 +1,6 @@
 extends Duelist
 
+var bounty_data: BountyData
 
 func _ready() -> void:
 	super._ready()

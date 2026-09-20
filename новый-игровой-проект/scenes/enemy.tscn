@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1t2ogmhvxe23"]
 
-[ext_resource type="Script" uid="uid://cyxrh22qbgrek" path="res://scripts/duelist.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://behpw78nu1l4h" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="2_4ra3w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c26uo"]
@@ -39,3 +39,9 @@ mesh = SubResource("SphereMesh_c26uo")
 
 [node name="revolver" parent="hand" unique_id=1931098905 instance=ExtResource("2_4ra3w")]
 transform = Transform3D(-0.255, 0, 3.8503927e-08, 0, 0.255, 0, -3.8503927e-08, 0, -0.255, -0.90656257, 2.1060112, 0.4951098)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1505571517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4433296, 0)
+pixel_size = 0.03
+text = "text
+"

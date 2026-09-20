@@ -27,4 +27,4 @@ func pop_bullet() -> BulletData:
 	
 	if bullet == null:
 		fired.emit(null, {})
-		return
+		return bullet

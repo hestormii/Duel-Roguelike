@@ -3,7 +3,7 @@ extends Duelist
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var at_pistol: Marker3D = $Positions/at_pistol
 @onready var at_head: Marker3D = $Positions/at_head
-var at_head_view: bool = true
+@onready var at_suitcase: Marker3D = $Positions/at_suitcase
 @onready var hand: Area3D = $hand
 @onready var revolver: Node3D = $hand/revolver
 
@@ -14,11 +14,38 @@ var at_head_view: bool = true
 @export var starting_bullet_count: int = 6
 @onready var duel_manager = get_node("../DuelManager")
 @onready var body_part_aim: Control = $UI/BodyPartAim
-@onready var head_aim: Button = $UI/BodyPartAim/Head
-@onready var body_aim: Button = $UI/BodyPartAim/Body
-@onready var hand_aim: Button = $UI/BodyPartAim/Hand
+@onready var Head: Button = $UI/BodyPartAim/head/Head
+@onready var body_aim: Button = $UI/BodyPartAim/Body/body
+@onready var hand_aim: Button = $UI/BodyPartAim/Hand/hand
 @onready var progress_bar: ProgressBar = $UI/ProgressBar
+@onready var suitcase: Node3D = $suitcase
+@onready var head: Marker3D = $Positions/head
+@onready var vision: RayCast3D = $Vision
+@export var move_speed = 4
+var gravity = -5
+var view = View.HEAD
+@onready var money: Label = $UI/Money
+var look_rotation : Vector2
+@export var look_speed : float = 0.002
+@onready var looking_at: Label = $UI/looking_at
+@onready var looking_for_gravity: RayCast3D = $lookingForGravity
+@onready var shop: Node3D = $"../Shop"
+@onready var second: Node3D = $"../Second"
+@onready var actions_crystals: Label = $UI/Label
 
+enum View {
+	HEAD,
+	PISTOL,
+	SUITCASE
+}
+
+var state = States.Free
+
+enum States {
+	Free,
+	Locked,
+	Shop
+}
 
 var aim_offset := Vector2.ZERO
 
@@ -28,43 +55,93 @@ func _ready() -> void:
 	revolver.reload()
 	body_part_aim.hide()
 	progress_bar.max_value = max_health
+	vision.enabled = false
+	looking_at.hide()
 
-func _process(_delta: float) -> void:
-	chage_view()
-	if at_head_view:
-		hand.rotation_degrees.y = aim_offset.x
-		hand.rotation_degrees.x = aim_offset.y
-	if Input.is_action_just_pressed("shoot_placeholder"):
-		duel_manager.player_react()
-	if duel_manager.phase == duel_manager.Phase.TARGETING:
-		body_part_aim.show()
-	else:
-		body_part_aim.hide()
-	if Input.is_action_just_pressed("reload"):
-		reload_revolver()
-	if Input.is_action_just_pressed("action pass"):
-		duel_manager.player_passed()
-	if duel_manager.phase == duel_manager.Phase.PREPARATION:
-		$UI/Label.text = "Action crystal aviable: " + str(action_crystall)
-	if duel_manager.phase == duel_manager.Phase.DUEL:
-		$UI/Label.text = "Shot crystal aviable: " + str(shot_crystall)
+func _unhandled_input(event: InputEvent) -> void:
+	if state == States.Free and event is InputEventMouseMotion:
+		rotate_look(event.relative)
+
+func _process(delta: float) -> void:
+	money.text = str(ItemInventory.money)
 	progress_bar.value = current_health
-
+	chage_view()
+	if state == States.Locked:
+		if Input.is_action_just_pressed("shoot_placeholder"):
+			duel_manager.player_react()
+		if duel_manager.phase == duel_manager.Phase.TARGETING:
+			body_part_aim.show()
+		else:
+			body_part_aim.hide()
+		if Input.is_action_just_pressed("reload"):
+			reload_revolver()
+		if Input.is_action_just_pressed("action pass"):
+			duel_manager.player_passed()
+		if duel_manager.phase == duel_manager.Phase.PREPARATION:
+			$UI/Label.text = "Action crystal aviable: " + str(action_crystall)
+		if duel_manager.phase == duel_manager.Phase.DUEL:
+			$UI/Label.text = "Shot crystal aviable: " + str(shot_crystall)
+	if state == States.Free:
+		state_is_free(delta)
+		if vision.is_colliding():
+			var collider = vision.get_collider()
+			if collider.is_in_group("SecondDoor"):
+				looking_at.text = "Second"
+				looking_at.show()
+				if Input.is_action_just_pressed("Interact"):
+					enter_shop_state()
+					second.show()
+					second.change_to_second()
+					looking_at.hide()
+					state_is_shop()
+			elif collider.is_in_group("ShopDoor"):
+				looking_at.text = "Shop"
+				looking_at.show()
+				if Input.is_action_just_pressed("Interact"):
+					enter_shop_state()
+					shop.show()
+					shop.change_to_shop()
+					looking_at.hide()
+					state_is_shop()
+		else:
+			looking_at.hide()
+	if state == States.Shop:
+		state_is_shop()
 
 func chage_view():
-	if Input.is_action_just_pressed("WheelUp") and at_head_view == true:
-		camera_3d.global_position = at_pistol.global_position
-		at_head_view = false
-		_reset_aim()
-		print(revolver.chambers)
-	elif Input.is_action_just_pressed("WheelDown") and at_head_view == false:
-		camera_3d.global_position = at_head.global_position
-		at_head_view = true
+	if state == States.Locked:
+		if Input.is_action_just_pressed("WheelUp") and view == View.HEAD:
+			camera_3d.global_position = at_pistol.global_position
+			view = View.PISTOL
+			print(revolver.chambers)
+		elif Input.is_action_just_pressed("WheelDown") and view == View.PISTOL:
+			camera_3d.global_position = at_head.global_position
+			view = View.HEAD
+		elif Input.is_action_just_pressed("turn right") and view == View.HEAD:
+			camera_3d.global_position = at_suitcase.global_position
+			camera_3d.rotate_y(-PI/2)
+			view = View.SUITCASE
+			suitcase.open()
+		elif Input.is_action_just_pressed("turn left") and view == View.SUITCASE:
+			camera_3d.global_position = at_head.global_position
+			camera_3d.rotate_y(PI/2)
+			view = View.HEAD
 
-func _reset_aim() -> void:
-	aim_offset = Vector2.ZERO
-	hand.rotation_degrees.y = 0.0
-	hand.rotation_degrees.x = 0.0
+func change_DuelState_of_player():
+	if state == States.Locked:
+		state = States.Free
+		print("free")
+	elif state == States.Free:
+		state = States.Locked
+		print("locked")
+
+func enter_shop_state() -> void:
+	state = States.Shop
+	print("shop")
+
+func exit_shop_state() -> void:
+	state = States.Free
+	print("free")
 
 func pop_bullet() -> BulletData:
 	return revolver.pop_bullet()
@@ -103,3 +180,52 @@ func _on_body_pressed() -> void:
 	duel_manager.player_queue_shot("Body")
 func _on_hand_pressed() -> void:
 	duel_manager.player_queue_shot("Hand")
+
+func state_is_free(delta: float):
+	actions_crystals.hide()
+	progress_bar.hide()
+	looking_at.show()
+	var velocity = Vector3.ZERO
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	look_rotation.y = rotation.y
+	look_rotation.x = rotation.x
+	suitcase.hide()
+	hand.hide()
+	vision.enabled = true
+	camera_3d.global_position = head.global_position
+	var direction = Input.get_vector("left", "right", "up", "down")
+	var move_dir := (transform.basis * Vector3(direction.x, 0, direction.y)).normalized()
+	if looking_for_gravity.is_colliding() == false:
+		velocity.y = gravity * delta
+	if move_dir:
+		velocity.x = move_dir.x * move_speed
+		velocity.z = move_dir.z * move_speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.z = move_toward(velocity.z, 0, move_speed)
+	global_transform.origin += velocity * delta
+
+func state_is_shop():
+	looking_at.hide()
+	progress_bar.hide()
+	actions_crystals.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func state_is_locked():
+	actions_crystals.show()
+	progress_bar.show()
+	looking_at.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	suitcase.show()
+	hand.show()
+	camera_3d.global_position = at_head.global_position
+	rotation.y = PI / 2
+
+func rotate_look(rot_input : Vector2):
+	look_rotation.x -= rot_input.y * look_speed
+	look_rotation.x = clamp(look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
+	look_rotation.y -= rot_input.x * look_speed
+	transform.basis = Basis()
+	rotate_y(look_rotation.y)
+	head.transform.basis = Basis()
+	head.rotate_x(look_rotation.x)

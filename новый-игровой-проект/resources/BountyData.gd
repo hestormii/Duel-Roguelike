@@ -8,3 +8,4 @@ class_name BountyData extends Resource
 @export var bullet: BulletData
 @export var reward_min: int = 0
 @export var reward_max: int = 0
+@export var type_enemy: String

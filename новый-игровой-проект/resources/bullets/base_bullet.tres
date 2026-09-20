@@ -11,4 +11,6 @@ display_name = "Standart Bullet"
 damage = 5
 icon = ExtResource("2_0ladf")
 pickup_max = 10
+price_min = 5
+price_max = 15
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

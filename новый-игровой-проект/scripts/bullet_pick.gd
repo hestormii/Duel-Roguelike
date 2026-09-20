@@ -23,7 +23,6 @@ var offered: Array[BulletData] = []
 var offered_amounts: Array[int] = []
 
 func _ready() -> void:
-	populate()
 	animation()
 
 func populate() -> void:
@@ -31,15 +30,17 @@ func populate() -> void:
 	offered_amounts.clear()
 	var pool := BulletTypes.all_bullets.duplicate()
 	pool.shuffle()
-	for i in min(slot_labels.size(), pool.size()):
-		var bullet: BulletData = pool.get(i)
-		var amount = randi_range(bullet.pickup_min, bullet.pickup_max)
-		var sprite = bullet.icon
+	if pool.is_empty():
+		return
+	for i in slot_labels.size():
+		var bullet: BulletData = pool[randi() % pool.size()]
+		var amount := randi_range(bullet.pickup_min, bullet.pickup_max)
 		slot_labels[i].text = bullet.display_name
 		amount_labels[i].text = "x%d" % amount
-		bullet_sprites[i].texture = sprite
+		bullet_sprites[i].texture = bullet.icon
 		offered.append(bullet)
 		offered_amounts.append(amount)
+		pool.remove_at(i)
 
 
 func _on_color_rect_gui_input(event: InputEvent) -> void:

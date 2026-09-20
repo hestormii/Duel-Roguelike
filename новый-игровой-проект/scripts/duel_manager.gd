@@ -13,7 +13,7 @@ var enemy: Duelist
 var player_reacted: bool = false
 var enemy_reacted: bool = false
 
-const BODY_PART_ACCURACY := {"Head": 0.4, "Body": 0.75, "Hand": 0.55}
+const BODY_PART_ACCURACY := {"Head": 0.4, "Body": 1, "Hand": 0.55}
 const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5}
 
 

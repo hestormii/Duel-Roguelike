@@ -9,6 +9,7 @@ var shot_crystall: int = 0
 @export var base_shot_crystall: int = 1
 var queued_shots: Array[StringName] = []
 var loaded_bullets: Array[BulletData] = []
+@export var _name: String
 
 func _ready() -> void:
 	current_health = max_health

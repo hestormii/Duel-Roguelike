@@ -1,6 +1,12 @@
 extends Control
 
-signal bounty_chosen(bounty: BountyData)
+signal bounty_chosen(bounty: BountyData,  reward: int)
+
+@onready var poster_nodes: Array[Control] = [
+	$PosterOne,
+	$PosterTwo,
+	$PosterThree,
+]
 
 @onready var name_labels: Array[Label] = [
 	$PosterOne/ColorRect/Name,
@@ -14,24 +20,34 @@ signal bounty_chosen(bounty: BountyData)
 ]
 
 var offered: Array[BountyData] = []
+var offered_rewards: Array[int] = []
 
 func _ready() -> void:
 	populate()
 	animation()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("exit"):
+		queue_free()
+
 func populate() -> void:
 	offered.clear()
+	offered_rewards.clear()
 	var pool := EnemyTypes.all_enemies.duplicate()
-	pool.shuffle()
-	for i in min(name_labels.size(), pool.size()):
-		var enemy: BountyData = pool.get(i)
-		var reward_amount = randi_range(enemy.reward_min, enemy.reward_max)
+	if pool.is_empty():
+		return
+	for i in name_labels.size():
+		var enemy: BountyData = pool[randi() % pool.size()]
+		var reward := randi_range(enemy.reward_min, enemy.reward_max)
 		name_labels[i].text = enemy.display_name
-		reward_labels[i].text = "$%d" % reward_amount
-		offered.append(pool.get(i))
+		reward_labels[i].text = "$%d" % reward
+		offered.append(enemy)
+		offered_rewards.append(reward)
+
 
 func _on_color_rect_gui_input(event: InputEvent) -> void:
 	_try_choose(event, 0)
+	
 
 func _on_color_rect_1_gui_input(event: InputEvent) -> void:
 	_try_choose(event, 1)
@@ -41,8 +57,8 @@ func _on_color_rect_2_gui_input(event: InputEvent) -> void:
 
 func _try_choose(event: InputEvent, index: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		bounty_chosen.emit(offered[index])
-		queue_free()
+		bounty_chosen.emit(offered[index], offered_rewards[index])
+		poster_nodes[index].hide()
 
 func animation():
 	var tween_one := create_tween().set_loops()

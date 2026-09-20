@@ -12,4 +12,5 @@ reward = 150
 enemy_scene = ExtResource("1_elgso")
 bullet_amount = 6
 bullet = ExtResource("1_nobeu")
+type_enemy = "Base"
 metadata/_custom_type_script = "uid://uid4knejs72t"

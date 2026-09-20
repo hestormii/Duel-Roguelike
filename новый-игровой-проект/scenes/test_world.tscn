@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://ba47u2sgyyobg" path="res://scripts/test_world.gd" id="1_3263u"]
 [ext_resource type="PackedScene" uid="uid://d1aj5bfrhj7ey" path="res://scenes/player_test.tscn" id="1_kyfjp"]
 [ext_resource type="PackedScene" uid="uid://dr4bfj43gg80v" path="res://scenes/duel_manager.tscn" id="3_3263u"]
+[ext_resource type="PackedScene" uid="uid://dah8e3nrlf7ka" path="res://scenes/shop.tscn" id="4_ynswa"]
+[ext_resource type="PackedScene" uid="uid://cw8somcvblnfn" path="res://scenes/second.tscn" id="5_dvny0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
-sky_horizon_color = Color(0.46764356, 0.6508456, 0.98640686, 1)
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
 sky_curve = 0.19792636
+sun_angle_max = 0.0
+sun_curve = 52.45597
 
 [sub_resource type="Sky" id="Sky_yf5fn"]
 sky_material = SubResource("ProceduralSkyMaterial_57qmd")
@@ -15,21 +20,28 @@ sky_material = SubResource("ProceduralSkyMaterial_57qmd")
 background_mode = 2
 sky = SubResource("Sky_yf5fn")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yntvc"]
+size = Vector3(2.546875, 4.3686523, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yntvc"]
+size = Vector3(2.3964844, 4.1660156, 1)
+
 [node name="TestWorld" type="Node3D" unique_id=540476424]
 script = ExtResource("1_3263u")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1906312286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24584961, 0)
+use_collision = true
+collision_mask = 2
 size = Vector3(14.380615, 0.5083008, 8.808838)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=675166281]
 environment = SubResource("Environment_g4v7s")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1828881648]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 12, 0)
-
 [node name="PlayerTest" parent="." unique_id=658327225 instance=ExtResource("1_kyfjp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.4076715, 0, 0)
+move_speed = 6
+look_speed = 0.005
 
 [node name="PlayerPos" type="Marker3D" parent="." unique_id=313404936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.575471, 0, 0)
@@ -38,3 +50,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.575471, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3084693, 0, 0)
 
 [node name="DuelManager" parent="." unique_id=78510389 instance=ExtResource("3_3263u")]
+
+[node name="SomeBuildings" type="Node" parent="." unique_id=1533340266]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SomeBuildings" unique_id=451075588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.261037, -0.24584961, -0.06048584)
+use_collision = true
+collision_mask = 2
+size = Vector3(14.380615, 0.5083008, 17.966919)
+
+[node name="Lamp" type="Node3D" parent="SomeBuildings" unique_id=1693923046]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SomeBuildings/Lamp" unique_id=1762093890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9833374, -3.0409822)
+size = Vector3(0.5097656, 6.2490234, 0.40454102)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SomeBuildings/Lamp" unique_id=2018046804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9123535, -1.9835787)
+size = Vector3(0.5097656, 0.3909912, 2.5193481)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SomeBuildings/Lamp" unique_id=970973286]
+transform = Transform3D(1, 0, 0, 0, 1.3907092e-07, 1, 0, -1, 1.3907092e-07, 0, 6.121722, -1.0693119)
+spot_range = 557.152
+spot_attenuation = -0.65
+spot_angle = 57.3
+
+[node name="Lamp2" type="Node3D" parent="SomeBuildings" unique_id=165720133]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18.64549, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SomeBuildings/Lamp2" unique_id=1237183088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9833374, -3.0409822)
+size = Vector3(0.5097656, 6.2490234, 0.40454102)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SomeBuildings/Lamp2" unique_id=60694632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9123535, -1.9835787)
+size = Vector3(0.5097656, 0.3909912, 2.5193481)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SomeBuildings/Lamp2" unique_id=785629843]
+transform = Transform3D(1, 0, 0, 0, 1.3907092e-07, 1, 0, -1, 1.3907092e-07, 0, 6.121722, -1.0693119)
+spot_range = 557.152
+spot_attenuation = -0.65
+spot_angle = 57.3
+
+[node name="Doors" type="Node3D" parent="SomeBuildings" unique_id=776166726]
+
+[node name="SecondDoor" type="Area3D" parent="SomeBuildings/Doors" unique_id=1292097483 groups=["SecondDoor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.804951, 1.7214355, -8.542679)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SomeBuildings/Doors/SecondDoor" unique_id=958704320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107666016, 0)
+shape = SubResource("BoxShape3D_yntvc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SomeBuildings/Doors/SecondDoor" unique_id=893090639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10253906, 0)
+mesh = SubResource("BoxMesh_yntvc")
+
+[node name="ShopDoor" type="Area3D" parent="SomeBuildings/Doors" unique_id=1139431033 groups=["ShopDoor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.804951, 1.7214355, 8.5572815)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SomeBuildings/Doors/ShopDoor" unique_id=1986296813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107666016, 0)
+shape = SubResource("BoxShape3D_yntvc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SomeBuildings/Doors/ShopDoor" unique_id=596278689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10253906, 0)
+mesh = SubResource("BoxMesh_yntvc")
+
+[node name="Shop" parent="." unique_id=853290546 instance=ExtResource("4_ynswa")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.808317, 0, 14.156254)
+
+[node name="Second" parent="." unique_id=385805783 instance=ExtResource("5_dvny0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15.726376)

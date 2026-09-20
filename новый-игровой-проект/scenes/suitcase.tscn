@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://up01x5oe1ind"]
+
+[ext_resource type="PackedScene" uid="uid://dhb0n2ojd5fb7" path="res://assets/models/suitcase.blend" id="1_4nbrf"]
+[ext_resource type="Script" uid="uid://ddpww1a140spm" path="res://scenes/suitcase.gd" id="2_1sjqu"]
+
+[node name="suitcase" unique_id=511438795 instance=ExtResource("1_4nbrf")]
+script = ExtResource("2_1sjqu")
+
+[node name="upper case" parent="." index="4" unique_id=125738577]
+transform = Transform3D(0.9999924, -3.6645466e-05, 0, 0.0038993272, 0.009397822, 0, 0, 0, 1.7255623, 2.0143886, 0.84348744, -0.014410199)
+
+[node name="AnimationPlayer" parent="." index="5" unique_id=601159647]
+speed_scale = 2.0
+
+[node name="Bullets" type="Node3D" parent="." index="6" unique_id=1861668757]
+
+[node name="Label3D" type="Label3D" parent="Bullets" index="0" unique_id=479024894]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 3.5610523, 0.58800876, -0.09111476)
+modulate = Color(0, 0, 0, 1)
+text = "bullet"
+
+[node name="Label3D2" type="Label3D" parent="Bullets" index="1" unique_id=1071479242]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 3.315309, 0.58800876, -0.09111476)
+modulate = Color(0, 0, 0, 1)
+text = "bullet"
+
+[node name="Label3D3" type="Label3D" parent="Bullets" index="2" unique_id=1685563264]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 3.070283, 0.58800876, -0.09111476)
+modulate = Color(0, 0, 0, 1)
+text = "bullet"
+
+[node name="Label3D4" type="Label3D" parent="Bullets" index="3" unique_id=845138141]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 2.808806, 0.58800876, -0.09111476)
+modulate = Color(0, 0, 0, 1)
+text = "bullet"
+
+[node name="Label3D5" type="Label3D" parent="Bullets" index="4" unique_id=1922314167]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 2.5400481, 0.58800876, -0.09111476)
+modulate = Color(0, 0, 0, 1)
+text = "bullet"
