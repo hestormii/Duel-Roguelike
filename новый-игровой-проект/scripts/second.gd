@@ -62,6 +62,7 @@ func _on_poster_slot_gui_input(event: InputEvent, index: int) -> void:
 		var entry: Dictionary = PosterInventory.held_posters[index]
 		PosterInventory.remove_poster(index)
 		steps = 0
+		camera_3d.rotate_x(PI/2)
 		exit_second()
 		test_world.start_duel_with(entry["bounty"], entry["reward"])
 

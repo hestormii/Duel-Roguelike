@@ -9,6 +9,7 @@ var steps: int = 0
 @onready var shelves_pos: Marker3D = $shelves/ShelvesPos
 @onready var original_pos: Marker3D = $Room/Original_pos
 @onready var wanted_board_pos: Marker3D = $shelves/WantedBoardPos
+@onready var button_3: Button = $Button3
 
 @onready var bullet_sprites: Array[Sprite3D] = [
 	$shelves/bulletsOnDisplay/Sprite3D2,
@@ -42,11 +43,13 @@ var offered_price: Array[int] = []
 
 
 func _ready() -> void:
+	get_viewport().physics_object_picking = true
 	bullets_on_display.hide()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	camera_3d.current = false
 	self.hide()
 	ui.hide()
+	button_3.hide()
 
 func _process(delta: float) -> void:
 	camera_pos_and_states()
@@ -65,6 +68,7 @@ func change_to_shop():
 	camera_3d.current = true
 	active = true
 	ui.show()
+	populate()
 
 func exit_shop():
 	player_test.exit_shop_state()
@@ -82,6 +86,7 @@ func camera_pos_and_states():
 	if steps == 0:
 		bullets_on_display.hide()
 		camera_3d.global_position = original_pos.global_position
+		button_3.hide()
 
 func populate() -> void:
 	offered.clear()
@@ -107,7 +112,7 @@ func _on_button_2_pressed() -> void:
 	steps = 1
 	ui.hide()
 	bullets_on_display.show()
-	populate()
+	button_3.show()
 
 
 func _on_button_pressed() -> void:
@@ -124,3 +129,30 @@ func chose_next_target() -> void:
 
 func _on_bounty_chosen(bounty: BountyData, reward: int) -> void:
 	PosterInventory.add_poster(bounty, reward)
+
+
+func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int, extra_arg_0: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_buy_bullet(extra_arg_0)
+
+
+func _buy_bullet(index: int) -> void:
+	if index >= offered.size():
+		return
+	var bullet: BulletData = offered[index]
+	var price: int = offered_price[index]
+	var amount: int = offered_amounts[index]
+	if not ItemInventory.spend_money(price):
+		print("not enough money")
+		return
+	AmmoInventory.add(bullet, amount)
+	print("bought ", amount, "x ", bullet.display_name, " for $", price)
+	bullet_sprites[index].hide()
+
+
+func _on_button_3_pressed() -> void:
+	if ItemInventory.money > 10:
+		populate()
+		for i in bullet_sprites.size():
+			bullet_sprites[i].show()
+	else: print("Not enough money for reroll")

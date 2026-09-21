@@ -5,6 +5,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfvoa"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yntvc"]
+size = Vector3(0.453125, 0.41308594, 0.11425781)
+
 [node name="Shop" type="Node3D" unique_id=853290546]
 script = ExtResource("1_lx5au")
 
@@ -99,6 +102,11 @@ text = "price"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009066582, 0.044025898)
 text = "amount"
 
+[node name="Area3D" type="Area3D" parent="shelves/bulletsOnDisplay/Sprite3D2" unique_id=1000992987]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/bulletsOnDisplay/Sprite3D2/Area3D" unique_id=542541236]
+shape = SubResource("BoxShape3D_yntvc")
+
 [node name="Sprite3D3" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=2117252512]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0807364, 0.5600152)
 texture = ExtResource("2_xfvoa")
@@ -114,6 +122,12 @@ text = "price"
 [node name="amount2" type="Label3D" parent="shelves/bulletsOnDisplay/Sprite3D3" unique_id=794837926]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04000777, -0.009066582, 0.044025898)
 text = "amount"
+
+[node name="Area3D" type="Area3D" parent="shelves/bulletsOnDisplay/Sprite3D3" unique_id=536015148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005662441, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/bulletsOnDisplay/Sprite3D3/Area3D" unique_id=1776483487]
+shape = SubResource("BoxShape3D_yntvc")
 
 [node name="Sprite3D4" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=508304855]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0807364, -0.44442475)
@@ -131,6 +145,12 @@ text = "price"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005578786, -0.009066582, 0.044025898)
 text = "amount"
 
+[node name="Area3D" type="Area3D" parent="shelves/bulletsOnDisplay/Sprite3D4" unique_id=408267362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006447077, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/bulletsOnDisplay/Sprite3D4/Area3D" unique_id=322305437]
+shape = SubResource("BoxShape3D_yntvc")
+
 [node name="Sprite3D5" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=378514098]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0807364, -1.6361828)
 texture = ExtResource("2_xfvoa")
@@ -147,11 +167,30 @@ text = "price"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020947933, -0.009066582, 0.044025898)
 text = "amount"
 
+[node name="Area3D" type="Area3D" parent="shelves/bulletsOnDisplay/Sprite3D5" unique_id=919186066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01832056, 0, 2.3841858e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/bulletsOnDisplay/Sprite3D5/Area3D" unique_id=2101334582]
+shape = SubResource("BoxShape3D_yntvc")
+
 [node name="ShelvesPos" type="Marker3D" parent="shelves" unique_id=1321327381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5674717, 1.7435765, 0)
 
 [node name="WantedBoardPos" type="Marker3D" parent="shelves" unique_id=1319508593]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7473676, 1.8767998, 2.2266076)
 
+[node name="Button3" type="Button" parent="." unique_id=1045926920]
+offset_left = 391.0
+offset_top = 383.0
+offset_right = 536.0
+offset_bottom = 414.0
+scale = Vector2(2.27, 2.27)
+text = "Reroll Shop for 10"
+
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="input_event" from="shelves/bulletsOnDisplay/Sprite3D2/Area3D" to="." method="_on_area_3d_input_event" binds= [0]]
+[connection signal="input_event" from="shelves/bulletsOnDisplay/Sprite3D3/Area3D" to="." method="_on_area_3d_input_event" binds= [1]]
+[connection signal="input_event" from="shelves/bulletsOnDisplay/Sprite3D4/Area3D" to="." method="_on_area_3d_input_event" binds= [2]]
+[connection signal="input_event" from="shelves/bulletsOnDisplay/Sprite3D5/Area3D" to="." method="_on_area_3d_input_event" binds= [3]]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

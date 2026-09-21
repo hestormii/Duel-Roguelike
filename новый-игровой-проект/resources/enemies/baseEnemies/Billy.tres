@@ -8,11 +8,10 @@
 script = ExtResource("3_gtixo")
 id = &"BillyEM"
 display_name = "Billy"
-reward = 125
 enemy_scene = ExtResource("2_8pm5q")
 bullet_amount = 6
 bullet = ExtResource("1_8o5ip")
-reward_min = 60
-reward_max = 150
+reward_min = 10
+reward_max = 50
 type_enemy = "Base"
 metadata/_custom_type_script = "uid://uid4knejs72t"
