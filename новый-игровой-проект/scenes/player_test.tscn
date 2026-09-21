@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1aj5bfrhj7ey"]
 
 [ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="1_fdpfy"]
-[ext_resource type="Resource" uid="uid://dk0bhgdu3rrw2" path="res://resources/bullets/admin_bullet.tres" id="2_8ut53"]
+[ext_resource type="Resource" uid="uid://caq6b3p01jjyq" path="res://resources/bullets/poison_bullet.tres" id="2_dxymg"]
 [ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="3_6p80c"]
 [ext_resource type="Texture2D" uid="uid://c7icnujdirac2" path="res://assets/head.png" id="4_2ue4q"]
 [ext_resource type="PackedScene" uid="uid://up01x5oe1ind" path="res://scenes/suitcase.tscn" id="4_8ut53"]
@@ -22,7 +22,7 @@
 
 [node name="PlayerTest" type="Node3D" unique_id=658327225]
 script = ExtResource("1_fdpfy")
-starting_bullet = ExtResource("2_8ut53")
+starting_bullet = ExtResource("2_dxymg")
 _name = "Player"
 
 [node name="Head" type="Area3D" parent="." unique_id=1659543030 groups=["Head"]]
@@ -101,7 +101,6 @@ offset_bottom = 595.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="BodyPartAim" type="Control" parent="UI" unique_id=518593580]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -180,6 +179,15 @@ offset_bottom = 449.99997
 scale = Vector2(2.19, 2.19)
 text = "Choose bodypart to Shoot"
 
+[node name="Self" type="Button" parent="UI/BodyPartAim" unique_id=1861879632]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 105.0
+offset_right = 365.0
+offset_bottom = 136.0
+scale = Vector2(3, 3)
+text = "Self"
+
 [node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=1199744194]
 layout_mode = 0
 offset_left = 447.0
@@ -207,3 +215,4 @@ collide_with_areas = true
 [connection signal="pressed" from="UI/BodyPartAim/head/Head" to="." method="_on_head_pressed"]
 [connection signal="pressed" from="UI/BodyPartAim/Body/body" to="." method="_on_body_pressed"]
 [connection signal="pressed" from="UI/BodyPartAim/Hand/hand" to="." method="_on_hand_pressed"]
+[connection signal="pressed" from="UI/BodyPartAim/Self" to="." method="_on_self_pressed"]

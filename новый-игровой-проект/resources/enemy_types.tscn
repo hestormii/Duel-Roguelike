@@ -6,7 +6,10 @@
 [ext_resource type="Resource" uid="uid://djs8supcbk67l" path="res://resources/enemies/baseEnemies/Billy.tres" id="4_qsjrg"]
 [ext_resource type="Resource" uid="uid://bbf3hrtecvdv1" path="res://resources/enemies/baseEnemies/Tommy.tres" id="5_bb6x6"]
 [ext_resource type="Resource" uid="uid://ba636sbnhlxso" path="res://resources/enemies/baseEnemies/Daemon.tres" id="6_jttxv"]
+[ext_resource type="Resource" uid="uid://cp8vdpadf2hmr" path="res://resources/enemies/baseEnemies/Michael.tres" id="7_m3smb"]
+[ext_resource type="Resource" uid="uid://bgdu3ahtyi8ux" path="res://resources/enemies/baseEnemies/German.tres" id="8_bphkw"]
+[ext_resource type="Resource" uid="uid://cyee04iwmud7m" path="res://resources/enemies/baseEnemies/Genry.tres" id="9_r1ddd"]
 
 [node name="enemy_types" type="Node" unique_id=739115751]
 script = ExtResource("1_sp51b")
-all_enemies = Array[ExtResource("2_0ftuk")]([ExtResource("3_0eege"), ExtResource("4_qsjrg"), ExtResource("5_bb6x6"), ExtResource("6_jttxv")])
+all_enemies = Array[ExtResource("2_0ftuk")]([ExtResource("3_0eege"), ExtResource("4_qsjrg"), ExtResource("5_bb6x6"), ExtResource("6_jttxv"), ExtResource("7_m3smb"), ExtResource("8_bphkw"), ExtResource("9_r1ddd")])

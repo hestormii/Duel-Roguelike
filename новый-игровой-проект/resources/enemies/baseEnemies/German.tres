@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://bgdu3ahtyi8ux"]
+
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="1_1eear"]
+[ext_resource type="PackedScene" uid="uid://c1t2ogmhvxe23" path="res://scenes/enemy.tscn" id="2_aeget"]
+[ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="3_52qmo"]
+
+[resource]
+script = ExtResource("3_52qmo")
+id = &"GermanEM"
+display_name = "German"
+enemy_scene = ExtResource("2_aeget")
+bullet_amount = 6
+bullet = ExtResource("1_1eear")
+reward_min = 15
+reward_max = 60
+type_enemy = "Base"
+metadata/_custom_type_script = "uid://uid4knejs72t"

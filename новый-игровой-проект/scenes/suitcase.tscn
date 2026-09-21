@@ -13,6 +13,7 @@ transform = Transform3D(0.9999924, -3.6645466e-05, 0, 0.0038993272, 0.009397822,
 speed_scale = 2.0
 
 [node name="Bullets" type="Node3D" parent="." index="6" unique_id=1861668757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9566747)
 
 [node name="Label3D" type="Label3D" parent="Bullets" index="0" unique_id=479024894]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 3.5610523, 0.58800876, -0.09111476)

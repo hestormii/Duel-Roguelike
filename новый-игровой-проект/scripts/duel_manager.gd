@@ -13,9 +13,10 @@ var enemy: Duelist
 var player_reacted: bool = false
 var enemy_reacted: bool = false
 
-const BODY_PART_ACCURACY := {"Head": 0.4, "Body": 1, "Hand": 0.55}
-const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5}
+const BODY_PART_ACCURACY := {"Head": 0.4, "Body": 0.6, "Hand": 0.55, "Self": 1.0}
+const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5, "Self": 6.5}
 
+var active_effects: Array[Dictionary] = []
 
 func _process(delta: float) -> void:
 	change_name_ofLabel()
@@ -42,6 +43,8 @@ func enter_preparation() -> void:
 	phase = Phase.PREPARATION
 	player.reset_crystalls()
 	enemy.reset_crystalls()
+	player.tick_effects()
+	enemy.tick_effects()
 	print("--- PREPARATION --- action crystals: ", player.action_crystall)
 	enemy.action_crystall = 0
 
@@ -111,7 +114,7 @@ func resolve_shots() -> void:
 	phase = Phase.RESOLUTION
 	_fire_queued_shots(player, enemy)
 	_fire_queued_shots(enemy, player)
-	if phase != Phase.AFTERMATH:  # nobody died mid-resolution
+	if phase != Phase.AFTERMATH:
 		enter_resolution()
 
 func _fire_queued_shots(shooter: Duelist, target: Duelist) -> void:
@@ -125,8 +128,12 @@ func _fire_queued_shots(shooter: Duelist, target: Duelist) -> void:
 		var chance: float = BODY_PART_ACCURACY.get(body_part, 0.5)
 		if randf() < chance:
 			var final_damage: float = bullet.damage * BODY_PART_DAMAGE.get(body_part, 1.0)
+			if shooter.queued_shots.get(0) == "Self":
+				shooter.take_damage(final_damage)
 			target.take_damage(final_damage)
 			print(shooter.name, " hits the ", body_part, " for ", final_damage)
+			for effect in bullet.effects:
+				effect.apply(target, shooter)
 		else:
 			print(shooter.name, " misses the ", body_part)
 

@@ -155,4 +155,5 @@ func _on_button_3_pressed() -> void:
 		populate()
 		for i in bullet_sprites.size():
 			bullet_sprites[i].show()
+		ItemInventory.spend_money(10)
 	else: print("Not enough money for reroll")

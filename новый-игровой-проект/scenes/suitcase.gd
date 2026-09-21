@@ -4,7 +4,7 @@ extends Node3D
 @onready var bullets: Node3D = $Bullets
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label_3d: Label3D = $Bullets/Label3D
-@onready var BulletInventory: Array = [
+@onready var BulletInventory: Array[Label3D] = [
 	$Bullets/Label3D,
 	$Bullets/Label3D2,
 	$Bullets/Label3D3,
