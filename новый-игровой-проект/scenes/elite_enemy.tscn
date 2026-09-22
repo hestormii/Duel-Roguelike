@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://c1t2ogmhvxe23"]
+[gd_scene format=3 uid="uid://k13kbcjlkl7u"]
 
-[ext_resource type="Script" uid="uid://behpw78nu1l4h" path="res://scripts/enemy.gd" id="1_md0e3"]
-[ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="2_4ra3w"]
+[ext_resource type="Script" uid="uid://utswfa2jkjaf" path="res://scripts/Elitenemy.gd" id="1_a3qif"]
+[ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="2_ejsq8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c26uo"]
 albedo_color = Color(0.41087762, 0.41087765, 0.4108776, 1)
@@ -13,9 +13,9 @@ material = SubResource("StandardMaterial3D_c26uo")
 
 [sub_resource type="SphereMesh" id="SphereMesh_c26uo"]
 
-[node name="Enemy" type="Node3D" unique_id=750803531]
+[node name="EliteEnemy" type="Node3D" unique_id=750803531]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-script = ExtResource("1_md0e3")
+script = ExtResource("1_a3qif")
 metadata/_custom_type_script = "uid://cyxrh22qbgrek"
 
 [node name="head" type="Node3D" parent="." unique_id=424757114]
@@ -36,7 +36,7 @@ mesh = SubResource("CapsuleMesh_yntvc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82627964, 1.3510828, 0.7583808)
 mesh = SubResource("SphereMesh_c26uo")
 
-[node name="revolver" parent="hand" unique_id=1931098905 instance=ExtResource("2_4ra3w")]
+[node name="revolver" parent="hand" unique_id=1931098905 instance=ExtResource("2_ejsq8")]
 transform = Transform3D(-0.255, 0, 3.8503927e-08, 0, 0.255, 0, -3.8503927e-08, 0, -0.255, -0.90656257, 2.1060112, 0.4951098)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1505571517]

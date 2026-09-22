@@ -25,12 +25,16 @@ func die() -> void:
 	died.emit(self)
 	queue_free()
 
+func heal(amount: float) -> void:
+	current_health = clamp(current_health + amount, 0.0, max_health)
+	print("healed to: ", current_health)
+
 func reset_crystalls():
 	action_crystall = base_action_crystall
 	shot_crystall = base_shot_crystall
 
-func pass_the_turn():
-	action_crystall -= 1
+func pass_the_turn(amount: int):
+	action_crystall -= amount
 
 func queue_shot(body_part: StringName) -> bool:
 	if shot_crystall <= 0:
@@ -58,6 +62,9 @@ func tick_effects() -> void:
 	for entry in active_effects.duplicate():
 		if entry["effect"] is PoisonEffect:
 			take_damage(entry["effect"].damage_per_tick)
+		if entry["effect"] is SleepEffect:
+			pass_the_turn(entry["effect"].amount)
+			print("Sleeping")
 		entry["turns_left"] -= 1
 		if entry["turns_left"] <= 0:
 			active_effects.erase(entry)

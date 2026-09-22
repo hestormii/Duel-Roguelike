@@ -3,15 +3,24 @@
 [ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_elxbb"]
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_ngyes"]
 [ext_resource type="Texture2D" uid="uid://dtq5fg2nt5ld3" path="res://assets/bulletSprites/MoredamagetofullHPBullet.png" id="1_py1vb"]
+[ext_resource type="Script" uid="uid://vv1dgqghsib3" path="res://resources/effects/FullHPDamageEffect.gd" id="2_gkvkx"]
+
+[sub_resource type="Resource" id="Resource_7gtu8"]
+script = ExtResource("2_gkvkx")
+min_damage = 2.0
+max_damage = 20.0
+display_name = "Bonus damage on targets full HP"
+metadata/_custom_type_script = "uid://vv1dgqghsib3"
 
 [resource]
 script = ExtResource("1_ngyes")
 id = &"FullHPBL"
 display_name = "Full Health Bullet"
 damage = 5
+effects = Array[ExtResource("1_elxbb")]([SubResource("Resource_7gtu8")])
 icon = ExtResource("1_py1vb")
 rarity = 1
-pickup_max = 3
+pickup_max = 4
 price_min = 25
 price_max = 100
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

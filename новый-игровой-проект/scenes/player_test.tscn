@@ -194,7 +194,6 @@ offset_left = 447.0
 offset_top = 568.0
 offset_right = 609.0
 offset_bottom = 632.0
-rounded = true
 
 [node name="suitcase" parent="." unique_id=511438795 instance=ExtResource("4_8ut53")]
 transform = Transform3D(-2.141858e-08, -0.49, 0, 0.49, -2.141858e-08, 0, 0, 0, 0.49, 2.3753257, 0.9436197, -0.7334814)

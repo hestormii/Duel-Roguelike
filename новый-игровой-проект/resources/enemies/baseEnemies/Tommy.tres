@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://bbf3hrtecvdv1"]
 
 [ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="1_66hmv"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_p8fi1"]
 [ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="1_uwvd8"]
 [ext_resource type="PackedScene" uid="uid://c1t2ogmhvxe23" path="res://scenes/enemy.tscn" id="2_m5xut"]
 
@@ -9,8 +10,8 @@ script = ExtResource("1_66hmv")
 id = &"TomEM"
 display_name = "Tommy"
 enemy_scene = ExtResource("2_m5xut")
-bullet_amount = 6
-bullet = ExtResource("1_uwvd8")
+bullets = Array[ExtResource("1_p8fi1")]([ExtResource("1_uwvd8")])
+bullet_amounts = Array[int]([6])
 reward_min = 10
 reward_max = 50
 type_enemy = "Base"

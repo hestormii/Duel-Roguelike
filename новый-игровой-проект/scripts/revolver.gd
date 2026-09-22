@@ -3,8 +3,6 @@ extends Node3D
 const CYLINDER_SIZE := 6
 signal fired(bullet: BulletData, hit_result: Dictionary)
 
-@export var trail_scene: PackedScene  # assign bullet_trail.tscn in the Inspector
-
 var chambers: Array[BulletData] = []
 var current_index: int = 0
 

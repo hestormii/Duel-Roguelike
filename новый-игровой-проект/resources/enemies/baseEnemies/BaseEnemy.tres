@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://eh3q7auyy77j"]
 
 [ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="1_2c52q"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_5j2dh"]
 [ext_resource type="PackedScene" uid="uid://bbrasmoetb5u2" path="res://scenes/enemy_test.tscn" id="1_elgso"]
 [ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="1_nobeu"]
 
@@ -9,7 +10,7 @@ script = ExtResource("1_2c52q")
 id = &"BaseEM"
 display_name = "Dummy"
 enemy_scene = ExtResource("1_elgso")
-bullet_amount = 6
-bullet = ExtResource("1_nobeu")
+bullets = Array[ExtResource("1_5j2dh")]([ExtResource("1_nobeu")])
+bullet_amounts = Array[int]([6])
 type_enemy = "Base"
 metadata/_custom_type_script = "uid://uid4knejs72t"

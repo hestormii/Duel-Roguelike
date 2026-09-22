@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://cp8vdpadf2hmr"]
+
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="1_3xcui"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_7flsf"]
+[ext_resource type="Resource" uid="uid://dembw0qswl8ib" path="res://resources/bullets/sleep_bullet.tres" id="2_aqbne"]
+[ext_resource type="PackedScene" uid="uid://k13kbcjlkl7u" path="res://scenes/elite_enemy.tscn" id="2_g3uju"]
+[ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="3_3u1at"]
+[ext_resource type="Resource" uid="uid://caq6b3p01jjyq" path="res://resources/bullets/poison_bullet.tres" id="3_f8qkg"]
+
+[resource]
+script = ExtResource("3_3u1at")
+id = &"MichaelEM"
+display_name = "Michael"
+enemy_scene = ExtResource("2_g3uju")
+bullets = Array[ExtResource("1_7flsf")]([ExtResource("2_aqbne"), ExtResource("3_f8qkg"), ExtResource("1_3xcui")])
+bullet_amounts = Array[int]([2, 1, 3])
+reward_min = 30
+reward_max = 95
+type_enemy = "elite"
+metadata/_custom_type_script = "uid://uid4knejs72t"

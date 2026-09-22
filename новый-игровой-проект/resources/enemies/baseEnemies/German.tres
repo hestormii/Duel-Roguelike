@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://bgdu3ahtyi8ux"]
 
 [ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="1_1eear"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_52qmo"]
 [ext_resource type="PackedScene" uid="uid://c1t2ogmhvxe23" path="res://scenes/enemy.tscn" id="2_aeget"]
+[ext_resource type="Resource" uid="uid://bcxca3d37wpw2" path="res://resources/bullets/LowHpBullet.tres" id="2_skjym"]
 [ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="3_52qmo"]
 
 [resource]
@@ -9,8 +11,8 @@ script = ExtResource("3_52qmo")
 id = &"GermanEM"
 display_name = "German"
 enemy_scene = ExtResource("2_aeget")
-bullet_amount = 6
-bullet = ExtResource("1_1eear")
+bullets = Array[ExtResource("1_52qmo")]([ExtResource("2_skjym"), ExtResource("1_1eear")])
+bullet_amounts = Array[int]([1, 5])
 reward_min = 15
 reward_max = 60
 type_enemy = "Base"

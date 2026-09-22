@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://clugoelcic53c"]
+
+[ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_1182s"]
+[ext_resource type="Script" uid="uid://cryn7gp2s63xi" path="res://resources/effects/DiscardEffect.gd" id="2_51nlk"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="2_eji6b"]
+[ext_resource type="Texture2D" uid="uid://dv34kvgllkq1l" path="res://assets/bulletSprites/DiscardBullet.png" id="3_txgst"]
+
+[sub_resource type="Resource" id="Resource_51nlk"]
+script = ExtResource("2_51nlk")
+display_name = "Discard Effect"
+metadata/_custom_type_script = "uid://cryn7gp2s63xi"
+
+[resource]
+script = ExtResource("2_eji6b")
+id = &"DiscardBL"
+display_name = "Discard Bullet"
+damage = 5
+effects = Array[ExtResource("1_1182s")]([SubResource("Resource_51nlk")])
+icon = ExtResource("3_txgst")
+rarity = 2
+pickup_max = 4
+price_min = 10
+price_max = 45
+metadata/_custom_type_script = "uid://by0bn2qng7ah5"

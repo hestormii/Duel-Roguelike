@@ -1,12 +1,13 @@
 extends Duelist
 
-@onready var stats: BountyData
+var stats: BountyData
 @onready var label_3d: Label3D = $Label3D
 
 func _ready() -> void:
-	max_health = randi_range(100, 125)
+	max_health = randi_range(125, 150)
 	super._ready()
 	current_health = max_health
+	name = stats.display_name
 
 
 

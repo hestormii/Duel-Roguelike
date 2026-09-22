@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://cyee04iwmud7m"]
 
 [ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="1_g4qso"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_pse3t"]
+[ext_resource type="Resource" uid="uid://cp3whlrk6g4xm" path="res://resources/bullets/fullHPdamageBullet.tres" id="2_2j7sp"]
 [ext_resource type="PackedScene" uid="uid://c1t2ogmhvxe23" path="res://scenes/enemy.tscn" id="2_8vy6e"]
 [ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="3_pse3t"]
 
@@ -9,8 +11,8 @@ script = ExtResource("3_pse3t")
 id = &"GenryEM"
 display_name = "Genry"
 enemy_scene = ExtResource("2_8vy6e")
-bullet_amount = 6
-bullet = ExtResource("1_g4qso")
+bullets = Array[ExtResource("1_pse3t")]([ExtResource("2_2j7sp"), ExtResource("1_g4qso")])
+bullet_amounts = Array[int]([1, 5])
 reward_min = 15
 reward_max = 60
 type_enemy = "Base"

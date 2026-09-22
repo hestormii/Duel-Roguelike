@@ -13,8 +13,8 @@ var enemy: Duelist
 var player_reacted: bool = false
 var enemy_reacted: bool = false
 
-const BODY_PART_ACCURACY := {"Head": 0.4, "Body": 0.6, "Hand": 0.55, "Self": 1.0}
-const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5, "Self": 6.5}
+const BODY_PART_ACCURACY := {"Head": 0.4, "Body": 1.0, "Hand": 0.55, "Self": 1.0}
+const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5, "Self": 5.5}
 
 var active_effects: Array[Dictionary] = []
 
@@ -31,7 +31,7 @@ func start_duel(p: Duelist, e: Duelist) -> void:
 
 func _on_duelist_died(who: Duelist) -> void:
 	if phase == Phase.AFTERMATH:
-		return  # already wrapping up, ignore any further deaths this duel
+		return
 	var winner := enemy if who == player else player
 	end_duel(winner)
 
@@ -44,7 +44,11 @@ func enter_preparation() -> void:
 	player.reset_crystalls()
 	enemy.reset_crystalls()
 	player.tick_effects()
+	if phase == Phase.AFTERMATH:
+		return
 	enemy.tick_effects()
+	if phase == Phase.AFTERMATH:
+		return
 	print("--- PREPARATION --- action crystals: ", player.action_crystall)
 	enemy.action_crystall = 0
 
@@ -53,6 +57,9 @@ func player_passed() -> void:
 		return
 	player.action_crystall -= 1
 	check_preparation_done()
+
+func action_passed(who: Duelist):
+	who.action_crystall -= 1
 
 func check_preparation_done() -> void:
 	if player.action_crystall <= 0 and enemy.action_crystall <= 0:
@@ -128,12 +135,13 @@ func _fire_queued_shots(shooter: Duelist, target: Duelist) -> void:
 		var chance: float = BODY_PART_ACCURACY.get(body_part, 0.5)
 		if randf() < chance:
 			var final_damage: float = bullet.damage * BODY_PART_DAMAGE.get(body_part, 1.0)
-			if shooter.queued_shots.get(0) == "Self":
-				shooter.take_damage(final_damage)
-			target.take_damage(final_damage)
-			print(shooter.name, " hits the ", body_part, " for ", final_damage)
+			var recipient: Duelist = shooter if body_part == "Self" else target
 			for effect in bullet.effects:
-				effect.apply(target, shooter)
+				final_damage = effect.modify_damage(final_damage, shooter, recipient)
+			recipient.take_damage(final_damage)
+			for effect in bullet.effects:
+				effect.apply(recipient, shooter)
+			print(shooter.name, " hits the ", body_part, " for ", final_damage)
 		else:
 			print(shooter.name, " misses the ", body_part)
 

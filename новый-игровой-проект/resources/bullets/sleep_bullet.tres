@@ -3,15 +3,23 @@
 [ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_2dytb"]
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_j4lsm"]
 [ext_resource type="Texture2D" uid="uid://b00lpajixkpyv" path="res://assets/bulletSprites/SleepBullet.png" id="1_srf28"]
+[ext_resource type="Script" uid="uid://cra8h1yothnc8" path="res://resources/effects/sleepEffect.gd" id="2_tjgp8"]
+
+[sub_resource type="Resource" id="Resource_dxymg"]
+script = ExtResource("2_tjgp8")
+amount = 1
+display_name = "Sleep Effect"
+metadata/_custom_type_script = "uid://cra8h1yothnc8"
 
 [resource]
 script = ExtResource("1_j4lsm")
 id = &"SleepBl"
 display_name = "Sleep Bullet"
 damage = 5
+effects = Array[ExtResource("1_2dytb")]([SubResource("Resource_dxymg")])
 icon = ExtResource("1_srf28")
 rarity = 1
 pickup_max = 4
 price_min = 25
-price_max = 100
+price_max = 50
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

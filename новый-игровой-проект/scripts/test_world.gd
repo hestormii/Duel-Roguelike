@@ -30,7 +30,10 @@ func start_duel_with(bounty: BountyData, reward: int) -> void:
 	var enemy = bounty.enemy_scene.instantiate()
 	add_child(enemy)
 	enemy.global_position = enemy_pos.global_position
-	enemy.load_bullets(bounty.bullet, bounty.bullet_amount)  # now correctly before start_duel
+	for i in bounty.bullets.size():
+		enemy.load_bullets(bounty.bullets[i], bounty.bullet_amounts[i])
+	enemy.loaded_bullets.shuffle()
+	enemy.name = bounty.display_name
 	duel_manager.start_duel(player, enemy)
 	player.change_DuelState_of_player()
 	player.global_position = player_pos.global_position
@@ -57,4 +60,4 @@ func _on_duel_ended(winner: Duelist) -> void:
 	print("duel won by: ", winner.name)
 	if winner == player and current_bounty:
 		ItemInventory.add_money(current_reward)
-	chose_the_bullet()
+		chose_the_bullet()
