@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://buh4t4apitc3w"]
+
+[ext_resource type="Script" uid="uid://4cnsj4ctggvr" path="res://testing out/node.gd" id="1_m8ay8"]
+[ext_resource type="Resource" uid="uid://dxy1rkbfosa6n" path="res://resources/enemies/BaseEnemyGen.tres" id="3_cgvy8"]
+
+[node name="Node" type="Node" unique_id=727565619]
+script = ExtResource("1_m8ay8")
+stats = ExtResource("3_cgvy8")

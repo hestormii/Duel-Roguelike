@@ -274,6 +274,12 @@ theme_override_fonts/font = ExtResource("3_k3pxv")
 text = "WANTED"
 uppercase = true
 
+[node name="GridContainer" type="GridContainer" parent="PosterUI" unique_id=1157990077]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 6
+
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="gui_input" from="PosterUI/PosterOne/ColorRect" to="." method="_on_color_rect_gui_input" binds= [0]]
 [connection signal="gui_input" from="PosterUI/PosterTwo/ColorRect" to="." method="_on_color_rect_gui_input" binds= [1]]

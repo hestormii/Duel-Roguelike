@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BaseEnemyData" format=3 uid="uid://dxy1rkbfosa6n"]
+
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_mvtp7"]
+[ext_resource type="Script" uid="uid://drya7u2lvdb8c" path="res://resources/BaseEnemyData.gd" id="2_8jeei"]
+[ext_resource type="PackedScene" uid="uid://c1t2ogmhvxe23" path="res://scenes/enemy.tscn" id="2_d6gvo"]
+
+[resource]
+script = ExtResource("2_8jeei")
+id = &"BaseEnemy"
+possible_names = Array[StringName]([&"Dave", &"Steve", &"Bob", &"Tommy", &"Genry"])
+enemy_scene = ExtResource("2_d6gvo")
+reward_min = 10
+reward_max = 60
+metadata/_custom_type_script = "uid://drya7u2lvdb8c"

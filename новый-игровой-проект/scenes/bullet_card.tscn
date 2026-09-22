@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dnvuk8bqbnc1t"]
+
+[ext_resource type="Script" uid="uid://dadtudekhhgdv" path="res://scripts/bullet_card.gd" id="1_cica3"]
+[ext_resource type="Texture2D" uid="uid://c615tlgpyyaqu" path="res://assets/Window.png" id="1_gwjlc"]
+[ext_resource type="Texture2D" uid="uid://b0if7echcx65" path="res://assets/bulletSprites/StandartBullet.png" id="3_wem0y"]
+
+[node name="bullet_card" type="Control" unique_id=358858300]
+layout_mode = 3
+anchor_right = 0.20700002
+anchor_bottom = 0.549
+offset_right = 0.5359802
+offset_bottom = 0.24798584
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(112.165, 153.995)
+script = ExtResource("1_cica3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1131712407]
+layout_mode = 0
+offset_right = 238.0
+offset_bottom = 356.0
+texture = ExtResource("1_gwjlc")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=160556511]
+position = Vector2(114, 150)
+scale = Vector2(2.69, 2.69)
+texture = ExtResource("3_wem0y")
+
+[node name="Name" type="Label" parent="." unique_id=305460432]
+layout_mode = 1
+offset_left = 55.0
+offset_top = 67.0
+offset_right = 99.0
+offset_bottom = 90.0
+scale = Vector2(1.12, 1.12)
+text = "name"
+
+[node name="amount" type="Label" parent="." unique_id=148204621]
+layout_mode = 0
+offset_left = 104.00001
+offset_top = 206.0
+offset_right = 165.0
+offset_bottom = 229.0
+scale = Vector2(1.705, 1.705)
+text = "amount"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1920298563]
+layout_mode = 0
+offset_right = 239.0
+offset_bottom = 354.0
+color = Color(1, 1, 1, 0)
+
+[connection signal="gui_input" from="NinePatchRect" to="." method="_on_nine_patch_rect_gui_input"]
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]

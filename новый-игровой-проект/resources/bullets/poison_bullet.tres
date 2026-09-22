@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_c26uo"]
 script = ExtResource("2_ivns8")
-damage_per_tick = 15.0
+damage_per_tick = 5.0
 display_name = "poison"
 metadata/_custom_type_script = "uid://cjrh5uj1i8edh"
 
@@ -18,8 +18,9 @@ display_name = "Poison Bullet"
 damage = 5
 effects = Array[ExtResource("1_dygwe")]([SubResource("Resource_c26uo")])
 icon = ExtResource("1_g6cfy")
-rarity = 1
-pickup_max = 5
+rarity = 2
+pickup_min = 2
+pickup_max = 6
 price_min = 25
 price_max = 75
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

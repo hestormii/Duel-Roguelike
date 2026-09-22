@@ -1,167 +1,21 @@
 [gd_scene format=3 uid="uid://bi37464gxvvsj"]
 
 [ext_resource type="Script" uid="uid://xnjn6ojwxgjv" path="res://scripts/bullet_pick.gd" id="1_a8yqa"]
-[ext_resource type="Texture2D" uid="uid://c615tlgpyyaqu" path="res://assets/Window.png" id="2_mk6ka"]
-[ext_resource type="Texture2D" uid="uid://bx40bofn7yy27" path="res://assets/bulletSprites/icon.svg" id="3_r6vd8"]
 
 [sub_resource type="Animation" id="Animation_r6vd8"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("firstBullet:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(247, 304)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("secondBullet:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(556, 304)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("thirdBullet:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(863, 304)]
-}
 
 [sub_resource type="Animation" id="Animation_hmxaq"]
 resource_name = "pick_first"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("firstBullet:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(247, 304), Vector2(247, 1220)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("secondBullet:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(4.756827, 1),
-"update": 0,
-"values": [Vector2(556, 304), Vector2(2100, 304)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("thirdBullet:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(4.756827, 1),
-"update": 0,
-"values": [Vector2(863, 304), Vector2(2101, 304)]
-}
 
 [sub_resource type="Animation" id="Animation_066cp"]
 resource_name = "pick_second"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("secondBullet:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(556, 304), Vector2(556, 1245)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("firstBullet:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(4.756827, 1),
-"update": 0,
-"values": [Vector2(247, 304), Vector2(2064, 304)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("thirdBullet:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(4.756827, 1),
-"update": 0,
-"values": [Vector2(863, 304), Vector2(2071, 304)]
-}
 
 [sub_resource type="Animation" id="Animation_gdvxy"]
 resource_name = "pick_third"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("thirdBullet:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(863, 304), Vector2(863, 1227)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("firstBullet:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(4.7568254, 1),
-"update": 0,
-"values": [Vector2(247, 304), Vector2(2064, 304)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("secondBullet:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(4.756821, 1),
-"update": 0,
-"values": [Vector2(556, 304), Vector2(2060, 304)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_066cp"]
 _data = {
@@ -173,245 +27,31 @@ _data = {
 
 [node name="BulletPick" type="Control" unique_id=915266090]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a8yqa")
 
-[node name="firstBullet" type="Control" parent="." unique_id=1621783273]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -329.0
-offset_top = -20.0
-offset_right = -289.0005
-offset_bottom = 20.000488
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="firstBullet" unique_id=1386197501]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.5
-offset_top = -196.0
-offset_right = 124.5
-offset_bottom = 196.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.3403393, 0.34033933, 0.3403393, 1)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="firstBullet/ColorRect" unique_id=17362821]
-texture_filter = 1
-layout_mode = 0
-offset_right = 248.5
-offset_bottom = 391.0
-texture = ExtResource("2_mk6ka")
-region_rect = Rect2(2, 2, 28, 28)
-patch_margin_left = 1
-patch_margin_top = 1
-patch_margin_right = 1
-patch_margin_bottom = 1
-
-[node name="Label" type="Label" parent="firstBullet/ColorRect" unique_id=744850037]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -48.0
-offset_top = 41.0
-offset_right = 48.0
-offset_bottom = 64.0
-grow_horizontal = 2
-text = "Bullet Name"
-
-[node name="amount" type="Label" parent="firstBullet/ColorRect" unique_id=2084811460]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -5.0
-offset_top = 150.0
-offset_right = 91.0
-offset_bottom = 173.0
-grow_horizontal = 2
-text = "amount"
-
-[node name="Sprite2D" type="Sprite2D" parent="firstBullet/ColorRect" unique_id=786034830]
-position = Vector2(122.5, 107)
-scale = Vector2(1.918, 2)
-texture = ExtResource("3_r6vd8")
-
-[node name="secondBullet" type="Control" parent="." unique_id=664850494]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect1" type="ColorRect" parent="secondBullet" unique_id=749858742]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.5
-offset_top = -196.0
-offset_right = 124.5
-offset_bottom = 196.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.3403393, 0.34033933, 0.3403393, 1)
-
-[node name="NinePatchRect2" type="NinePatchRect" parent="secondBullet/ColorRect1" unique_id=603850841]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.25
-offset_top = -195.5
-offset_right = 124.25
-offset_bottom = 195.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_mk6ka")
-region_rect = Rect2(2, 2, 28, 28)
-patch_margin_left = 1
-patch_margin_top = 1
-patch_margin_right = 1
-patch_margin_bottom = 1
-
-[node name="Label2" type="Label" parent="secondBullet/ColorRect1" unique_id=2055612777]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -48.0
-offset_top = 43.0
-offset_right = 48.0
-offset_bottom = 66.0
-grow_horizontal = 2
-text = "Bullet Name"
-
-[node name="amount2" type="Label" parent="secondBullet/ColorRect1" unique_id=1112365034]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -1.0
-offset_top = 147.0
-offset_right = 95.0
-offset_bottom = 170.0
-grow_horizontal = 2
-text = "amount"
-
-[node name="Sprite2D2" type="Sprite2D" parent="secondBullet/ColorRect1" unique_id=461529116]
-position = Vector2(126.5, 107)
-scale = Vector2(1.907, 2)
-texture = ExtResource("3_r6vd8")
-
-[node name="thirdBullet" type="Control" parent="." unique_id=352858603]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 287.0
-offset_top = -20.0
-offset_right = 326.99902
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect2" type="ColorRect" parent="thirdBullet" unique_id=2114215918]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.5
-offset_top = -196.0
-offset_right = 124.5
-offset_bottom = 196.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.3403393, 0.34033933, 0.3403393, 1)
-
-[node name="NinePatchRect3" type="NinePatchRect" parent="thirdBullet/ColorRect2" unique_id=1530116484]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.25
-offset_top = -195.5
-offset_right = 124.25
-offset_bottom = 195.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_mk6ka")
-region_rect = Rect2(2, 2, 28, 28)
-patch_margin_left = 1
-patch_margin_top = 1
-patch_margin_right = 1
-patch_margin_bottom = 1
-
-[node name="Label3" type="Label" parent="thirdBullet/ColorRect2" unique_id=1296166618]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -48.0
-offset_top = 39.0
-offset_right = 48.0
-offset_bottom = 62.0
-grow_horizontal = 2
-text = "Bullet Name"
-
-[node name="amount3" type="Label" parent="thirdBullet/ColorRect2" unique_id=1826423094]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -3.0
-offset_top = 150.0
-offset_right = 93.0
-offset_bottom = 173.0
-grow_horizontal = 2
-text = "amount"
-
-[node name="Sprite2D3" type="Sprite2D" parent="thirdBullet/ColorRect2" unique_id=1577352759]
-position = Vector2(123.5, 107)
-scale = Vector2(1.907, 2)
-texture = ExtResource("3_r6vd8")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=92098991]
 libraries/ = SubResource("AnimationLibrary_066cp")
 
-[connection signal="gui_input" from="firstBullet/ColorRect" to="." method="_on_color_rect_gui_input"]
-[connection signal="gui_input" from="secondBullet/ColorRect1" to="." method="_on_color_rect_1_gui_input"]
-[connection signal="gui_input" from="thirdBullet/ColorRect2" to="." method="_on_color_rect_2_gui_input"]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1260718550]
+custom_maximum_size = Vector2(562.88, 98.02)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -429.0
+offset_top = -187.0
+offset_right = 133.88
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 300
+columns = 3
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

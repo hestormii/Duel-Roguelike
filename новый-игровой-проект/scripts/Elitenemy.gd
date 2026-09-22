@@ -7,7 +7,6 @@ func _ready() -> void:
 	max_health = randi_range(125, 150)
 	super._ready()
 	current_health = max_health
-	name = stats.display_name
 
 
 
