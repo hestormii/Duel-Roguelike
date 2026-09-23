@@ -127,8 +127,8 @@ func chose_next_target() -> void:
 	poster.populate()
 	poster.bounty_chosen.connect(_on_bounty_chosen)
 
-func _on_bounty_chosen(bounty: BountyData, reward: int) -> void:
-	PosterInventory.add_poster(bounty, reward)
+func _on_bounty_chosen(bounty: BountyData, reward: int, self_name: String) -> void:
+	PosterInventory.add_poster(bounty, reward, self_name)
 
 
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int, extra_arg_0: int) -> void:

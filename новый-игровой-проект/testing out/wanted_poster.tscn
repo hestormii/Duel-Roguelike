@@ -1,29 +1,25 @@
 [gd_scene format=3 uid="uid://d1po75odcd7ad"]
 
 [ext_resource type="Texture2D" uid="uid://y77khb133a6a" path="res://assets/Poster.png" id="1_amp73"]
+[ext_resource type="Script" uid="uid://b7jpuixqfrt5r" path="res://testing out/wanted_poster.gd" id="1_fre8v"]
 [ext_resource type="FontFile" uid="uid://chlb6u2pvb2ag" path="res://assets/Qabaxel.ttf" id="2_fre8v"]
 
-[node name="WantedPoster" type="ColorRect" unique_id=460751861]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -113.5
-offset_top = -184.5
-offset_right = 113.5
-offset_bottom = 184.5
+[node name="wanted_poster" type="Control" unique_id=1493278092]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.50980395, 0.50980395, 0.50980395, 0)
+script = ExtResource("1_fre8v")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=737860699]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1713260415]
 layout_mode = 0
 offset_right = 226.5
 offset_bottom = 370.5
 texture = ExtResource("1_amp73")
 
-[node name="Name" type="Label" parent="." unique_id=197618846]
+[node name="Name" type="Label" parent="." unique_id=266629158]
 layout_mode = 0
 offset_left = 83.0
 offset_top = 118.5
@@ -32,7 +28,7 @@ offset_bottom = 141.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Name"
 
-[node name="reward" type="Label" parent="." unique_id=1473447125]
+[node name="reward" type="Label" parent="." unique_id=2132003880]
 layout_mode = 0
 offset_left = 83.0
 offset_top = 150.5
@@ -41,14 +37,23 @@ offset_bottom = 173.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "reward"
 
-[node name="Wanted" type="Label" parent="." unique_id=905132591]
+[node name="Wanted" type="Label" parent="." unique_id=1173151547]
 layout_mode = 0
-offset_left = 16.5
-offset_top = 48.5
-offset_right = 112.5
-offset_bottom = 71.5
+offset_left = 42.0
+offset_top = 41.000004
+offset_right = 138.0
+offset_bottom = 76.0
 scale = Vector2(1.975, 1.975)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_fre8v")
-text = "WANTED"
+text = "Want
+    You"
 uppercase = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1093408885]
+layout_mode = 0
+offset_right = 225.0
+offset_bottom = 370.0
+color = Color(1, 1, 1, 0)
+
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]

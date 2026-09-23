@@ -6,8 +6,6 @@ const CARD_SCENE := preload("res://scenes/bullet_card.tscn")
 @onready var grid: GridContainer = $GridContainer
 const CARD_COUNT := 3
 
-func _ready() -> void:
-	populate()
 
 func populate() -> void:
 	for child in grid.get_children():

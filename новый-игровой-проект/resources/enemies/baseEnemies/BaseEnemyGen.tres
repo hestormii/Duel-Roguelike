@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BountyData" format=3 uid="uid://l71sfnjf1yd6"]
+
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_b3rdd"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="2_5h7y8"]
+[ext_resource type="PackedScene" uid="uid://c1t2ogmhvxe23" path="res://scenes/enemy.tscn" id="2_idpq0"]
+[ext_resource type="Script" uid="uid://uid4knejs72t" path="res://resources/BountyData.gd" id="2_l0q3l"]
+
+[resource]
+script = ExtResource("2_l0q3l")
+id = &"BaseEnemy"
+possible_names = Array[String](["Genry", "Thomas", "German", "Daemon", "Billy"])
+enemy_scene = ExtResource("2_idpq0")
+bullets = Array[ExtResource("1_b3rdd")]([ExtResource("2_5h7y8")])
+bullet_amounts = Array[int]([6])
+reward_min = 10
+reward_max = 60
+metadata/_custom_type_script = "uid://uid4knejs72t"

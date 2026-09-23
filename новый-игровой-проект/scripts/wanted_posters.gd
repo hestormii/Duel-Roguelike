@@ -1,72 +1,33 @@
 extends Control
 
-signal bounty_chosen(bounty: BountyData,  reward: int)
+signal bounty_chosen(bounty: BountyData,  reward: int, self_name: String)
 
-@onready var poster_nodes: Array[Control] = [
-	$PosterOne,
-	$PosterTwo,
-	$PosterThree,
-]
+const POSTER_SCENE := preload("res://testing out/wanted_poster.tscn")
+@onready var grid: GridContainer = $GridContainer
+const CARD_COUNT := 3
+@export var base_enemy_gen: BountyData
 
-@onready var name_labels: Array[Label] = [
-	$PosterOne/ColorRect/Name,
-	$PosterTwo/ColorRect1/Name2,
-	$PosterThree/ColorRect2/Name3,
-]
-@onready var reward_labels: Array[Label] = [
-	$PosterOne/ColorRect/reward,
-	$PosterTwo/ColorRect1/reward1,
-	$PosterThree/ColorRect2/reward2,
-]
-
-var offered: Array[BountyData] = []
-var offered_rewards: Array[int] = []
 
 func _ready() -> void:
 	populate()
-	animation()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("exit"):
 		queue_free()
 
 func populate() -> void:
-	offered.clear()
-	offered_rewards.clear()
-	var pool := EnemyTypes.all_enemies.duplicate()
-	if pool.is_empty():
-		return
-	for i in name_labels.size():
-		var enemy: BountyData = pool[randi() % pool.size()]
-		var reward := randi_range(enemy.reward_min, enemy.reward_max)
-		name_labels[i].text = enemy.display_name
-		reward_labels[i].text = "$%d" % reward
-		offered.append(enemy)
-		offered_rewards.append(reward)
+	for child in grid.get_children():
+		child.queue_free()
+	var pool := base_enemy_gen.possible_names.duplicate()
+	for i in min(CARD_COUNT, pool.size()):
+		var name = base_enemy_gen.roll_display_name()
+		var reward = base_enemy_gen.roll_reward()
+		var poster = POSTER_SCENE.instantiate()
+		grid.add_child(poster)
+		poster.setup(name, "x%d" % reward, {"bounty": base_enemy_gen, "reward": reward, "bounty_name": name})
+		poster.chosen.connect(_on_bounty_poster_chosen)
 
 
-func _on_color_rect_gui_input(event: InputEvent) -> void:
-	_try_choose(event, 0)
-	
-
-func _on_color_rect_1_gui_input(event: InputEvent) -> void:
-	_try_choose(event, 1)
-
-func _on_color_rect_2_gui_input(event: InputEvent) -> void:
-	_try_choose(event, 2)
-
-func _try_choose(event: InputEvent, index: int) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		bounty_chosen.emit(offered[index], offered_rewards[index])
-		poster_nodes[index].hide()
-
-func animation():
-	var tween_one := create_tween().set_loops()
-	var tween_two := create_tween().set_loops()
-	var tween_three := create_tween().set_loops()
-	tween_one.tween_property(get_child(0), "rotation_degrees", 1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween_one.tween_property(get_child(0), "rotation_degrees", -1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween_two.tween_property(get_child(1), "rotation_degrees", 1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween_two.tween_property(get_child(1), "rotation_degrees", -1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween_three.tween_property(get_child(2), "rotation_degrees", 1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween_three.tween_property(get_child(2), "rotation_degrees", -1.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+func _on_bounty_poster_chosen(payload: Dictionary) -> void:
+	bounty_chosen.emit(payload["bounty"], payload["reward"], payload["bounty_name"])
+	print("smth")

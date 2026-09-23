@@ -54,5 +54,4 @@ offset_right = 239.0
 offset_bottom = 354.0
 color = Color(1, 1, 1, 0)
 
-[connection signal="gui_input" from="NinePatchRect" to="." method="_on_nine_patch_rect_gui_input"]
 [connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]

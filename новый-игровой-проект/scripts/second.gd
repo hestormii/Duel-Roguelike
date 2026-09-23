@@ -48,7 +48,7 @@ func refresh_posters() -> void:
 		if i < PosterInventory.held_posters.size():
 			var entry: Dictionary = PosterInventory.held_posters[i]
 			var bounty: BountyData = entry["bounty"]
-			poster_name_labels[i].text = bounty.display_name
+			poster_name_labels[i].text = entry["bounty_name"]
 			poster_reward_labels[i].text = "$%d" % entry["reward"]
 			poster_slots[i].show()
 		else:
