@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EliteBountyData" format=3 uid="uid://8rrgmm3yf1pv"]
+
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_7qnvy"]
+[ext_resource type="Script" uid="uid://d34d22pexgy2y" path="res://resources/EliteEnemyData.gd" id="2_od654"]
+[ext_resource type="Resource" uid="uid://bcxca3d37wpw2" path="res://resources/bullets/LowHpBullet.tres" id="2_shnil"]
+[ext_resource type="Resource" uid="uid://caq6b3p01jjyq" path="res://resources/bullets/poison_bullet.tres" id="3_b8lkj"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="4_x82wv"]
+[ext_resource type="PackedScene" uid="uid://k13kbcjlkl7u" path="res://scenes/elite_enemy.tscn" id="5_druqv"]
+
+[resource]
+script = ExtResource("2_od654")
+id = &"MoodEE"
+display_name = "Mood"
+enemy_scene = ExtResource("5_druqv")
+bullets = Array[ExtResource("1_7qnvy")]([ExtResource("2_shnil"), ExtResource("3_b8lkj"), ExtResource("4_x82wv")])
+bullet_amounts = Array[int]([2, 2, 2])
+reward_min = 50
+reward_max = 110
+metadata/_custom_type_script = "uid://d34d22pexgy2y"

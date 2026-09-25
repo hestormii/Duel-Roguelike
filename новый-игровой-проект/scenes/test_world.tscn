@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dr4bfj43gg80v" path="res://scenes/duel_manager.tscn" id="3_3263u"]
 [ext_resource type="PackedScene" uid="uid://dah8e3nrlf7ka" path="res://scenes/shop.tscn" id="4_ynswa"]
 [ext_resource type="PackedScene" uid="uid://cw8somcvblnfn" path="res://scenes/second.tscn" id="5_dvny0"]
+[ext_resource type="PackedScene" uid="uid://bm2s5b0k4bqkj" path="res://trenchbroom/models/lamp.tscn" id="6_dvny0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -75,23 +76,6 @@ spot_range = 557.152
 spot_attenuation = -0.65
 spot_angle = 57.3
 
-[node name="Lamp2" type="Node3D" parent="SomeBuildings" unique_id=165720133]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18.64549, 0, 0)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="SomeBuildings/Lamp2" unique_id=1237183088]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9833374, -3.0409822)
-size = Vector3(0.5097656, 6.2490234, 0.40454102)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="SomeBuildings/Lamp2" unique_id=60694632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9123535, -1.9835787)
-size = Vector3(0.5097656, 0.3909912, 2.5193481)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SomeBuildings/Lamp2" unique_id=785629843]
-transform = Transform3D(1, 0, 0, 0, 1.3907092e-07, 1, 0, -1, 1.3907092e-07, 0, 6.121722, -1.0693119)
-spot_range = 557.152
-spot_attenuation = -0.65
-spot_angle = 57.3
-
 [node name="Doors" type="Node3D" parent="SomeBuildings" unique_id=776166726]
 
 [node name="SecondDoor" type="Area3D" parent="SomeBuildings/Doors" unique_id=1292097483 groups=["SecondDoor"]]
@@ -123,3 +107,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.8
 
 [node name="Second" parent="." unique_id=385805783 instance=ExtResource("5_dvny0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15.726376)
+
+[node name="Lamp" parent="." unique_id=1953292648 instance=ExtResource("6_dvny0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18.910122, 0.029948235, -1.5079689)

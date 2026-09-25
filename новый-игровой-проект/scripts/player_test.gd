@@ -32,6 +32,7 @@ var look_rotation : Vector2
 @onready var shop: Node3D = $"../Shop"
 @onready var second: Node3D = $"../Second"
 @onready var actions_crystals: Label = $UI/Label
+@onready var statuses: GridContainer = $UI/Statuses
 
 enum View {
 	HEAD,
@@ -57,6 +58,7 @@ func _ready() -> void:
 	progress_bar.max_value = max_health
 	vision.enabled = false
 	looking_at.hide()
+	statuses.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if state == States.Free and event is InputEventMouseMotion:
@@ -185,6 +187,7 @@ func state_is_free(delta: float):
 	actions_crystals.hide()
 	progress_bar.hide()
 	looking_at.show()
+	statuses.hide()
 	var velocity = Vector3.ZERO
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	look_rotation.y = rotation.y
@@ -212,6 +215,7 @@ func state_is_shop():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func state_is_locked():
+	statuses.show()
 	actions_crystals.show()
 	progress_bar.show()
 	looking_at.hide()

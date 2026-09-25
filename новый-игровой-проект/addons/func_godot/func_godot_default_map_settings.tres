@@ -7,4 +7,5 @@
 
 [resource]
 script = ExtResource("1_dlf23")
+entity_node_groups = Array[String](["res://trenchbroom/models/"])
 base_texture_dir = "res://trenchbroom/texture/"

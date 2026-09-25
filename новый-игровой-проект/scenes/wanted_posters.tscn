@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cbmu63flpycxh"]
 
 [ext_resource type="Script" uid="uid://cha5jhevlwo2d" path="res://scripts/wanted_posters.gd" id="1_ue7vn"]
-[ext_resource type="Resource" uid="uid://l71sfnjf1yd6" path="res://resources/enemies/baseEnemies/BaseEnemyGen.tres" id="2_ccvxf"]
 
 [node name="WantedPosters" type="Control" unique_id=885765011]
 layout_mode = 3
@@ -11,7 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ue7vn")
-base_enemy_gen = ExtResource("2_ccvxf")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=157009307]
 layout_mode = 1

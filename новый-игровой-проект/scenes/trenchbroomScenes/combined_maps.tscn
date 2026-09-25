@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c8k1151vvvaft"]
+
+[ext_resource type="PackedScene" uid="uid://7hyi00cyoqs0" path="res://scenes/trenchbroomScenes/inner_street_1.tscn" id="1_r6ch6"]
+[ext_resource type="PackedScene" uid="uid://bweewe3u837iy" path="res://scenes/trenchbroomScenes/trenchbroom_test.tscn" id="2_7twlk"]
+[ext_resource type="PackedScene" uid="uid://bm2s5b0k4bqkj" path="res://trenchbroom/models/lamp.tscn" id="3_7twlk"]
+
+[node name="combinedMaps" type="Node3D" unique_id=1429133829]
+
+[node name="TrenchbroomTest" parent="." unique_id=2113371414 instance=ExtResource("2_7twlk")]
+
+[node name="inner street 1" parent="." unique_id=1286417850 instance=ExtResource("1_r6ch6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -41.406, 0.509, -57.038)
+
+[node name="lamps" type="Node3D" parent="." unique_id=1835964193]
+
+[node name="Lamp" parent="lamps" unique_id=1953292648 instance=ExtResource("3_7twlk")]
+transform = Transform3D(0.71999997, 0, 0, 0, 0.8962053, 0, 0, 0, 0.64000005, -10.360792, 1.0882142, 0)
+
+[node name="Lamp2" parent="lamps" unique_id=1494908368 instance=ExtResource("3_7twlk")]
+transform = Transform3D(0.71999997, 0, 0, 0, 0.8962053, 0, 0, 0, 0.64000005, -10.360792, 1.0882142, 14.91152)
+
+[node name="Lamp3" parent="lamps" unique_id=1988525881 instance=ExtResource("3_7twlk")]
+transform = Transform3D(0.71999997, 0, 0, 0, 0.8962053, 0, 0, 0, 0.64000005, -10.360792, 1.0882142, 27.606676)
+
+[node name="Lamp4" parent="lamps" unique_id=560392257 instance=ExtResource("3_7twlk")]
+transform = Transform3D(-0.71999997, 0, 4.4703484e-08, 0, 0.8962053, 0, -5.9604645e-08, 0, -0.64, 3.4923053, 1.0882142, 28.345467)
+
+[node name="Lamp5" parent="lamps" unique_id=820203164 instance=ExtResource("3_7twlk")]
+transform = Transform3D(-0.71999997, 0, 4.4703484e-08, 0, 0.8962053, 0, -5.9604645e-08, 0, -0.64, 3.4923067, 1.0882142, 13.433945)
+
+[node name="Lamp6" parent="lamps" unique_id=445835999 instance=ExtResource("3_7twlk")]
+transform = Transform3D(-0.71999997, 0, 4.4703484e-08, 0, 0.8962053, 0, -5.9604645e-08, 0, -0.64, 3.4923081, 1.0882142, 0.73878765)

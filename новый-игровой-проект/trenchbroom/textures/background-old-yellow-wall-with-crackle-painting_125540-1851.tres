@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cgwaupxakppgo"]
+
+[ext_resource type="Texture2D" uid="uid://cfgnywc70eaff" path="res://trenchbroom/textures/background-old-yellow-wall-with-crackle-painting_125540-1851.jpg" id="1_bjdvv"]
+
+[resource]
+albedo_texture = ExtResource("1_bjdvv")
+metallic_specular = 0.0
+texture_filter = 2

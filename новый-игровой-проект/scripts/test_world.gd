@@ -45,19 +45,16 @@ func _on_bullet_chosen(bullet: BulletData, amount: int) -> void:
 	AmmoInventory.add(bullet, amount)
 	player.change_DuelState_of_player()
 
-func _on_bounty_chosen(bounty: BountyData, reward: int) -> void:
-	if bounty.enemy_scene == null:
-		return
-	current_bounty = bounty
-	current_reward = reward
-	var enemy = bounty.enemy_scene.instantiate()
-	add_child(enemy)
-	enemy.global_position = enemy_pos.global_position
-	duel_manager.start_duel(player, enemy)
-	enemy.load_bullets(bounty.bullet, bounty.bullet_amount)
 
 func _on_duel_ended(winner: Duelist) -> void:
 	print("duel won by: ", winner.name)
 	if winner == player and current_bounty:
 		ItemInventory.add_money(current_reward)
+		if current_bounty is EliteBountyData:
+			for bullet in current_bounty.guranteed_bullet_reward:
+				if bullet not in BulletTypes.all_bullets:
+					BulletTypes.all_bullets.append(bullet)
+					print("Unlocked new bullet type: ", bullet.display_name)
 		chose_the_bullet()
+	elif winner == current_bounty:
+		get_tree().quit()

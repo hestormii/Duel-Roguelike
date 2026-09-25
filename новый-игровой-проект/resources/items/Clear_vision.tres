@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c1s2n1xsdu04t"]
+
+[ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_85ca4"]
+[ext_resource type="Script" uid="uid://ms1qw56jxksf" path="res://resources/ItemData.gd" id="2_djdn3"]
+
+[resource]
+script = ExtResource("2_djdn3")
+id = &"ClearVisionItem"
+display_name = "Clear Vision"
+rarity = 1
+price_min = 25
+price_max = 50
+item_type = &"passive"
+accuracy_bonus = 0.5
+metadata/_custom_type_script = "uid://ms1qw56jxksf"

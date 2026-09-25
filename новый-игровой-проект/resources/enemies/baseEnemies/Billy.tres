@@ -15,5 +15,4 @@ bullets = Array[ExtResource("1_gtixo")]([ExtResource("2_qy318"), ExtResource("1_
 bullet_amounts = Array[int]([2, 4])
 reward_min = 10
 reward_max = 50
-type_enemy = "Base"
 metadata/_custom_type_script = "uid://uid4knejs72t"

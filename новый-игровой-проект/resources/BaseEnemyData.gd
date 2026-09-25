@@ -9,3 +9,4 @@ class_name BaseEnemyData extends Resource
 @export var bullet_amounts: Array[int] = []
 @export var reward_min: int = 0
 @export var reward_max: int = 0
+@export var max_chambers: int = 6

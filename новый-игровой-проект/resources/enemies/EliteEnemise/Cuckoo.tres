@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EliteBountyData" format=3 uid="uid://cotit8ef42t0d"]
+
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_pg642"]
+[ext_resource type="Resource" uid="uid://d3apo88vxx8vo" path="res://resources/bullets/CopyAdjacentBullet.tres" id="2_4dqy1"]
+[ext_resource type="Script" uid="uid://d34d22pexgy2y" path="res://resources/EliteEnemyData.gd" id="2_k2gfy"]
+[ext_resource type="Resource" uid="uid://cp3whlrk6g4xm" path="res://resources/bullets/fullHPdamageBullet.tres" id="3_4yo0c"]
+[ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="4_72qqf"]
+[ext_resource type="Resource" uid="uid://bcxca3d37wpw2" path="res://resources/bullets/LowHpBullet.tres" id="5_lfycy"]
+[ext_resource type="PackedScene" uid="uid://k13kbcjlkl7u" path="res://scenes/elite_enemy.tscn" id="6_t7ain"]
+
+[resource]
+script = ExtResource("2_k2gfy")
+guranteed_bullet_reward = Array[ExtResource("1_pg642")]([ExtResource("2_4dqy1")])
+id = &"CuckooEE"
+display_name = "Cuckoo"
+enemy_scene = ExtResource("6_t7ain")
+bullets = Array[ExtResource("1_pg642")]([ExtResource("2_4dqy1"), ExtResource("3_4yo0c"), ExtResource("4_72qqf"), ExtResource("5_lfycy")])
+bullet_amounts = Array[int]([3, 1, 1, 1])
+reward_min = 60
+reward_max = 120
+metadata/_custom_type_script = "uid://d34d22pexgy2y"

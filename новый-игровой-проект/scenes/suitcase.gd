@@ -1,10 +1,7 @@
 extends Node3D
 
-
-@onready var bullets: Node3D = $Bullets
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var label_3d: Label3D = $Bullets/Label3D
-@onready var BulletInventory: Array[Label3D] = [
+@onready var bullet_labels: Array[Label3D] = [
 	$Bullets/Label3D,
 	$Bullets/Label3D2,
 	$Bullets/Label3D3,
@@ -12,19 +9,22 @@ extends Node3D
 	$Bullets/Label3D5
 ]
 
-
-
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func open() -> void:
 	animation_player.play("upper caseAction")
+	update_bullet_display()
+
+func update_bullet_display() -> void:
 	if AmmoInventory.stock.is_empty():
-		print("suitcase is empty")
+		bullet_labels[0].text = "Empty"
+		for i in range(1, bullet_labels.size()):
+			bullet_labels[i].text = ""
 		return
+	var index := 0
 	for bullet in AmmoInventory.stock:
-		print(bullet.display_name, " x", AmmoInventory.stock[bullet])
+		if index >= bullet_labels.size():
+			break
+		var count: int = AmmoInventory.stock[bullet]
+		bullet_labels[index].text = "%s x%d" % [bullet.display_name, count]
+		index += 1
+	for i in range(index, bullet_labels.size()):
+		bullet_labels[i].text = ""

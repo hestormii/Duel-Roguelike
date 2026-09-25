@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://t0xfm1rxmjqp"]
+
+[ext_resource type="Texture2D" uid="uid://evhrddmhswsg" path="res://trenchbroom/textures/surface-grunge-rough-asphalt-tarmac-grey-grainy-road-driveway-texture-background-top-view-surface-grunge-rough-asphalt-194404068.jpg" id="1_eht14"]
+
+[resource]
+albedo_texture = ExtResource("1_eht14")
+metallic_specular = 0.0
+texture_filter = 2

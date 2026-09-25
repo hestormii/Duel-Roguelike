@@ -13,7 +13,7 @@ var enemy: Duelist
 var player_reacted: bool = false
 var enemy_reacted: bool = false
 
-const BODY_PART_ACCURACY := {"Head": 0.4, "Body": 1.0, "Hand": 0.55, "Self": 1.0}
+const BODY_PART_ACCURACY := {"Head": 0.3, "Body": 0.5, "Hand": 0.55, "Self": 1.0}
 const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5, "Self": 5.5}
 
 var active_effects: Array[Dictionary] = []
@@ -117,12 +117,24 @@ func _register_reaction(who: Duelist) -> void:
 	if player_reacted and enemy_reacted:
 		resolve_shots()
 
+
+func get_player_accuracy_bonus() -> float:
+	var bonus := 0.0
+	for item in ItemInventory.stock:
+		if item.item_type == "passive":
+			bonus += item.accuracy_bonus
+	return bonus
+
+
+
 func resolve_shots() -> void:
 	phase = Phase.RESOLUTION
 	_fire_queued_shots(player, enemy)
 	_fire_queued_shots(enemy, player)
 	if phase != Phase.AFTERMATH:
 		enter_resolution()
+
+
 
 func _fire_queued_shots(shooter: Duelist, target: Duelist) -> void:
 	for body_part in shooter.queued_shots:
@@ -133,6 +145,9 @@ func _fire_queued_shots(shooter: Duelist, target: Duelist) -> void:
 			print(shooter.name, " dry-fires — out of bullets")
 			continue
 		var chance: float = BODY_PART_ACCURACY.get(body_part, 0.5)
+		if shooter == player:
+			chance += get_player_accuracy_bonus()
+		chance = clamp(chance, 0.0, 1.0)
 		if randf() < chance:
 			var final_damage: float = bullet.damage * BODY_PART_DAMAGE.get(body_part, 1.0)
 			var recipient: Duelist = shooter if body_part == "Self" else target
@@ -171,4 +186,3 @@ func change_name_ofLabel():
 		$Phase.text = "Current Phase is Resolution"
 	elif phase == Phase.AFTERMATH:
 		$Phase.text = "Current Phase is Rest"
-		

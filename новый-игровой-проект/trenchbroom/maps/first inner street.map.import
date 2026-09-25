@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c6aqd6xq3ugy3"
+path="res://.godot/imported/first inner street.map-4ddcd1da413053c0a4933c255de07985.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/first inner street.map"
+dest_files=["res://.godot/imported/first inner street.map-4ddcd1da413053c0a4933c255de07985.tres"]
+
+[params]
+
