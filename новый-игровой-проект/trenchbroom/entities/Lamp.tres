@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" format=3 uid="uid://3wgbyk2pik3t"]
+
+[ext_resource type="Script" uid="uid://d1nwwgcrner8b" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class_display_descriptor.gd" id="1_uigty"]
+[ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="2_4ulsf"]
+[ext_resource type="PackedScene" uid="uid://budrog01d1lqb" path="res://lamp.tscn" id="2_h130e"]
+
+[resource]
+script = ExtResource("2_4ulsf")
+scene_file = ExtResource("2_h130e")
+classname = "Lamp"
+description = "Street Lamp for Streets"
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"

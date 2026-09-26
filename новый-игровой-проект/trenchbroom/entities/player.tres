@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" format=3 uid="uid://ol0fr3fvnf4g"]
+
+[ext_resource type="Script" uid="uid://d1nwwgcrner8b" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class_display_descriptor.gd" id="1_fun8v"]
+[ext_resource type="PackedScene" uid="uid://d1aj5bfrhj7ey" path="res://scenes/player_test.tscn" id="2_d334g"]
+[ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="2_nallm"]
+[ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="4_op7sw"]
+
+[resource]
+script = ExtResource("2_nallm")
+scene_file = ExtResource("2_d334g")
+script_class = ExtResource("4_op7sw")
+classname = "Player"
+description = "Basic Player"
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"

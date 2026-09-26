@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dr4bfj43gg80v" path="res://scenes/duel_manager.tscn" id="3_3263u"]
 [ext_resource type="PackedScene" uid="uid://dah8e3nrlf7ka" path="res://scenes/shop.tscn" id="4_ynswa"]
 [ext_resource type="PackedScene" uid="uid://cw8somcvblnfn" path="res://scenes/second.tscn" id="5_dvny0"]
-[ext_resource type="PackedScene" uid="uid://bm2s5b0k4bqkj" path="res://trenchbroom/models/lamp.tscn" id="6_dvny0"]
+[ext_resource type="PackedScene" uid="uid://budrog01d1lqb" path="res://lamp.tscn" id="6_dvny0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -61,6 +61,7 @@ collision_mask = 2
 size = Vector3(14.380615, 0.5083008, 17.966919)
 
 [node name="Lamp" type="Node3D" parent="SomeBuildings" unique_id=1693923046]
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SomeBuildings/Lamp" unique_id=1762093890]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9833374, -3.0409822)
@@ -108,5 +109,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.8
 [node name="Second" parent="." unique_id=385805783 instance=ExtResource("5_dvny0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15.726376)
 
-[node name="Lamp" parent="." unique_id=1953292648 instance=ExtResource("6_dvny0")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18.910122, 0.029948235, -1.5079689)
+[node name="Lamp" parent="." unique_id=1235091707 instance=ExtResource("6_dvny0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.60315, 0.24914408, -8.103763)
+
+[node name="Lamp2" parent="." unique_id=1207302996 instance=ExtResource("6_dvny0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.60315, 0.24914408, 7.248025)
+
+[node name="Lamp3" parent="." unique_id=657097635 instance=ExtResource("6_dvny0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20042038, 0.24914408, -3.314536)

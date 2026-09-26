@@ -1,5 +1,6 @@
 class_name CopyAdjacentEffect extends StatusEffect
 
+
 func apply(target: Duelist, shooter: Duelist) -> void:
 	if shooter.loaded_bullets.is_empty():
 		return

@@ -39,8 +39,8 @@ func pass_the_turn(amount: int):
 		if entry["effect"] is BleedEffect:
 			take_damage(entry["effect"].damage_per_tick)
 			entry["bleed_turns_left"] -= 1
-		if entry["bleed_turns_left"] <= 0:
-			active_effects.erase(entry)
+			if entry["bleed_turns_left"] <= 0:
+				active_effects.erase(entry)
 
 
 func queue_shot(body_part: StringName) -> bool:
@@ -67,11 +67,12 @@ func has_bullets() -> bool:
 
 func tick_effects() -> void:
 	for entry in active_effects.duplicate():
-		if entry["effect"] is PoisonEffect:
-			take_damage(entry["effect"].damage_per_tick)
-		if entry["effect"] is SleepEffect:
-			pass_the_turn(entry["effect"].amount)
-			print("Sleeping")
-		entry["turns_left"] -= 1
-		if entry["turns_left"] <= 0:
-			active_effects.erase(entry)
+		if entry["effect"] is not BleedEffect:
+			if entry["effect"] is PoisonEffect:
+				take_damage(entry["effect"].damage_per_tick)
+			if entry["effect"] is SleepEffect:
+				pass_the_turn(entry["effect"].amount)
+				print("Sleeping")
+			entry["turns_left"] -= 1
+			if entry["turns_left"] <= 0:
+				active_effects.erase(entry)

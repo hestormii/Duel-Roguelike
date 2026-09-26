@@ -235,7 +235,7 @@ func refresh_status_icons() -> void:
 	for entry in active_effects:
 		var icon_node = EFFECT_ICON_SCENE.instantiate()
 		statuses.add_child(icon_node)
-		icon_node.setup(entry["effect"].icon, str(entry["turns_left"]))
+		icon_node.setup(entry["effect"].icon, str(entry["turns_left"]), str(entry["potency"]))
 
 func state_is_shop():
 	looking_at.hide()

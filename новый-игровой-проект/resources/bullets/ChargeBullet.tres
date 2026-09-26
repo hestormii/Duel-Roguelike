@@ -13,8 +13,9 @@ region = Rect2(167, 41, 18, 17)
 
 [sub_resource type="Resource" id="Resource_v7uf4"]
 script = ExtResource("4_vwumq")
-damage_buff_by_potency_amount = 5.0
+damage_buff_by_potency_amount = 7.0
 potency = 3
+duration_turns = 4
 Effectdisplay_name = "Charge Effect"
 icon = ExtResource("3_fo4ir")
 is_negative_effect = false
@@ -30,7 +31,7 @@ icon = ExtResource("5_8u8ar")
 rarity = 2
 pickup_min = 3
 pickup_max = 6
-price_min = 5
+price_min = 20
 price_max = 35
 back_icon = SubResource("AtlasTexture_jihlm")
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

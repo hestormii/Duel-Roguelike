@@ -175,3 +175,13 @@
 ( 672 96 16 ) ( 672 96 17 ) ( 672 97 16 ) background-old-yellow-wall-with-crackle-painting_125540-1851 [ 6.123233995736766e-17 1 -1.4997597826618576e-32 -101.142944 ] [ -2.4492935982947064e-16 0 -1 16 ] 0 0.7 0.5
 }
 }
+// entity 1
+{
+"classname" "Lamp"
+"origin" "88 -328 40"
+}
+// entity 2
+{
+"classname" "Lamp"
+"origin" "520 -328 40"
+}

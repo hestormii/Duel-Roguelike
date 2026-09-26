@@ -2,9 +2,12 @@
 
 [ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_g3hwk"]
 [ext_resource type="Script" uid="uid://drlmgulwbjwqu" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_pfnqe"]
+[ext_resource type="Resource" uid="uid://3wgbyk2pik3t" path="res://trenchbroom/entities/Lamp.tres" id="2_pq1vc"]
+[ext_resource type="Resource" uid="uid://ol0fr3fvnf4g" path="res://trenchbroom/entities/player.tres" id="3_bf6vq"]
 
 [resource]
 script = ExtResource("1_pfnqe")
 fgd_name = "DDuel"
 base_fgd_files = Array[Resource]([ExtResource("1_g3hwk")])
+entity_definitions = Array[Resource]([ExtResource("2_pq1vc"), ExtResource("3_bf6vq")])
 metadata/_custom_type_script = "uid://drlmgulwbjwqu"

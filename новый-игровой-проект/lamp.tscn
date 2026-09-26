@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://budrog01d1lqb"]
+
+[ext_resource type="PackedScene" uid="uid://puvlvwvj345" path="res://assets/models/Lamp.blend" id="1_bekw5"]
+
+[node name="Lamp" unique_id=1235091707 instance=ExtResource("1_bekw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35339952, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="3" unique_id=22431428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+light_energy = 10.0
+light_indirect_energy = 1.025
+light_volumetric_fog_energy = 3.0
+light_size = 0.527
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = 0.5
+omni_shadow_mode = 0
