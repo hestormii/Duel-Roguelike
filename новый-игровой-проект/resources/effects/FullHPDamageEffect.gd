@@ -4,6 +4,6 @@ class_name FullHPDamageEffect extends StatusEffect
 @export var max_damage: float = 15.0
 
 func modify_damage(base_damage: float, shooter: Duelist, target: Duelist) -> float:
-	if target.current_health == target.max_health:
+	if (target.current_health == target.max_health) or (target.current_health >= target.max_health - 20):
 		return max_damage
 	return min_damage

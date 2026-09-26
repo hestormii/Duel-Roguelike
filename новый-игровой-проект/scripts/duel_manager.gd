@@ -13,8 +13,8 @@ var enemy: Duelist
 var player_reacted: bool = false
 var enemy_reacted: bool = false
 
-const BODY_PART_ACCURACY := {"Head": 0.3, "Body": 0.5, "Hand": 0.55, "Self": 1.0}
-const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5, "Self": 5.5}
+const BODY_PART_ACCURACY := {"Head": 0.3, "Body": 1.0, "Hand": 0.55, "Self": 1.0}
+const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5, "Self": 1.0}
 
 var active_effects: Array[Dictionary] = []
 
@@ -50,12 +50,13 @@ func enter_preparation() -> void:
 	if phase == Phase.AFTERMATH:
 		return
 	print("--- PREPARATION --- action crystals: ", player.action_crystall)
-	enemy.action_crystall = 0
+	for i in enemy.action_crystall:
+		enemy.pass_the_turn(1)
 
 func player_passed() -> void:
 	if phase != Phase.PREPARATION:
 		return
-	player.action_crystall -= 1
+	player.pass_the_turn(1)
 	check_preparation_done()
 
 func action_passed(who: Duelist):

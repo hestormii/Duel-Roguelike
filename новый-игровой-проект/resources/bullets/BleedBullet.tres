@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://dqu1jubuolbfd"]
+
+[ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_7ld41"]
+[ext_resource type="Texture2D" uid="uid://bt3yhl1hnt1ls" path="res://assets/BarrelSprites/bulletBackForBarrel.png" id="1_sq0fd"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="2_kynji"]
+[ext_resource type="Texture2D" uid="uid://bqjxttx206uub" path="res://assets/effectSprites/BleedEffect.png" id="3_7iw5d"]
+[ext_resource type="Script" uid="uid://bl8vd4ydjkhss" path="res://resources/effects/BleedEffect.gd" id="4_wn2uh"]
+[ext_resource type="Texture2D" uid="uid://iwgpkhbxws5s" path="res://assets/bulletSprites/BleedBullet.png" id="5_mjv27"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kynji"]
+atlas = ExtResource("1_sq0fd")
+region = Rect2(135, 41, 18, 17)
+
+[sub_resource type="Resource" id="Resource_7ld41"]
+script = ExtResource("4_wn2uh")
+damage_per_tick = 5.0
+duration_turns = 4
+Effectdisplay_name = "Bleed Effect"
+icon = ExtResource("3_7iw5d")
+metadata/_custom_type_script = "uid://bl8vd4ydjkhss"
+
+[resource]
+script = ExtResource("2_kynji")
+id = &"BleedBL"
+display_name = "Bleed Bullet"
+damage = 6
+effects = Array[ExtResource("1_7ld41")]([SubResource("Resource_7ld41")])
+icon = ExtResource("5_mjv27")
+rarity = 1
+pickup_min = 3
+pickup_max = 7
+price_min = 20
+price_max = 35
+back_icon = SubResource("AtlasTexture_kynji")
+metadata/_custom_type_script = "uid://by0bn2qng7ah5"

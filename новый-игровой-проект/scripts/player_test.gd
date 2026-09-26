@@ -74,6 +74,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotate_look(event.relative)
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("CheatMoney"):
+		ItemInventory.money += 100000
 	money.text = str(ItemInventory.money)
 	progress_bar.value = current_health
 	chage_view()

@@ -17,6 +17,6 @@ display_name = "Michael"
 enemy_scene = ExtResource("2_g3uju")
 bullets = Array[ExtResource("1_7flsf")]([ExtResource("2_f8qkg"), ExtResource("3_bk2qx"), ExtResource("1_3xcui"), ExtResource("2_aqbne")])
 bullet_amounts = Array[int]([1, 3, 2, 1])
-reward_min = 30
+reward_min = 60
 reward_max = 120
 metadata/_custom_type_script = "uid://d34d22pexgy2y"

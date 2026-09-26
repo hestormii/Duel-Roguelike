@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://dpbtbfbwwf2i6"]
+
+[ext_resource type="Texture2D" uid="uid://bt3yhl1hnt1ls" path="res://assets/BarrelSprites/bulletBackForBarrel.png" id="1_8sh8h"]
+[ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_yd63s"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="2_deulw"]
+[ext_resource type="Script" uid="uid://didqyk5veqyvv" path="res://resources/effects/BurstEffect.gd" id="3_3qfsq"]
+[ext_resource type="Texture2D" uid="uid://b22fvhv76wpls" path="res://assets/bulletSprites/EffectBurstBullet.png" id="4_jp4tc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deulw"]
+atlas = ExtResource("1_8sh8h")
+region = Rect2(167, 7, 18, 17)
+
+[sub_resource type="Resource" id="Resource_yd63s"]
+script = ExtResource("3_3qfsq")
+Effectdisplay_name = "Burst Effect"
+metadata/_custom_type_script = "uid://didqyk5veqyvv"
+
+[resource]
+script = ExtResource("2_deulw")
+id = &"BurstEffBL"
+display_name = "Burst Effect Bullet"
+effects = Array[ExtResource("1_yd63s")]([SubResource("Resource_yd63s")])
+icon = ExtResource("4_jp4tc")
+rarity = 2
+pickup_min = 3
+pickup_max = 5
+price_min = 10
+price_max = 50
+back_icon = SubResource("AtlasTexture_deulw")
+metadata/_custom_type_script = "uid://by0bn2qng7ah5"

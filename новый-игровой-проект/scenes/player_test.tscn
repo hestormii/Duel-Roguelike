@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d1aj5bfrhj7ey"]
 
 [ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="1_fdpfy"]
-[ext_resource type="Resource" uid="uid://caq6b3p01jjyq" path="res://resources/bullets/poison_bullet.tres" id="2_dxymg"]
 [ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="3_6p80c"]
 [ext_resource type="Texture2D" uid="uid://c7icnujdirac2" path="res://assets/head.png" id="4_2ue4q"]
 [ext_resource type="PackedScene" uid="uid://up01x5oe1ind" path="res://scenes/suitcase.tscn" id="4_8ut53"]
@@ -23,7 +22,7 @@
 
 [node name="PlayerTest" type="Node3D" unique_id=658327225]
 script = ExtResource("1_fdpfy")
-starting_bullet = ExtResource("2_dxymg")
+starting_bullet_count = 0
 _name = "Player"
 
 [node name="Head" type="Area3D" parent="." unique_id=1659543030 groups=["Head"]]

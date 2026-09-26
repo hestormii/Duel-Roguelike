@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://brk8xxjce1gca"]
+
+[ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_7eeev"]
+[ext_resource type="Texture2D" uid="uid://bt3yhl1hnt1ls" path="res://assets/BarrelSprites/bulletBackForBarrel.png" id="1_kuvnl"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="2_32esj"]
+[ext_resource type="Texture2D" uid="uid://dgpxx8720jx4l" path="res://assets/effectSprites/ChargeEffect.png" id="3_fo4ir"]
+[ext_resource type="Script" uid="uid://bnplnp1kh83nc" path="res://resources/effects/chargeEffect.gd" id="4_vwumq"]
+[ext_resource type="Texture2D" uid="uid://1h85ct24qd3q" path="res://assets/bulletSprites/ChargeBullet.png" id="5_8u8ar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jihlm"]
+atlas = ExtResource("1_kuvnl")
+region = Rect2(167, 41, 18, 17)
+
+[sub_resource type="Resource" id="Resource_v7uf4"]
+script = ExtResource("4_vwumq")
+damage_buff_by_potency_amount = 5.0
+potency = 3
+Effectdisplay_name = "Charge Effect"
+icon = ExtResource("3_fo4ir")
+is_negative_effect = false
+metadata/_custom_type_script = "uid://bnplnp1kh83nc"
+
+[resource]
+script = ExtResource("2_32esj")
+id = &"ChargeBL"
+display_name = "Charge Bullet"
+damage = 5
+effects = Array[ExtResource("1_7eeev")]([SubResource("Resource_v7uf4")])
+icon = ExtResource("5_8u8ar")
+rarity = 2
+pickup_min = 3
+pickup_max = 6
+price_min = 5
+price_max = 35
+back_icon = SubResource("AtlasTexture_jihlm")
+metadata/_custom_type_script = "uid://by0bn2qng7ah5"

@@ -12,7 +12,8 @@ region = Rect2(71, 41, 18, 17)
 
 [sub_resource type="Resource" id="Resource_ynswa"]
 script = ExtResource("2_7xopo")
-display_name = "Copy"
+Effectdisplay_name = "Copy Effect"
+is_negative_effect = false
 metadata/_custom_type_script = "uid://b1nuhmcugtcve"
 
 [resource]

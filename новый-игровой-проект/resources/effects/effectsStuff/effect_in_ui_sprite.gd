@@ -5,6 +5,6 @@ extends Control
 @onready var potency: Label = $potency
 @onready var duelist: Duelist
 
-func setup(icon: Texture2D, text: String) -> void:
+func setup(icon: Texture2D, count_text: String) -> void:
 	sprite.texture = icon
-	count.text = text
+	count.text = count_text

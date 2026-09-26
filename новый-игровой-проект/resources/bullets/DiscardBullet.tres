@@ -12,7 +12,8 @@ region = Rect2(103, 41, 18, 17)
 
 [sub_resource type="Resource" id="Resource_51nlk"]
 script = ExtResource("2_51nlk")
-display_name = "Discard Effect"
+Effectdisplay_name = "Discard Effect"
+is_negative_effect = false
 metadata/_custom_type_script = "uid://cryn7gp2s63xi"
 
 [resource]

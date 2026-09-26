@@ -14,7 +14,8 @@ region = Rect2(103, 7, 18, 17)
 script = ExtResource("2_mss1i")
 damage_mult = 2
 base_damame = 5
-display_name = "Low Hp, more damage"
+Effectdisplay_name = "More damage on low HP effect"
+is_negative_effect = false
 metadata/_custom_type_script = "uid://d1yeohedwjkwk"
 
 [resource]

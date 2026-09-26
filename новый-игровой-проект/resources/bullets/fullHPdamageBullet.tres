@@ -14,7 +14,8 @@ region = Rect2(71, 7, 18, 17)
 script = ExtResource("2_gkvkx")
 min_damage = 2.0
 max_damage = 20.0
-display_name = "Bonus damage on targets full HP"
+Effectdisplay_name = "More damage to full HP enemies effect"
+is_negative_effect = false
 metadata/_custom_type_script = "uid://vv1dgqghsib3"
 
 [resource]

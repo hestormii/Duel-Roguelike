@@ -13,7 +13,9 @@ region = Rect2(39, 7, 18, 17)
 [sub_resource type="Resource" id="Resource_ynswa"]
 script = ExtResource("2_r8fc4")
 heals_self = true
-amount = 20.0
+amount = 50.0
+Effectdisplay_name = "heal effect"
+is_negative_effect = false
 metadata/_custom_type_script = "uid://ra7sgrj72621"
 
 [resource]

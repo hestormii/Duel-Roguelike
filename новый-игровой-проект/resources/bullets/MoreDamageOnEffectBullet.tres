@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://b318qfbdq4we5"]
+
+[ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_fbvce"]
+[ext_resource type="Texture2D" uid="uid://bt3yhl1hnt1ls" path="res://assets/BarrelSprites/bulletBackForBarrel.png" id="1_op2g0"]
+[ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="2_iar2a"]
+[ext_resource type="Script" uid="uid://ctg0qcgyqk0vu" path="res://resources/effects/MoreDamageOnNStatusEffect.gd" id="3_ypd2r"]
+[ext_resource type="Texture2D" uid="uid://bgkyctl2fau01" path="res://assets/bulletSprites/MoreDamageOnNegativeEffectBullet.png" id="4_5m5ob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op2g0"]
+atlas = ExtResource("1_op2g0")
+region = Rect2(135, 7, 18, 17)
+
+[sub_resource type="Resource" id="Resource_yrrao"]
+script = ExtResource("3_ypd2r")
+extra_damage = 10.0
+Effectdisplay_name = "If has effect deal more damage"
+metadata/_custom_type_script = "uid://ctg0qcgyqk0vu"
+
+[resource]
+script = ExtResource("2_iar2a")
+id = &"MoreDamageEffectBL"
+display_name = "for effect deal more damage Bullet"
+damage = 5
+effects = Array[ExtResource("1_fbvce")]([SubResource("Resource_yrrao")])
+icon = ExtResource("4_5m5ob")
+rarity = 1
+pickup_min = 2
+pickup_max = 10
+price_min = 10
+price_max = 25
+back_icon = SubResource("AtlasTexture_op2g0")
+metadata/_custom_type_script = "uid://by0bn2qng7ah5"
