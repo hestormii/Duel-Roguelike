@@ -1,14 +1,21 @@
 [gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://caq6b3p01jjyq"]
 
+[ext_resource type="Texture2D" uid="uid://bt3yhl1hnt1ls" path="res://assets/BarrelSprites/bulletBackForBarrel.png" id="1_07vff"]
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_11spm"]
 [ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_dygwe"]
 [ext_resource type="Texture2D" uid="uid://dk8ij0sn6tdkk" path="res://assets/bulletSprites/PoisonBullet.png" id="1_g6cfy"]
 [ext_resource type="Script" uid="uid://cjrh5uj1i8edh" path="res://resources/effects/PoisonEffect.gd" id="2_ivns8"]
+[ext_resource type="Texture2D" uid="uid://plmv0jfrtdi7" path="res://assets/effectSprites/poisonEffect.png" id="3_oh4mv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwv8k"]
+atlas = ExtResource("1_07vff")
+region = Rect2(39, 41, 18, 17)
 
 [sub_resource type="Resource" id="Resource_c26uo"]
 script = ExtResource("2_ivns8")
 damage_per_tick = 5.0
 display_name = "poison"
+icon = ExtResource("3_oh4mv")
 metadata/_custom_type_script = "uid://cjrh5uj1i8edh"
 
 [resource]
@@ -23,4 +30,5 @@ pickup_min = 2
 pickup_max = 6
 price_min = 25
 price_max = 75
+back_icon = SubResource("AtlasTexture_mwv8k")
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

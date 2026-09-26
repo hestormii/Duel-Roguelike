@@ -1,12 +1,13 @@
 extends Duelist
 
+
+#не трогать переменные(радиактивно)
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var at_pistol: Marker3D = $Positions/at_pistol
 @onready var at_head: Marker3D = $Positions/at_head
 @onready var at_suitcase: Marker3D = $Positions/at_suitcase
 @onready var hand: Area3D = $hand
 @onready var revolver: Node3D = $hand/revolver
-
 @export var pitch_limit_deg: float = 12.0
 @export var yaw_limit_deg: float = 8.0
 @export var aim_sensitivity: float = 0.05
@@ -33,6 +34,13 @@ var look_rotation : Vector2
 @onready var second: Node3D = $"../Second"
 @onready var actions_crystals: Label = $UI/Label
 @onready var statuses: GridContainer = $UI/Statuses
+var bob_time := 0.0
+var bob_offset := 0.0
+@export var bob_frequency: float = 8.0
+@export var bob_amplitude: float = 0.04
+@onready var barrel_scene: Control = $UI/BarrelScene
+const EFFECT_ICON_SCENE := preload("res://resources/effects/effectsStuff/EffectInUiSprite.tscn")
+@onready var walking_sounds: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 enum View {
 	HEAD,
@@ -59,6 +67,7 @@ func _ready() -> void:
 	vision.enabled = false
 	looking_at.hide()
 	statuses.hide()
+	revolver.chambers_changed.connect(barrel_scene.refresh)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if state == States.Free and event is InputEventMouseMotion:
@@ -69,6 +78,7 @@ func _process(delta: float) -> void:
 	progress_bar.value = current_health
 	chage_view()
 	if state == States.Locked:
+		refresh_status_icons()
 		if Input.is_action_just_pressed("shoot_placeholder"):
 			duel_manager.player_react()
 		if duel_manager.phase == duel_manager.Phase.TARGETING:
@@ -135,6 +145,7 @@ func change_DuelState_of_player():
 		print("free")
 	elif state == States.Free:
 		state = States.Locked
+		revolver.chambers_changed.connect(barrel_scene.refresh)
 		print("locked")
 
 func enter_shop_state() -> void:
@@ -207,6 +218,22 @@ func state_is_free(delta: float):
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 		velocity.z = move_toward(velocity.z, 0, move_speed)
 	global_transform.origin += velocity * delta
+	_apply_camera_bob(delta, direction.length() > 0.1)
+
+func _apply_camera_bob(delta: float, is_moving: bool) -> void:
+	if is_moving:
+		bob_time += delta * bob_frequency
+	var target_offset := sin(bob_time) * bob_amplitude if is_moving else 0.0
+	bob_offset = lerp(bob_offset, target_offset, clamp(10.0 * delta, 0.0, 1.0))
+	camera_3d.position.y += bob_offset
+
+func refresh_status_icons() -> void:
+	for child in statuses.get_children():
+		child.queue_free()
+	for entry in active_effects:
+		var icon_node = EFFECT_ICON_SCENE.instantiate()
+		statuses.add_child(icon_node)
+		icon_node.setup(entry["effect"].icon, str(entry["turns_left"]))
 
 func state_is_shop():
 	looking_at.hide()
@@ -215,6 +242,8 @@ func state_is_shop():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func state_is_locked():
+	bob_time = 0.0
+	bob_offset = 0.0
 	statuses.show()
 	actions_crystals.show()
 	progress_bar.show()

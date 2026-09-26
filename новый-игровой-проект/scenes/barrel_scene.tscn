@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dafchsq6vb0uh"]
+
+[ext_resource type="Texture2D" uid="uid://dd3jptr1l18dj" path="res://assets/BarrelSprites/EmptySixBarrel.png" id="1_js785"]
+[ext_resource type="Script" uid="uid://b11m6vog080r8" path="res://scripts/barrel_scene.gd" id="1_sfghy"]
+
+[node name="BarrelScene" type="Control" unique_id=749218221]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+script = ExtResource("1_sfghy")
+
+[node name="Barrel" type="Sprite2D" parent="." unique_id=887163522]
+texture = ExtResource("1_js785")
+
+[node name="Chamber1" type="Sprite2D" parent="." unique_id=1870048822]
+position = Vector2(0, -22)
+
+[node name="Chamber2" type="Sprite2D" parent="." unique_id=1635872114]
+position = Vector2(-17, -8)
+
+[node name="Chamber3" type="Sprite2D" parent="." unique_id=916034217]
+position = Vector2(-17, 11)
+
+[node name="Chamber4" type="Sprite2D" parent="." unique_id=1421371012]
+position = Vector2(0, 22)
+
+[node name="Chamber5" type="Sprite2D" parent="." unique_id=524120880]
+position = Vector2(17, 11)
+
+[node name="Chamber6" type="Sprite2D" parent="." unique_id=630981550]
+position = Vector2(17, -8)

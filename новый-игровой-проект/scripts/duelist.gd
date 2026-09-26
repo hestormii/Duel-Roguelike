@@ -64,7 +64,6 @@ func tick_effects() -> void:
 			take_damage(entry["effect"].damage_per_tick)
 		if entry["effect"] is SleepEffect:
 			pass_the_turn(entry["effect"].amount)
-			print("Sleeping")
 		entry["turns_left"] -= 1
 		if entry["turns_left"] <= 0:
 			active_effects.erase(entry)

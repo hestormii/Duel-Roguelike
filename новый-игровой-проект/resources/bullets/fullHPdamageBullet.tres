@@ -3,7 +3,12 @@
 [ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_elxbb"]
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_ngyes"]
 [ext_resource type="Texture2D" uid="uid://dtq5fg2nt5ld3" path="res://assets/bulletSprites/MoredamagetofullHPBullet.png" id="1_py1vb"]
+[ext_resource type="Texture2D" uid="uid://bt3yhl1hnt1ls" path="res://assets/BarrelSprites/bulletBackForBarrel.png" id="1_rtfrb"]
 [ext_resource type="Script" uid="uid://vv1dgqghsib3" path="res://resources/effects/FullHPDamageEffect.gd" id="2_gkvkx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddl1o"]
+atlas = ExtResource("1_rtfrb")
+region = Rect2(71, 7, 18, 17)
 
 [sub_resource type="Resource" id="Resource_7gtu8"]
 script = ExtResource("2_gkvkx")
@@ -23,4 +28,5 @@ rarity = 2
 pickup_max = 4
 price_min = 25
 price_max = 100
+back_icon = SubResource("AtlasTexture_ddl1o")
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

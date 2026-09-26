@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ddybmfuad6w3w"]
 
+[ext_resource type="Script" uid="uid://77cittaee505" path="res://resources/effects/effectsStuff/effect_in_ui_sprite.gd" id="1_u7b6j"]
+
 [node name="Control" type="Control" unique_id=2072796019]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_u7b6j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1621806971]
 position = Vector2(40, 39)
@@ -17,3 +20,19 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
+
+[node name="count" type="Label" parent="." unique_id=1981802175]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 54.0
+offset_right = 100.0
+offset_bottom = 77.0
+text = "1"
+
+[node name="potency" type="Label" parent="." unique_id=1858457993]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 54.0
+offset_right = 43.0
+offset_bottom = 77.0
+text = "1"

@@ -2,13 +2,20 @@
 
 [ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_2dytb"]
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="1_j4lsm"]
+[ext_resource type="Texture2D" uid="uid://bt3yhl1hnt1ls" path="res://assets/BarrelSprites/bulletBackForBarrel.png" id="1_myefs"]
 [ext_resource type="Texture2D" uid="uid://b00lpajixkpyv" path="res://assets/bulletSprites/SleepBullet.png" id="1_srf28"]
 [ext_resource type="Script" uid="uid://cra8h1yothnc8" path="res://resources/effects/sleepEffect.gd" id="2_tjgp8"]
+[ext_resource type="Texture2D" uid="uid://3vfd8ku3o2d4" path="res://assets/effectSprites/sleepEffect.png" id="3_vke3b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ie0c"]
+atlas = ExtResource("1_myefs")
+region = Rect2(7, 41, 18, 17)
 
 [sub_resource type="Resource" id="Resource_dxymg"]
 script = ExtResource("2_tjgp8")
 amount = 1
 display_name = "Sleep Effect"
+icon = ExtResource("3_vke3b")
 metadata/_custom_type_script = "uid://cra8h1yothnc8"
 
 [resource]
@@ -23,4 +30,5 @@ pickup_min = 2
 pickup_max = 10
 price_min = 25
 price_max = 50
+back_icon = SubResource("AtlasTexture_7ie0c")
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"

@@ -1,9 +1,14 @@
 [gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://d3apo88vxx8vo"]
 
+[ext_resource type="Texture2D" uid="uid://bt3yhl1hnt1ls" path="res://assets/BarrelSprites/bulletBackForBarrel.png" id="1_7xopo"]
 [ext_resource type="Script" uid="uid://dexijra8prlf3" path="res://resources/StatusEffect.gd" id="1_nd66w"]
 [ext_resource type="Script" uid="uid://b1nuhmcugtcve" path="res://resources/effects/CopyAdjacent.gd" id="2_7xopo"]
 [ext_resource type="Script" uid="uid://by0bn2qng7ah5" path="res://resources/bullet_data.gd" id="2_05375"]
 [ext_resource type="Texture2D" uid="uid://cmjq4me11rq7s" path="res://assets/bulletSprites/CopyBullet.png" id="2_bjniy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8idi"]
+atlas = ExtResource("1_7xopo")
+region = Rect2(71, 41, 18, 17)
 
 [sub_resource type="Resource" id="Resource_ynswa"]
 script = ExtResource("2_7xopo")
@@ -21,4 +26,5 @@ rarity = 2
 pickup_max = 3
 price_min = 50
 price_max = 75
+back_icon = SubResource("AtlasTexture_w8idi")
 metadata/_custom_type_script = "uid://by0bn2qng7ah5"
