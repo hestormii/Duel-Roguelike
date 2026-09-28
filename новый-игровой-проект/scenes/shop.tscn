@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b0wh5m56ooxan" path="res://scenes/shop.gd" id="1_lx5au"]
 [ext_resource type="Texture2D" uid="uid://dtq5fg2nt5ld3" path="res://assets/bulletSprites/MoredamagetofullHPBullet.png" id="2_xfvoa"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_032fp"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_2fc2m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfvoa"]
 
@@ -186,6 +188,11 @@ offset_right = 536.0
 offset_bottom = 414.0
 scale = Vector2(2.27, 2.27)
 text = "Reroll Shop for 10"
+
+[node name="FuncGodotMap" type="Node3D" parent="." unique_id=1942352520]
+script = ExtResource("3_032fp")
+map_settings = ExtResource("4_2fc2m")
+metadata/_custom_type_script = "uid://cwu5cf7a0awcd"
 
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Button2" to="." method="_on_button_2_pressed"]

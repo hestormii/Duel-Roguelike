@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_djdn3")
 id = &"ClearVisionItem"
-display_name = "Clear Vision"
+display_name = "Clear Monocle"
 rarity = 1
 price_min = 25
 price_max = 50

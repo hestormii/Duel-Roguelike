@@ -1,0 +1,40 @@
+// Game: DDuel
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+"_tb_mod" "trenchbroom"
+// brush 0
+{
+( -80 -64 -16 ) ( -80 -63 -16 ) ( -80 -64 -15 ) wall1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 270 0.2 0.4
+( -64 -64 -16 ) ( -64 -64 -15 ) ( -63 -64 -16 ) wall1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 0.2 0.4
+( -64 -64 -16 ) ( -63 -64 -16 ) ( -64 -63 -16 ) wall1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 0.2 0.4
+( 64 64 512 ) ( 64 65 512 ) ( 65 64 512 ) wall1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 90 0.2 0.4
+( 64 64 16 ) ( 65 64 16 ) ( 64 64 17 ) wall1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 0.2 0.4
+( 288 64 16 ) ( 288 64 17 ) ( 288 65 16 ) wall1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 180 0.2 0.4
+}
+}
+// entity 1
+{
+"classname" "Window"
+"origin" "8 -72 152"
+}
+// entity 2
+{
+"classname" "Window"
+"origin" "200 -72 152"
+}
+// entity 3
+{
+"classname" "Window"
+"origin" "200 -72 408"
+"angle" "0"
+}
+// entity 4
+{
+"classname" "Window"
+"origin" "8 -72 408"
+"angle" "0"
+}

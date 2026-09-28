@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="3_6p80c"]
 [ext_resource type="Texture2D" uid="uid://c7icnujdirac2" path="res://assets/head.png" id="4_2ue4q"]
 [ext_resource type="PackedScene" uid="uid://up01x5oe1ind" path="res://scenes/suitcase.tscn" id="4_8ut53"]
+[ext_resource type="Shader" uid="uid://blto8q877lcw3" path="res://shadera/gray_world2.gdshader" id="4_ged13"]
 [ext_resource type="Texture2D" uid="uid://bgwuon42g7icv" path="res://assets/body.png" id="5_4fwf8"]
 [ext_resource type="Texture2D" uid="uid://dx6gny72tanfv" path="res://assets/hand.png" id="6_dxymg"]
 [ext_resource type="PackedScene" uid="uid://dafchsq6vb0uh" path="res://scenes/barrel_scene.tscn" id="8_k3741"]
@@ -20,6 +21,18 @@
 [sub_resource type="SphereMesh" id="SphereMesh_yf5fn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_57qmd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yntvc"]
+shader = ExtResource("4_ged13")
+shader_parameter/pixel_size = 2.0000000475
+shader_parameter/contrast = 1.5770000511575
+shader_parameter/brightness = 0.20000003325000004
+shader_parameter/black_point = 0.086000004085
+shader_parameter/white_point = 1.0
+shader_parameter/grain_amount = 0.0750000035625
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yntvc"]
+size = Vector3(1, 2.6065674, 1.1845703)
 
 [node name="PlayerTest" type="Node3D" unique_id=658327225]
 script = ExtResource("1_fdpfy")
@@ -226,6 +239,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7787213, -0.08254099)
 target_position = Vector3(0, -2, 0)
 collision_mask = 3
 collide_with_areas = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=735614002]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=532867638]
+material = SubResource("ShaderMaterial_yntvc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Player" type="Area3D" parent="." unique_id=2027102411 groups=["Player"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=544767760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5871876, -0.092285156)
+shape = SubResource("BoxShape3D_yntvc")
 
 [connection signal="fired" from="hand/revolver" to="." method="_on_revolver_fired"]
 [connection signal="pressed" from="UI/BodyPartAim/head/Head" to="." method="_on_head_pressed"]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://8ng82ttvjavx"
+path="res://.godot/imported/shop.map-41f1d86a18f70b9b3356008e16f28126.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/shop.map"
+dest_files=["res://.godot/imported/shop.map-41f1d86a18f70b9b3356008e16f28126.tres"]
+
+[params]
+

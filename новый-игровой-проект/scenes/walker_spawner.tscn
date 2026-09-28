@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cwavlexouapi1"]
+
+[ext_resource type="Script" uid="uid://dydv6ojh1tg0q" path="res://scenes/walker_spawner.gd" id="1_0gaap"]
+[ext_resource type="PackedScene" uid="uid://hkoi2a6clwjl" path="res://scenes/walker.tscn" id="2_cobhi"]
+
+[node name="WalkerSpawner" type="Node3D" unique_id=972773475]
+script = ExtResource("1_0gaap")
+walker_scene = ExtResource("2_cobhi")
+
+[node name="One Point" type="Marker3D" parent="." unique_id=157485733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.206436, 0, 0)
+
+[node name="Other point" type="Marker3D" parent="." unique_id=556791469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.19718, 0, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=1236473214]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=124678148]

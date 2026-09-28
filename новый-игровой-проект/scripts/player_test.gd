@@ -41,6 +41,8 @@ var bob_offset := 0.0
 @onready var barrel_scene: Control = $UI/BarrelScene
 const EFFECT_ICON_SCENE := preload("res://resources/effects/effectsStuff/EffectInUiSprite.tscn")
 @onready var walking_sounds: AudioStreamPlayer3D = $AudioStreamPlayer3D
+var velocity = Vector3.ZERO
+
 
 enum View {
 	HEAD,
@@ -201,7 +203,6 @@ func state_is_free(delta: float):
 	progress_bar.hide()
 	looking_at.show()
 	statuses.hide()
-	var velocity = Vector3.ZERO
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	look_rotation.y = rotation.y
 	look_rotation.x = rotation.x
@@ -211,8 +212,11 @@ func state_is_free(delta: float):
 	camera_3d.global_position = head.global_position
 	var direction = Input.get_vector("left", "right", "up", "down")
 	var move_dir := (transform.basis * Vector3(direction.x, 0, direction.y)).normalized()
-	if looking_for_gravity.is_colliding() == false:
-		velocity.y = gravity * delta
+	if looking_for_gravity.is_colliding():
+		velocity.y = 0.0
+		global_transform.origin.y = looking_for_gravity.get_collision_point().y
+	else:
+		velocity.y += gravity * delta
 	if move_dir:
 		velocity.x = move_dir.x * move_speed
 		velocity.z = move_dir.z * move_speed
@@ -256,14 +260,13 @@ func state_is_locked():
 	camera_3d.global_position = at_head.global_position
 	rotation.y = PI / 2
 
-func rotate_look(rot_input : Vector2):
+func rotate_look(rot_input: Vector2):
 	look_rotation.x -= rot_input.y * look_speed
 	look_rotation.x = clamp(look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
 	look_rotation.y -= rot_input.x * look_speed
 	transform.basis = Basis()
 	rotate_y(look_rotation.y)
-	head.transform.basis = Basis()
-	head.rotate_x(look_rotation.x)
+	camera_3d.rotation.x = look_rotation.x
 
 
 func _on_self_pressed() -> void:

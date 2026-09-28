@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://hkoi2a6clwjl"]
+
+[ext_resource type="Script" uid="uid://uaxs2qbaqc56" path="res://scripts/walker.gd" id="1_ot8jl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yntvc"]
+distance_fade_mode = 3
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yntvc"]
+material = SubResource("StandardMaterial3D_yntvc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c26uo"]
+distance_fade_mode = 3
+
+[sub_resource type="SphereMesh" id="SphereMesh_yntvc"]
+material = SubResource("StandardMaterial3D_c26uo")
+
+[node name="Walker" type="Node3D" unique_id=2116803689]
+script = ExtResource("1_ot8jl")
+base_speed = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1553021190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_yntvc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=375512209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4152274, 0)
+mesh = SubResource("SphereMesh_yntvc")

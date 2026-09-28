@@ -40,7 +40,7 @@ var steps: int = 0
 var offered: Array[BulletData] = []
 var offered_amounts: Array[int] = []
 var offered_price: Array[int] = []
-
+var reroll_price: int = 10
 
 func _ready() -> void:
 	get_viewport().physics_object_picking = true
@@ -62,6 +62,7 @@ func _process(delta: float) -> void:
 		camera_3d.rotate_y(-PI/2)
 		steps = 0
 		ui.show()
+	button_3.text = "reroll shop for " + str(reroll_price)
 
 func change_to_shop():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -151,9 +152,10 @@ func _buy_bullet(index: int) -> void:
 
 
 func _on_button_3_pressed() -> void:
-	if ItemInventory.money > 10:
+	if ItemInventory.money > reroll_price:
 		populate()
+		reroll_price = reroll_price * 1.5
 		for i in bullet_sprites.size():
 			bullet_sprites[i].show()
-		ItemInventory.spend_money(10)
+		ItemInventory.spend_money(reroll_price)
 	else: print("Not enough money for reroll")

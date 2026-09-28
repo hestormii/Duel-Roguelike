@@ -9,6 +9,8 @@ var current_reward: int = 0
 @onready var shop: Node3D = $Shop
 @onready var second: Node3D = $Second
 @onready var player_pos: Marker3D = $PlayerPos
+@onready var trenchbroom_test: Node3D = $TrenchbroomTest
+@onready var inner_street_1: Node3D = $"inner street 1"
 
 func _ready() -> void:
 	duel_manager.duel_ended.connect(_on_duel_ended)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bydobwwxg11uo"]
+
+[ext_resource type="PackedScene" uid="uid://co6a6dneslocd" path="res://assets/models/window.blend" id="1_oya5r"]
+
+[node name="window" unique_id=13319691 instance=ExtResource("1_oya5r")]
+transform = Transform3D(1, 0, 0, 0, 0.509516, 0, 0, 0, 0.5227594, 0, 0, 0)
+
+[node name="Cube_001" parent="." index="1" unique_id=742720008]
+gi_lightmap_texel_scale = 0.055
+
+[node name="Cube_002" parent="." index="2" unique_id=1569108835]
+transparency = 0.2
+
+[node name="Cube_003" parent="." index="3" unique_id=342599027]
+transparency = 0.2

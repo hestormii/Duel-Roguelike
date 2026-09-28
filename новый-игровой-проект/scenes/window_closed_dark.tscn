@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://clb4tsx7ketup"]
+
+[ext_resource type="PackedScene" uid="uid://dg3kunonmsu1d" path="res://assets/models/window_closed_dark.blend" id="1_katkw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f05s6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13mc0"]
+albedo_color = Color(0.22745098, 0.22745098, 0.22745098, 0)
+
+[node name="window_closed_dark" unique_id=880704180 instance=ExtResource("1_katkw")]
+
+[node name="Cube_001" parent="." index="1" unique_id=1424223918]
+material_override = SubResource("StandardMaterial3D_f05s6")
+
+[node name="Cube_002" parent="." index="2" unique_id=1016361282]
+visible = false
+
+[node name="Cube_003" parent="." index="3" unique_id=1327644093]
+transform = Transform3D(0.06490636, 0, 0, 0, 2.618194, 0, 0, 0, 0.98680454, 1.2270921, 0, 1.0118775)
+visible = false
+material_override = SubResource("StandardMaterial3D_13mc0")
+
+[node name="Cube_005" parent="." index="5" unique_id=997343805]
+transform = Transform3D(0.063574634, 0, 0, 0, -2.7005265, 0, 0, 0, 1.0114783, 0.081330776, 0, 1.0006989)

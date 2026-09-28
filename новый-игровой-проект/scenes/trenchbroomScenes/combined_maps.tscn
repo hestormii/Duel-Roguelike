@@ -1,32 +1,67 @@
 [gd_scene format=3 uid="uid://c8k1151vvvaft"]
 
+[ext_resource type="Script" uid="uid://ba47u2sgyyobg" path="res://scripts/test_world.gd" id="1_7twlk"]
 [ext_resource type="PackedScene" uid="uid://7hyi00cyoqs0" path="res://scenes/trenchbroomScenes/inner_street_1.tscn" id="1_r6ch6"]
 [ext_resource type="PackedScene" uid="uid://bweewe3u837iy" path="res://scenes/trenchbroomScenes/trenchbroom_test.tscn" id="2_7twlk"]
-[ext_resource type="PackedScene" uid="uid://bm2s5b0k4bqkj" path="res://trenchbroom/models/lamp.tscn" id="3_7twlk"]
+[ext_resource type="PackedScene" uid="uid://d1aj5bfrhj7ey" path="res://scenes/player_test.tscn" id="4_aho66"]
+[ext_resource type="PackedScene" uid="uid://dah8e3nrlf7ka" path="res://scenes/shop.tscn" id="5_gcvn8"]
+[ext_resource type="PackedScene" uid="uid://cw8somcvblnfn" path="res://scenes/second.tscn" id="6_q1h8h"]
+[ext_resource type="PackedScene" uid="uid://dr4bfj43gg80v" path="res://scenes/duel_manager.tscn" id="7_q1h8h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spcb0"]
+size = Vector3(2.4335938, 3.496582, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_16y6t"]
+size = Vector3(2.3486328, 3.4910889, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_16y6t"]
+size = Vector3(2.1171875, 3.7319336, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c26uo"]
+size = Vector3(2.0273438, 3.663086, 0.7324219)
 
 [node name="combinedMaps" type="Node3D" unique_id=1429133829]
+script = ExtResource("1_7twlk")
 
 [node name="TrenchbroomTest" parent="." unique_id=2113371414 instance=ExtResource("2_7twlk")]
 
 [node name="inner street 1" parent="." unique_id=1286417850 instance=ExtResource("1_r6ch6")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -41.406, 0.509, -57.038)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -48.242325, 0.509, -57.038)
 
-[node name="lamps" type="Node3D" parent="." unique_id=1835964193]
+[node name="PlayerPos" type="Marker3D" parent="." unique_id=1497042987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.792038, 13.995436, -0.41770172)
 
-[node name="Lamp" parent="lamps" unique_id=1953292648 instance=ExtResource("3_7twlk")]
-transform = Transform3D(0.71999997, 0, 0, 0, 0.8962053, 0, 0, 0, 0.64000005, -10.360792, 1.0882142, 0)
+[node name="EnemyPos" type="Marker3D" parent="." unique_id=1328531870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.389349, 13.936036, -0.45396614)
 
-[node name="Lamp2" parent="lamps" unique_id=1494908368 instance=ExtResource("3_7twlk")]
-transform = Transform3D(0.71999997, 0, 0, 0, 0.8962053, 0, 0, 0, 0.64000005, -10.360792, 1.0882142, 14.91152)
+[node name="PlayerTest" parent="." unique_id=658327225 instance=ExtResource("4_aho66")]
 
-[node name="Lamp3" parent="lamps" unique_id=1988525881 instance=ExtResource("3_7twlk")]
-transform = Transform3D(0.71999997, 0, 0, 0, 0.8962053, 0, 0, 0, 0.64000005, -10.360792, 1.0882142, 27.606676)
+[node name="Shop" parent="." unique_id=853290546 instance=ExtResource("5_gcvn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.523212, 8.7584915, 0)
 
-[node name="Lamp4" parent="lamps" unique_id=560392257 instance=ExtResource("3_7twlk")]
-transform = Transform3D(-0.71999997, 0, 4.4703484e-08, 0, 0.8962053, 0, -5.9604645e-08, 0, -0.64, 3.4923053, 1.0882142, 28.345467)
+[node name="Second" parent="." unique_id=385805783 instance=ExtResource("6_q1h8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.231499, 7.1558743, -22.54604)
 
-[node name="Lamp5" parent="lamps" unique_id=820203164 instance=ExtResource("3_7twlk")]
-transform = Transform3D(-0.71999997, 0, 4.4703484e-08, 0, 0.8962053, 0, -5.9604645e-08, 0, -0.64, 3.4923067, 1.0882142, 13.433945)
+[node name="DuelManager" parent="." unique_id=78510389 instance=ExtResource("7_q1h8h")]
 
-[node name="Lamp6" parent="lamps" unique_id=445835999 instance=ExtResource("3_7twlk")]
-transform = Transform3D(-0.71999997, 0, 4.4703484e-08, 0, 0.8962053, 0, -5.9604645e-08, 0, -0.64, 3.4923081, 1.0882142, 0.73878765)
+[node name="SecondDoor" type="Area3D" parent="." unique_id=1247407067 groups=["SecondDoor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.38485, 1.8186288, 19.249872)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecondDoor" unique_id=2073442663 groups=["SecondDoor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.248291, 0)
+shape = SubResource("BoxShape3D_spcb0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SecondDoor" unique_id=1512451923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2455444, 0)
+mesh = SubResource("BoxMesh_16y6t")
+
+[node name="ShopDoor" type="Area3D" parent="." unique_id=1086472569 groups=["ShopDoor"]]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -38.980686, 1.3400235, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopDoor" unique_id=1685550645 groups=["ShopDoor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3659668, 0)
+shape = SubResource("BoxShape3D_16y6t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShopDoor" unique_id=590270092 groups=["ShopDoor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.331543, 0)
+mesh = SubResource("BoxMesh_c26uo")
