@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ca1c11wpca75f"]
+
+[ext_resource type="PackedScene" uid="uid://ck24kiln2o4kw" path="res://assets/models/balcony_lightsOn.blend" id="1_n2ytq"]
+
+[node name="balcony_lightsOn" unique_id=647052812 instance=ExtResource("1_n2ytq")]
+transform = Transform3D(0.672673, 0, 0, 0, 0.7379887, 0, 0, 0, 0.66676337, 0, 0, 0)

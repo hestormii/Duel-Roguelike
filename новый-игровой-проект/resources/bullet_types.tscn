@@ -11,9 +11,8 @@
 [ext_resource type="Resource" uid="uid://clugoelcic53c" path="res://resources/bullets/DiscardBullet.tres" id="10_212t6"]
 [ext_resource type="Resource" uid="uid://dqu1jubuolbfd" path="res://resources/bullets/BleedBullet.tres" id="10_h4l7o"]
 [ext_resource type="Resource" uid="uid://brk8xxjce1gca" path="res://resources/bullets/ChargeBullet.tres" id="11_5kpsu"]
-[ext_resource type="Resource" uid="uid://dpbtbfbwwf2i6" path="res://resources/bullets/BurstEffectsBullet.tres" id="12_vj6s6"]
 [ext_resource type="Resource" uid="uid://b318qfbdq4we5" path="res://resources/bullets/MoreDamageOnEffectBullet.tres" id="13_5kpsu"]
 
 [node name="BulletTypes" type="Node" unique_id=123773344]
 script = ExtResource("1_cc0dv")
-all_bullets = Array[ExtResource("2_b3ekt")]([ExtResource("3_etcun"), ExtResource("4_b3ekt"), ExtResource("4_etcun"), ExtResource("5_b3ekt"), ExtResource("6_2c7d3"), ExtResource("8_2c7d3"), ExtResource("10_212t6"), ExtResource("10_h4l7o"), ExtResource("11_5kpsu"), ExtResource("12_vj6s6"), ExtResource("13_5kpsu")])
+all_bullets = Array[ExtResource("2_b3ekt")]([ExtResource("3_etcun"), ExtResource("4_b3ekt"), ExtResource("4_etcun"), ExtResource("5_b3ekt"), ExtResource("6_2c7d3"), ExtResource("8_2c7d3"), ExtResource("10_212t6"), ExtResource("10_h4l7o"), ExtResource("11_5kpsu"), ExtResource("13_5kpsu")])

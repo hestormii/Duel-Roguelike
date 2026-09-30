@@ -5,10 +5,13 @@
 [ext_resource type="Resource" uid="uid://3wgbyk2pik3t" path="res://trenchbroom/entities/Lamp.tres" id="2_pq1vc"]
 [ext_resource type="Resource" uid="uid://ol0fr3fvnf4g" path="res://trenchbroom/entities/player.tres" id="3_bf6vq"]
 [ext_resource type="Resource" uid="uid://yk4mx8lvbm1" path="res://trenchbroom/entities/window.tres" id="4_naep2"]
+[ext_resource type="Resource" uid="uid://saal1gtbyojr" path="res://trenchbroom/entities/balcony_lightsOn.tres" id="5_xvhnm"]
+[ext_resource type="Resource" uid="uid://cmmp2n6nl3gcd" path="res://trenchbroom/entities/corridor_lamp.tres" id="6_mcm57"]
+[ext_resource type="Resource" uid="uid://dew60elyq00pd" path="res://trenchbroom/entities/FormalDoor.tres" id="7_nggva"]
 
 [resource]
 script = ExtResource("1_pfnqe")
 fgd_name = "DDuel"
 base_fgd_files = Array[Resource]([ExtResource("1_g3hwk")])
-entity_definitions = Array[Resource]([ExtResource("2_pq1vc"), ExtResource("3_bf6vq"), ExtResource("4_naep2")])
+entity_definitions = Array[Resource]([ExtResource("6_mcm57"), ExtResource("2_pq1vc"), ExtResource("3_bf6vq"), ExtResource("4_naep2"), ExtResource("5_xvhnm"), ExtResource("7_nggva")])
 metadata/_custom_type_script = "uid://drlmgulwbjwqu"

@@ -29,9 +29,8 @@ var view = View.HEAD
 var look_rotation : Vector2
 @export var look_speed : float = 0.002
 @onready var looking_at: Label = $UI/looking_at
-@onready var looking_for_gravity: RayCast3D = $lookingForGravity
-@onready var shop: Node3D = $"../Shop"
-@onready var second: Node3D = $"../Second"
+@onready var shop: Node3D = $"../TrencbroomRooms and Just rooms/Shop"
+@onready var second: Node3D = $"../TrencbroomRooms and Just rooms/Second"
 @onready var actions_crystals: Label = $UI/Label
 @onready var statuses: GridContainer = $UI/Statuses
 var bob_time := 0.0
@@ -41,7 +40,12 @@ var bob_offset := 0.0
 @onready var barrel_scene: Control = $UI/BarrelScene
 const EFFECT_ICON_SCENE := preload("res://resources/effects/effectsStuff/EffectInUiSprite.tscn")
 @onready var walking_sounds: AudioStreamPlayer3D = $AudioStreamPlayer3D
-var velocity = Vector3.ZERO
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var flash_rect: ColorRect = $CanvasLayer2/flash_rect
+@onready var apartment_corridor: Node3D = $"../TrencbroomRooms and Just rooms/ApartmentCorridor"
+@onready var office_door_enter: Area3D = $"../Doors/office door/OfficeDoorEnter"
+@onready var exit_office_door: Area3D = $"../Doors/ExitOfficeDoor"
+
 
 
 enum View {
@@ -70,6 +74,8 @@ func _ready() -> void:
 	looking_at.hide()
 	statuses.hide()
 	revolver.chambers_changed.connect(barrel_scene.refresh)
+	barrel_scene.hide()
+	duel_manager.shot_fired.connect(_on_shot_fired)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if state == States.Free and event is InputEventMouseMotion:
@@ -99,30 +105,15 @@ func _process(delta: float) -> void:
 			$UI/Label.text = "Shot crystal aviable: " + str(shot_crystall)
 	if state == States.Free:
 		state_is_free(delta)
-		if vision.is_colliding():
-			var collider = vision.get_collider()
-			if collider.is_in_group("SecondDoor"):
-				looking_at.text = "Second"
-				looking_at.show()
-				if Input.is_action_just_pressed("Interact"):
-					enter_shop_state()
-					second.show()
-					second.change_to_second()
-					looking_at.hide()
-					state_is_shop()
-			elif collider.is_in_group("ShopDoor"):
-				looking_at.text = "Shop"
-				looking_at.show()
-				if Input.is_action_just_pressed("Interact"):
-					enter_shop_state()
-					shop.show()
-					shop.change_to_shop()
-					looking_at.hide()
-					state_is_shop()
-		else:
-			looking_at.hide()
+
 	if state == States.Shop:
 		state_is_shop()
+
+func _on_shot_fired(shooter: Duelist, hit: bool, dry_fire: bool) -> void:
+	if dry_fire:
+		return
+	audio_stream_player_3d.play()
+	flash_rect.flash()
 
 func chage_view():
 	if state == States.Locked:
@@ -212,19 +203,19 @@ func state_is_free(delta: float):
 	camera_3d.global_position = head.global_position
 	var direction = Input.get_vector("left", "right", "up", "down")
 	var move_dir := (transform.basis * Vector3(direction.x, 0, direction.y)).normalized()
-	if looking_for_gravity.is_colliding():
-		velocity.y = 0.0
-		global_transform.origin.y = looking_for_gravity.get_collision_point().y
-	else:
+	if not is_on_floor():
 		velocity.y += gravity * delta
+	else:
+		velocity.y = 0.0
 	if move_dir:
 		velocity.x = move_dir.x * move_speed
 		velocity.z = move_dir.z * move_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 		velocity.z = move_toward(velocity.z, 0, move_speed)
-	global_transform.origin += velocity * delta
+	move_and_slide()
 	_apply_camera_bob(delta, direction.length() > 0.1)
+	vision_doors_etc()
 
 func _apply_camera_bob(delta: float, is_moving: bool) -> void:
 	if is_moving:
@@ -248,6 +239,7 @@ func state_is_shop():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func state_is_locked():
+	barrel_scene.show()
 	bob_time = 0.0
 	bob_offset = 0.0
 	statuses.show()
@@ -271,3 +263,48 @@ func rotate_look(rot_input: Vector2):
 
 func _on_self_pressed() -> void:
 	duel_manager.player_queue_shot("Self")
+
+
+func _on_audio_stream_player_3d_finished() -> void:
+	audio_stream_player_3d.stop()
+
+func vision_doors_etc():
+	if vision.is_colliding():
+		var collider = vision.get_collider()
+		if collider.is_in_group("SecondDoor"):
+			looking_at.text = "Second"
+			looking_at.show()
+			if Input.is_action_just_pressed("Interact"):
+				enter_shop_state()
+				second.show()
+				second.change_to_second()
+				looking_at.hide()
+				state_is_shop()
+		elif collider.is_in_group("ShopDoor"):
+			looking_at.text = "Shop"
+			looking_at.show()
+			if Input.is_action_just_pressed("Interact"):
+				enter_shop_state()
+				shop.show()
+				shop.change_to_shop()
+				looking_at.hide()
+				state_is_shop()
+		elif collider.is_in_group("CorridorDoor"):
+			looking_at.text = "Corridor"
+			looking_at.show()
+			if Input.is_action_just_pressed("Interact"):
+				apartment_corridor.go_to_corridor()
+		elif collider.is_in_group("OfficeDoor"):
+			looking_at.text = "Office"
+			looking_at.show()
+			if Input.is_action_just_pressed("Interact"):
+				current_health = max_health
+				office_door_enter.go_to_office()
+		elif collider.is_in_group("ExitOfficeDoor"):
+			looking_at.text = "Exit"
+			looking_at.show()
+			if Input.is_action_just_pressed("Interact"):
+				current_health = max_health
+				exit_office_door.leave_office()
+	else:
+		looking_at.hide()

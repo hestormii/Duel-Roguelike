@@ -6,9 +6,11 @@
 [ext_resource type="Resource" uid="uid://caq6b3p01jjyq" path="res://resources/bullets/poison_bullet.tres" id="3_b8lkj"]
 [ext_resource type="Resource" uid="uid://bh6uob1ylwm2x" path="res://resources/bullets/base_bullet.tres" id="4_x82wv"]
 [ext_resource type="PackedScene" uid="uid://k13kbcjlkl7u" path="res://scenes/elite_enemy.tscn" id="5_druqv"]
+[ext_resource type="Resource" uid="uid://dpbtbfbwwf2i6" path="res://resources/bullets/BurstEffectsBullet.tres" id="6_b8lkj"]
 
 [resource]
 script = ExtResource("2_od654")
+guranteed_bullet_reward = Array[ExtResource("1_7qnvy")]([ExtResource("6_b8lkj")])
 id = &"MoodEE"
 display_name = "Mood"
 enemy_scene = ExtResource("5_druqv")

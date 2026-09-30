@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" format=3 uid="uid://cmmp2n6nl3gcd"]
+
+[ext_resource type="Script" uid="uid://d1nwwgcrner8b" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class_display_descriptor.gd" id="1_f5nml"]
+[ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="2_0binf"]
+[ext_resource type="PackedScene" uid="uid://phim3hee47wr" path="res://scenes/corridor_lamp.tscn" id="2_153k5"]
+
+[resource]
+script = ExtResource("2_0binf")
+scene_file = ExtResource("2_153k5")
+classname = "CorridorLamp"
+description = "Lamp for corridors or closed spaces"
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"

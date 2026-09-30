@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bbm3ho748u5p7"]
+
+[ext_resource type="PackedScene" uid="uid://bfyiscciqg67h" path="res://assets/models/door.blend" id="1_jwp2f"]
+
+[node name="door2" unique_id=1171614162 instance=ExtResource("1_jwp2f")]
+transform = Transform3D(0.44636825, 0, 0, 0, 0.42310423, 0, 0, 0, 0.4230884, 0, 0, 0)

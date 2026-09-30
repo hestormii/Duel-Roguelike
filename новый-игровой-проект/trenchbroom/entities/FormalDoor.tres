@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" format=3 uid="uid://dew60elyq00pd"]
+
+[ext_resource type="Script" uid="uid://d1nwwgcrner8b" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class_display_descriptor.gd" id="1_ewb5a"]
+[ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="2_e352e"]
+[ext_resource type="PackedScene" uid="uid://bbm3ho748u5p7" path="res://scenes/door_2.tscn" id="2_vawgc"]
+
+[resource]
+script = ExtResource("2_e352e")
+scene_file = ExtResource("2_vawgc")
+classname = "FormalDoor"
+description = "Formal door, can be used for apartments as example"
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"

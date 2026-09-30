@@ -4,7 +4,7 @@ const WANTED_POSTERS = preload("res://scenes/wanted_posters.tscn")
 @onready var ui: Control = $UI
 @onready var camera_3d: Camera3D = $Camera3D
 var active: bool = false
-@onready var player_test: Duelist = $"../PlayerTest"
+@onready var player_test: Duelist = $"../../PlayerTest"
 var steps: int = 0
 @onready var shelves_pos: Marker3D = $shelves/ShelvesPos
 @onready var original_pos: Marker3D = $Room/Original_pos
@@ -69,7 +69,8 @@ func change_to_shop():
 	camera_3d.current = true
 	active = true
 	ui.show()
-	populate()
+	#populate()
+
 
 func exit_shop():
 	player_test.exit_shop_state()
@@ -114,6 +115,7 @@ func _on_button_2_pressed() -> void:
 	ui.hide()
 	bullets_on_display.show()
 	button_3.show()
+
 
 
 func _on_button_pressed() -> void:

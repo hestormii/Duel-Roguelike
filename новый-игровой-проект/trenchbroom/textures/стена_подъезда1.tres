@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://tkcam02ppugg"]
+
+[ext_resource type="Texture2D" uid="uid://btyw3ljri4qlj" path="res://trenchbroom/textures/стена_подъезда1.jpg" id="1_jq18m"]
+
+[resource]
+albedo_texture = ExtResource("1_jq18m")
+metallic_specular = 0.0
+texture_filter = 2

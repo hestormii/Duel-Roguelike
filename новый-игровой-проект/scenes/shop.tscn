@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b0wh5m56ooxan" path="res://scenes/shop.gd" id="1_lx5au"]
 [ext_resource type="Texture2D" uid="uid://dtq5fg2nt5ld3" path="res://assets/bulletSprites/MoredamagetofullHPBullet.png" id="2_xfvoa"]
-[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_032fp"]
-[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_2fc2m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfvoa"]
 
@@ -81,6 +79,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05367005, 1.7602732, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.23106, 1.7622259, -0.0357666)
 size = Vector3(0.8432617, 0.21289063, 4.1311035)
 
+[node name="CSGBox3D3" type="CSGBox3D" parent="shelves" unique_id=809293082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.23106, 0.6936723, -0.0357666)
+size = Vector3(0.8432617, 0.21289063, 4.1311035)
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="shelves" unique_id=753146039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7561682, 1.8462713, 3.3076382)
 size = Vector3(2.0324707, 1.2659912, 0.13244629)
@@ -90,18 +92,22 @@ material = SubResource("StandardMaterial3D_xfvoa")
 
 [node name="Sprite3D2" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=599351783]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0807364, 1.6118865)
+layers = 2
 texture = ExtResource("2_xfvoa")
 
 [node name="name" type="Label3D" parent="shelves/bulletsOnDisplay/Sprite3D2" unique_id=2044239138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34465075, 0)
+layers = 2
 text = "Name"
 
 [node name="price" type="Label3D" parent="shelves/bulletsOnDisplay/Sprite3D2" unique_id=796502306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30729365, 0.19335175)
+layers = 2
 text = "price"
 
 [node name="amount" type="Label3D" parent="shelves/bulletsOnDisplay/Sprite3D2" unique_id=2111529460]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009066582, 0.044025898)
+layers = 2
 text = "amount"
 
 [node name="Area3D" type="Area3D" parent="shelves/bulletsOnDisplay/Sprite3D2" unique_id=1000992987]
@@ -110,7 +116,7 @@ text = "amount"
 shape = SubResource("BoxShape3D_yntvc")
 
 [node name="Sprite3D3" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=2117252512]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0807364, 0.5600152)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0807364, -0.49460816)
 texture = ExtResource("2_xfvoa")
 
 [node name="name2" type="Label3D" parent="shelves/bulletsOnDisplay/Sprite3D3" unique_id=755773647]
@@ -132,7 +138,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005662441, 0, 0)
 shape = SubResource("BoxShape3D_yntvc")
 
 [node name="Sprite3D4" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=508304855]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0807364, -0.44442475)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 1.0589004, 1.7041303)
 texture = ExtResource("2_xfvoa")
 
 [node name="name3" type="Label3D" parent="shelves/bulletsOnDisplay/Sprite3D4" unique_id=1989856201]
@@ -154,7 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006447077, 0, 0)
 shape = SubResource("BoxShape3D_yntvc")
 
 [node name="Sprite3D5" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=378514098]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0807364, -1.6361828)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 1.0818977, -0.466384)
 texture = ExtResource("2_xfvoa")
 
 [node name="name4" type="Label3D" parent="shelves/bulletsOnDisplay/Sprite3D5" unique_id=1884504241]
@@ -183,16 +189,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7473676, 1.8767998, 2.2266
 
 [node name="Button3" type="Button" parent="." unique_id=1045926920]
 offset_left = 391.0
-offset_top = 383.0
+offset_top = 66.0
 offset_right = 536.0
-offset_bottom = 414.0
+offset_bottom = 97.0
 scale = Vector2(2.27, 2.27)
 text = "Reroll Shop for 10"
-
-[node name="FuncGodotMap" type="Node3D" parent="." unique_id=1942352520]
-script = ExtResource("3_032fp")
-map_settings = ExtResource("4_2fc2m")
-metadata/_custom_type_script = "uid://cwu5cf7a0awcd"
 
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Button2" to="." method="_on_button_2_pressed"]

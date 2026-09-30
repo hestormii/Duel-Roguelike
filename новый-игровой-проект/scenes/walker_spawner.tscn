@@ -8,7 +8,7 @@ script = ExtResource("1_0gaap")
 walker_scene = ExtResource("2_cobhi")
 
 [node name="One Point" type="Marker3D" parent="." unique_id=157485733]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.206436, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.758263, 0, 0)
 
 [node name="Other point" type="Marker3D" parent="." unique_id=556791469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.19718, 0, 0)

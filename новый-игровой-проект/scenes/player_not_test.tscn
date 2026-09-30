@@ -1,0 +1,292 @@
+[gd_scene format=3 uid="uid://bvma7m03gf726"]
+
+[ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="1_0vhy3"]
+[ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="1_qck17"]
+[ext_resource type="Texture2D" uid="uid://c7icnujdirac2" path="res://assets/head.png" id="2_0vhy3"]
+[ext_resource type="Resource" uid="uid://dk0bhgdu3rrw2" path="res://resources/bullets/admin_bullet.tres" id="2_pkdie"]
+[ext_resource type="Texture2D" uid="uid://bgwuon42g7icv" path="res://assets/body.png" id="3_pkdie"]
+[ext_resource type="Texture2D" uid="uid://dx6gny72tanfv" path="res://assets/hand.png" id="4_jggfy"]
+[ext_resource type="PackedScene" uid="uid://dafchsq6vb0uh" path="res://scenes/barrel_scene.tscn" id="5_i3pvc"]
+[ext_resource type="PackedScene" uid="uid://up01x5oe1ind" path="res://scenes/suitcase.tscn" id="6_hawuk"]
+[ext_resource type="Shader" uid="uid://blto8q877lcw3" path="res://shadera/gray_world2.gdshader" id="7_085lb"]
+[ext_resource type="AudioStream" uid="uid://cf3635j58lx6p" path="res://scenes/shooting-a-short-gun.mp3" id="8_occ2x"]
+[ext_resource type="Shader" uid="uid://qxywqjou004f" path="res://shadera/flash!.gdshader" id="9_u5yo7"]
+[ext_resource type="Script" uid="uid://dq5oo5gjr0jlb" path="res://scripts/color_rect.gd" id="10_gltp5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_j2554"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8wagd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cu7rv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_euxwc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e651f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_egiv6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yvjhy"]
+shader = ExtResource("7_085lb")
+shader_parameter/pixel_size = 2.0000000475
+shader_parameter/contrast = 1.5770000511575
+shader_parameter/brightness = 0.20000003325000004
+shader_parameter/black_point = 0.086000004085
+shader_parameter/white_point = 1.0
+shader_parameter/grain_amount = 0.0750000035625
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y5xxt"]
+size = Vector3(1, 2.6065674, 1.1845703)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mur5"]
+shader = ExtResource("9_u5yo7")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/intensity = 0.0
+shader_parameter/vignette_power = 4.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yntvc"]
+
+[node name="PlayerNotTest" type="CharacterBody3D" unique_id=273492646]
+script = ExtResource("1_0vhy3")
+starting_bullet = ExtResource("2_pkdie")
+
+[node name="Head" type="Area3D" parent="." unique_id=1171670283 groups=["Head"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4508152, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=218231137]
+mesh = SubResource("SphereMesh_j2554")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head" unique_id=1966311398]
+shape = SubResource("SphereShape3D_8wagd")
+
+[node name="Body" type="Area3D" parent="." unique_id=1281922017 groups=["Body"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=202031326]
+shape = SubResource("CapsuleShape3D_cu7rv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1546732692]
+mesh = SubResource("CapsuleMesh_euxwc")
+
+[node name="hand" type="Area3D" parent="." unique_id=2049773139]
+transform = Transform3D(0.6313177, 0, 0, 0, 0.6420988, 0, 0, 0, 0.6010872, -0.43521667, 1.5676534, -0.7558517)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hand" unique_id=1244972772]
+mesh = SubResource("SphereMesh_e651f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hand" unique_id=1565255189]
+shape = SubResource("SphereShape3D_egiv6")
+
+[node name="revolver" parent="hand" unique_id=1931098905 instance=ExtResource("1_qck17")]
+transform = Transform3D(0.2736207, 0, 0, 0, 0.24710345, 0, 0, 0, 0.35145175, 0, 0.7546401, 0.617134)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2082487427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -0.62500006)
+
+[node name="Positions" type="Node3D" parent="." unique_id=1897080092]
+
+[node name="at_pistol" type="Marker3D" parent="Positions" unique_id=1204629256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42054662, 1.845225, -0.7201292)
+
+[node name="at_head" type="Marker3D" parent="Positions" unique_id=559614747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9884398, 2.2363873, 0.6019726)
+
+[node name="at_suitcase" type="Marker3D" parent="Positions" unique_id=1700143612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0421546, 2.2873864, -0.7641217)
+
+[node name="head" type="Marker3D" parent="Positions" unique_id=395125593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.398758, -0.2757887)
+
+[node name="UI" type="Control" parent="." unique_id=1155574412]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI" unique_id=929244841]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 87.0
+offset_right = 99.0
+offset_bottom = 110.0
+
+[node name="looking_at" type="Label" parent="UI" unique_id=1792899877]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 312.0
+offset_right = 553.0
+offset_bottom = 335.0
+
+[node name="Money" type="Label" parent="UI" unique_id=616300716]
+layout_mode = 0
+offset_left = 638.0
+offset_top = 572.0
+offset_right = 678.0
+offset_bottom = 595.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="BodyPartAim" type="Control" parent="UI" unique_id=1605755380]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="UI/BodyPartAim" unique_id=716886452]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 70.0
+offset_right = 769.0
+offset_bottom = 474.0
+
+[node name="head" type="Sprite2D" parent="UI/BodyPartAim" unique_id=926116867]
+position = Vector2(540, 196)
+scale = Vector2(9.37, 9.37)
+texture = ExtResource("2_0vhy3")
+
+[node name="Head" type="Button" parent="UI/BodyPartAim/head" unique_id=336327863]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.711846
+offset_top = -11.419424
+offset_right = -9.711845
+offset_bottom = -11.419424
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.56, 0.56)
+flat = true
+
+[node name="Body" type="Sprite2D" parent="UI/BodyPartAim" unique_id=455783715]
+position = Vector2(538, 304)
+scale = Vector2(8.795, 8.795)
+texture = ExtResource("3_pkdie")
+
+[node name="body" type="Button" parent="UI/BodyPartAim/Body" unique_id=647978296]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.801592
+offset_top = -23.04946
+offset_right = 82.19841
+offset_bottom = 43.95054
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.18746534, 0.2976482)
+flat = true
+
+[node name="Hand" type="Sprite2D" parent="UI/BodyPartAim" unique_id=901979426]
+position = Vector2(688, 279)
+scale = Vector2(6.6, 6.6)
+texture = ExtResource("4_jggfy")
+
+[node name="hand" type="Button" parent="UI/BodyPartAim/Hand" unique_id=121994904]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.030298
+offset_top = -21.303032
+offset_right = 8.936728
+offset_bottom = 1.224453
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5515151, 0.5515151)
+flat = true
+
+[node name="Label" type="Label" parent="UI/BodyPartAim" unique_id=1935136134]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 426.99997
+offset_right = 519.0
+offset_bottom = 449.99997
+scale = Vector2(2.19, 2.19)
+text = "Choose bodypart to Shoot"
+
+[node name="Self" type="Button" parent="UI/BodyPartAim" unique_id=1063664321]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 105.0
+offset_right = 365.0
+offset_bottom = 136.0
+scale = Vector2(3, 3)
+text = "Self"
+
+[node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=1200996039]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 568.0
+offset_right = 609.0
+offset_bottom = 632.0
+
+[node name="Statuses" type="GridContainer" parent="UI" unique_id=1838526099]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 265.0
+offset_right = 67.0
+offset_bottom = 305.0
+theme_override_constants/h_separation = 100
+columns = 6
+
+[node name="BarrelScene" parent="UI" unique_id=749218221 instance=ExtResource("5_i3pvc")]
+layout_mode = 1
+offset_left = 342.0
+offset_top = 564.0
+offset_right = 342.0
+offset_bottom = 564.0
+
+[node name="suitcase" parent="." unique_id=511438795 instance=ExtResource("6_hawuk")]
+transform = Transform3D(-2.141858e-08, -0.49, 0, 0.49, -2.141858e-08, 0, 0, 0, 0.49, 2.3753257, 0.9436197, -0.7334814)
+
+[node name="Vision" type="RayCast3D" parent="." unique_id=1455625281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.423539, 0)
+target_position = Vector3(0, 0, -4.195)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="lookingForGravity" type="RayCast3D" parent="." unique_id=339990088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7787213, -0.08254099)
+target_position = Vector3(0, -2, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2061960587]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1428479491]
+material = SubResource("ShaderMaterial_yvjhy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Player" type="Area3D" parent="." unique_id=1339766793 groups=["Player"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=2063345479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5871876, -0.092285156)
+shape = SubResource("BoxShape3D_y5xxt")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=303393797]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1861504705]
+stream = ExtResource("8_occ2x")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=862055674]
+layer = 10
+
+[node name="flash_rect" type="ColorRect" parent="CanvasLayer2" unique_id=1520366935]
+material = SubResource("ShaderMaterial_4mur5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("10_gltp5")
+
+[node name="BodyCollision" type="CollisionShape3D" parent="." unique_id=463551809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_yntvc")

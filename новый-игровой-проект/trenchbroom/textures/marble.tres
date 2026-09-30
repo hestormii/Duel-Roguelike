@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://drutpyiu6745y"]
+
+[ext_resource type="Texture2D" uid="uid://cxnf0ws7qu0s8" path="res://trenchbroom/textures/marble.jpg" id="1_tr42m"]
+
+[resource]
+albedo_texture = ExtResource("1_tr42m")
+metallic_specular = 0.0
+texture_filter = 2

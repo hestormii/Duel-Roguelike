@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bdt7ak8o77b5g"
+path="res://.godot/imported/Player'sRoom.map-56bb021dbe178f57f1ce4f10788529a7.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/Player'sRoom.map"
+dest_files=["res://.godot/imported/Player'sRoom.map-56bb021dbe178f57f1ce4f10788529a7.tres"]
+
+[params]
+

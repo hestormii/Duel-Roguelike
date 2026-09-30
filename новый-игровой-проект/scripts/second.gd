@@ -3,7 +3,7 @@ extends Node3D
 @onready var ui: Control = $UI
 @onready var camera_3d: Camera3D = $Camera3D
 var active: bool = false
-@onready var player_test: Duelist = $"../PlayerTest"
+@onready var player_test: Duelist = $"../../PlayerTest"
 var steps: int = 0
 @onready var orig_pos: Marker3D = $orig_pos
 @onready var counter_pos: Marker3D = $counter_pos
@@ -22,7 +22,7 @@ var steps: int = 0
 	$PosterUI/PosterTwo/ColorRect/reward,
 	$PosterUI/PosterThree/ColorRect/reward
 ]
-@onready var test_world: Node3D = $".."
+@onready var test_world: Node3D = $"../.."
 @onready var poster_ui: Control = $PosterUI
 
 

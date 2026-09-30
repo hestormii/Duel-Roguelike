@@ -18,6 +18,9 @@ const BODY_PART_DAMAGE := {"Head": 5.0, "Body": 2.0, "Hand": 0.5, "Self": 1.0}
 
 var active_effects: Array[Dictionary] = []
 
+signal shot_fired(shooter: Duelist, hit: bool, dry_fire: bool)
+
+
 func _process(delta: float) -> void:
 	change_name_ofLabel()
 
@@ -97,8 +100,9 @@ func _on_secundant_timeout() -> void:
 	enemy_reaction.start(randf_range(0.2, 0.8))
 
 func _on_enemy_reaction_timeout() -> void:
-	_register_reaction(enemy)
-	print("enemy reacted")
+	if enemy:
+		_register_reaction(enemy)
+		print("enemy reacted")
 
 func player_react() -> void:
 	if phase != Phase.DUEL:
@@ -111,12 +115,14 @@ func _register_reaction(who: Duelist) -> void:
 		if player_reacted:
 			return
 		player_reacted = true
+		_fire_queued_shots(player, enemy)
 	else:
 		if enemy_reacted:
 			return
 		enemy_reacted = true
-	if player_reacted and enemy_reacted:
-		resolve_shots()
+		_fire_queued_shots(enemy, player)
+	if player_reacted and enemy_reacted and phase != Phase.AFTERMATH:
+		enter_resolution()
 
 
 func get_player_accuracy_bonus() -> float:
@@ -127,29 +133,20 @@ func get_player_accuracy_bonus() -> float:
 	return bonus
 
 
-
-func resolve_shots() -> void:
-	phase = Phase.RESOLUTION
-	_fire_queued_shots(player, enemy)
-	_fire_queued_shots(enemy, player)
-	if phase != Phase.AFTERMATH:
-		enter_resolution()
-
-
-
 func _fire_queued_shots(shooter: Duelist, target: Duelist) -> void:
 	for body_part in shooter.queued_shots:
 		if phase == Phase.AFTERMATH or not is_instance_valid(target):
 			return
 		var bullet: BulletData = shooter.pop_bullet()
 		if bullet == null:
-			print(shooter.name, " dry-fires — out of bullets")
+			shot_fired.emit(shooter, false, true)
 			continue
 		var chance: float = BODY_PART_ACCURACY.get(body_part, 0.5)
 		if shooter == player:
 			chance += get_player_accuracy_bonus()
 		chance = clamp(chance, 0.0, 1.0)
-		if randf() < chance:
+		var hit := randf() < chance
+		if hit:
 			var final_damage: float = bullet.damage * BODY_PART_DAMAGE.get(body_part, 1.0)
 			var recipient: Duelist = shooter if body_part == "Self" else target
 			for effect in bullet.effects:
@@ -157,9 +154,7 @@ func _fire_queued_shots(shooter: Duelist, target: Duelist) -> void:
 			recipient.take_damage(final_damage)
 			for effect in bullet.effects:
 				effect.apply(recipient, shooter)
-			print(shooter.name, " hits the ", body_part, " for ", final_damage)
-		else:
-			print(shooter.name, " misses the ", body_part)
+		shot_fired.emit(shooter, hit, false)
 
 func enter_resolution() -> void:
 	phase = Phase.RESOLUTION
@@ -187,3 +182,7 @@ func change_name_ofLabel():
 		$Phase.text = "Current Phase is Resolution"
 	elif phase == Phase.AFTERMATH:
 		$Phase.text = "Current Phase is Rest"
+
+
+func _on_audio_stream_player_3d_finished() -> void:
+	$AudioStreamPlayer3D.stop()

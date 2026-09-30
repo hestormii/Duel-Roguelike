@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" format=3 uid="uid://saal1gtbyojr"]
+
+[ext_resource type="Script" uid="uid://d1nwwgcrner8b" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class_display_descriptor.gd" id="1_y8ihf"]
+[ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="2_i7bh0"]
+[ext_resource type="PackedScene" uid="uid://ca1c11wpca75f" path="res://scenes/balcony_lights_on.tscn" id="2_vhwkd"]
+
+[resource]
+script = ExtResource("2_i7bh0")
+scene_file = ExtResource("2_vhwkd")
+classname = "Balcony"
+description = "Balcony with lights on"
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dr4bfj43gg80v"]
 
 [ext_resource type="Script" uid="uid://dpw12ucttab1y" path="res://scripts/duel_manager.gd" id="1_k7dtr"]
+[ext_resource type="AudioStream" uid="uid://cf3635j58lx6p" path="res://scenes/shooting-a-short-gun.mp3" id="2_ecopp"]
 
 [node name="DuelManager" type="Node" unique_id=78510389]
 script = ExtResource("1_k7dtr")
@@ -9,6 +10,7 @@ script = ExtResource("1_k7dtr")
 one_shot = true
 
 [node name="Phase" type="Label" parent="." unique_id=854246656]
+visible = false
 offset_left = 511.0
 offset_top = 75.0
 offset_right = 551.0
@@ -17,5 +19,10 @@ offset_bottom = 98.0
 [node name="EnemyReaction" type="Timer" parent="." unique_id=2036387852]
 one_shot = true
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1718716364]
+visible = false
+stream = ExtResource("2_ecopp")
+
 [connection signal="timeout" from="Secundant" to="." method="_on_secundant_timeout"]
 [connection signal="timeout" from="EnemyReaction" to="." method="_on_enemy_reaction_timeout"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

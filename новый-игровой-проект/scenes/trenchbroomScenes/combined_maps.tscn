@@ -4,9 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://7hyi00cyoqs0" path="res://scenes/trenchbroomScenes/inner_street_1.tscn" id="1_r6ch6"]
 [ext_resource type="PackedScene" uid="uid://bweewe3u837iy" path="res://scenes/trenchbroomScenes/trenchbroom_test.tscn" id="2_7twlk"]
 [ext_resource type="PackedScene" uid="uid://d1aj5bfrhj7ey" path="res://scenes/player_test.tscn" id="4_aho66"]
+[ext_resource type="Script" uid="uid://bs1b0gmr5246t" path="res://scripts/Miscelaneous scripts/OfficeDoorEnter.gd" id="5_fiv6r"]
 [ext_resource type="PackedScene" uid="uid://dah8e3nrlf7ka" path="res://scenes/shop.tscn" id="5_gcvn8"]
+[ext_resource type="Script" uid="uid://pm7y7o17nd5i" path="res://scripts/Miscelaneous scripts/exit_office_door.gd" id="6_l0kgb"]
 [ext_resource type="PackedScene" uid="uid://cw8somcvblnfn" path="res://scenes/second.tscn" id="6_q1h8h"]
 [ext_resource type="PackedScene" uid="uid://dr4bfj43gg80v" path="res://scenes/duel_manager.tscn" id="7_q1h8h"]
+[ext_resource type="PackedScene" uid="uid://b6d3m88nago27" path="res://scenes/trenchbroomScenes/apartment_corridor.tscn" id="8_wj785"]
+[ext_resource type="PackedScene" uid="uid://dse2tqiyhnbn5" path="res://scenes/trenchbroomScenes/player's_office.tscn" id="9_ealaq"]
+[ext_resource type="PackedScene" uid="uid://bbm3ho748u5p7" path="res://scenes/door_2.tscn" id="10_jvxs6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spcb0"]
 size = Vector3(2.4335938, 3.496582, 1)
@@ -20,48 +25,139 @@ size = Vector3(2.1171875, 3.7319336, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_c26uo"]
 size = Vector3(2.0273438, 3.663086, 0.7324219)
 
+[sub_resource type="GDScript" id="GDScript_wj785"]
+script/source = "extends Area3D
+
+@onready var apartment_pos: Marker3D = $\"../ApartmentCorridor/ApartmentPos\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c26uo"]
+size = Vector3(2.1728516, 4.1742554, 1.0332031)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kssdn"]
+size = Vector3(1, 9.746124, 5.017334)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yntvc"]
+size = Vector3(7.3134766, 5.602844, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cca2g"]
+size = Vector3(0.29882813, 4.0218506, 2.0697021)
+
 [node name="combinedMaps" type="Node3D" unique_id=1429133829]
 script = ExtResource("1_7twlk")
 
-[node name="TrenchbroomTest" parent="." unique_id=2113371414 instance=ExtResource("2_7twlk")]
-
-[node name="inner street 1" parent="." unique_id=1286417850 instance=ExtResource("1_r6ch6")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -48.242325, 0.509, -57.038)
-
 [node name="PlayerPos" type="Marker3D" parent="." unique_id=1497042987]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.792038, 13.995436, -0.41770172)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93258286, 0.6766937, -0.41770172)
 
 [node name="EnemyPos" type="Marker3D" parent="." unique_id=1328531870]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.389349, 13.936036, -0.45396614)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.335272, 0.6172941, -0.45396614)
 
 [node name="PlayerTest" parent="." unique_id=658327225 instance=ExtResource("4_aho66")]
 
-[node name="Shop" parent="." unique_id=853290546 instance=ExtResource("5_gcvn8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.523212, 8.7584915, 0)
-
-[node name="Second" parent="." unique_id=385805783 instance=ExtResource("6_q1h8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.231499, 7.1558743, -22.54604)
-
 [node name="DuelManager" parent="." unique_id=78510389 instance=ExtResource("7_q1h8h")]
 
-[node name="SecondDoor" type="Area3D" parent="." unique_id=1247407067 groups=["SecondDoor"]]
+[node name="ExitMarker" type="Marker3D" parent="." unique_id=1866010826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.257208, 1.1240437, -1.9133337)
+
+[node name="Doors" type="Node" parent="." unique_id=1665446315]
+
+[node name="SecondDoor" type="Area3D" parent="Doors" unique_id=1247407067 groups=["SecondDoor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.38485, 1.8186288, 19.249872)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecondDoor" unique_id=2073442663 groups=["SecondDoor"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/SecondDoor" unique_id=2073442663 groups=["SecondDoor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.248291, 0)
 shape = SubResource("BoxShape3D_spcb0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SecondDoor" unique_id=1512451923]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Doors/SecondDoor" unique_id=1512451923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2455444, 0)
 mesh = SubResource("BoxMesh_16y6t")
 
-[node name="ShopDoor" type="Area3D" parent="." unique_id=1086472569 groups=["ShopDoor"]]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -38.980686, 1.3400235, 0)
+[node name="ShopDoor" type="Area3D" parent="Doors" unique_id=1086472569 groups=["ShopDoor"]]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -42.55149, 1.3400235, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopDoor" unique_id=1685550645 groups=["ShopDoor"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/ShopDoor" unique_id=1685550645 groups=["ShopDoor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3659668, 0)
 shape = SubResource("BoxShape3D_16y6t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ShopDoor" unique_id=590270092 groups=["ShopDoor"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Doors/ShopDoor" unique_id=590270092 groups=["ShopDoor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.331543, 0)
 mesh = SubResource("BoxMesh_c26uo")
+
+[node name="CorridorDoor" type="Area3D" parent="Doors" unique_id=2083347662 groups=["CorridorDoor"]]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.537399, 1.4351418, -2.288055)
+script = SubResource("GDScript_wj785")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/CorridorDoor" unique_id=1977238614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36230516, 1.5871277, 0)
+shape = SubResource("BoxShape3D_c26uo")
+
+[node name="door2" parent="Doors/CorridorDoor" unique_id=140466790 instance=ExtResource("10_jvxs6")]
+transform = Transform3D(-1.9511376e-08, 0, 0.4230884, 0, 0.42310423, 0, -0.44636825, 0, -1.849378e-08, 0, 2.3766212, 0.123991966)
+
+[node name="office door" parent="Doors" unique_id=2064392171 groups=["OfficeDoor"] instance=ExtResource("10_jvxs6")]
+transform = Transform3D(0.44636825, 0, 0, 0, 0.42310423, 0, 0, 0, 0.4230884, 1.9748632, -7.4542403, 20.24831)
+
+[node name="OfficeDoorEnter" type="Area3D" parent="Doors/office door" unique_id=2082716982 groups=["OfficeDoor"]]
+script = ExtResource("5_fiv6r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/office door/OfficeDoorEnter" unique_id=1080350750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7362218, -0.75256395)
+shape = SubResource("BoxShape3D_kssdn")
+
+[node name="ExitFromCorridorArea" type="Area3D" parent="Doors" unique_id=967658966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.603576, -1.767968)
+collision_mask = 3
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/ExitFromCorridorArea" unique_id=1815725314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.301422, 0)
+shape = SubResource("BoxShape3D_yntvc")
+
+[node name="door2" parent="Doors/ExitFromCorridorArea" unique_id=1171614162 instance=ExtResource("10_jvxs6")]
+transform = Transform3D(-1.9511376e-08, 0, 0.4230884, 0, 0.42310423, 0, -0.44636825, 0, -1.849378e-08, 0, 2.376831, -0.18338048)
+
+[node name="ExitOfficeDoor" type="Area3D" parent="Doors" unique_id=50992381 groups=["ExitOfficeDoor"]]
+transform = Transform3D(1.3909066e-08, 0, 1, 0, 1, 0, -1, 0, 1.3909066e-08, 36.71986, 4.995904, -3.4985437)
+script = ExtResource("6_l0kgb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/ExitOfficeDoor" unique_id=456544783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6725464, -0.33807373)
+shape = SubResource("BoxShape3D_cca2g")
+
+[node name="door2" parent="Doors/ExitOfficeDoor" unique_id=17674165 instance=ExtResource("10_jvxs6")]
+
+[node name="TrencbroomRooms and Just rooms" type="Node" parent="." unique_id=76680759]
+
+[node name="TrenchbroomTest" parent="TrencbroomRooms and Just rooms" unique_id=2113371414 instance=ExtResource("2_7twlk")]
+
+[node name="inner street 1" parent="TrencbroomRooms and Just rooms" unique_id=1286417850 instance=ExtResource("1_r6ch6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -48.242325, 0.509, -57.038)
+
+[node name="Shop" parent="TrencbroomRooms and Just rooms" unique_id=853290546 instance=ExtResource("5_gcvn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.523212, 8.7584915, 0)
+
+[node name="Second" parent="TrencbroomRooms and Just rooms" unique_id=385805783 instance=ExtResource("6_q1h8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.231499, 7.1558743, -22.54604)
+
+[node name="player\'sOffice" parent="TrencbroomRooms and Just rooms" unique_id=663759929 instance=ExtResource("9_ealaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.584698, 1.6989422, 0)
+
+[node name="ApartmentCorridor" parent="TrencbroomRooms and Just rooms" unique_id=1048130912 instance=ExtResource("8_wj785")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.55554, 0)
+
+[node name="OfficeMarker" type="Marker3D" parent="." unique_id=1554174054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.54992, 2.6166, -2.5862386)
+
+[node name="ExitOfficerMarker" type="Marker3D" parent="." unique_id=1089140023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0233089, -9.873051, 20.028278)
+
+[connection signal="area_entered" from="Doors/ExitFromCorridorArea" to="." method="_on_area_3d_area_entered"]

@@ -8,10 +8,15 @@ extends Node3D
 	$Bullets/Label3D4,
 	$Bullets/Label3D5
 ]
+@onready var spot_light_3d: SpotLight3D = $SpotLight3D
+
+func _ready() -> void:
+	spot_light_3d.hide()
 
 func open() -> void:
 	animation_player.play("upper caseAction")
 	update_bullet_display()
+	spot_light_3d.show()
 
 func update_bullet_display() -> void:
 	if AmmoInventory.stock.is_empty():

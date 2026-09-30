@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://capdshg6vvdfb"
+path="res://.godot/imported/apartmentCorridor.map-b3102441952889033fd69ab0d8d4aa86.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/apartmentCorridor.map"
+dest_files=["res://.godot/imported/apartmentCorridor.map-b3102441952889033fd69ab0d8d4aa86.tres"]
+
+[params]
+

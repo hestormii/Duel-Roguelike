@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1aj5bfrhj7ey"]
 
 [ext_resource type="Script" uid="uid://c3ddd1ylcvw4u" path="res://scripts/player_test.gd" id="1_fdpfy"]
-[ext_resource type="Resource" uid="uid://brk8xxjce1gca" path="res://resources/bullets/ChargeBullet.tres" id="2_k3741"]
+[ext_resource type="Resource" uid="uid://caq6b3p01jjyq" path="res://resources/bullets/poison_bullet.tres" id="2_l6nol"]
 [ext_resource type="PackedScene" uid="uid://t38x4vqd1lwm" path="res://scenes/revolver.tscn" id="3_6p80c"]
 [ext_resource type="Texture2D" uid="uid://c7icnujdirac2" path="res://assets/head.png" id="4_2ue4q"]
 [ext_resource type="PackedScene" uid="uid://up01x5oe1ind" path="res://scenes/suitcase.tscn" id="4_8ut53"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bgwuon42g7icv" path="res://assets/body.png" id="5_4fwf8"]
 [ext_resource type="Texture2D" uid="uid://dx6gny72tanfv" path="res://assets/hand.png" id="6_dxymg"]
 [ext_resource type="PackedScene" uid="uid://dafchsq6vb0uh" path="res://scenes/barrel_scene.tscn" id="8_k3741"]
+[ext_resource type="AudioStream" uid="uid://cf3635j58lx6p" path="res://scenes/shooting-a-short-gun.mp3" id="10_ad58j"]
+[ext_resource type="Shader" uid="uid://qxywqjou004f" path="res://shadera/flash!.gdshader" id="11_l6nol"]
+[ext_resource type="Script" uid="uid://dq5oo5gjr0jlb" path="res://scripts/color_rect.gd" id="12_e1poy"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
 
@@ -34,9 +37,17 @@ shader_parameter/grain_amount = 0.0750000035625
 [sub_resource type="BoxShape3D" id="BoxShape3D_yntvc"]
 size = Vector3(1, 2.6065674, 1.1845703)
 
-[node name="PlayerTest" type="Node3D" unique_id=658327225]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6m58v"]
+shader = ExtResource("11_l6nol")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/intensity = 0.0
+shader_parameter/vignette_power = 4.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yntvc"]
+
+[node name="PlayerTest" type="CharacterBody3D" unique_id=1895452795 groups=["Player"]]
 script = ExtResource("1_fdpfy")
-starting_bullet = ExtResource("2_k3741")
+starting_bullet = ExtResource("2_l6nol")
 _name = "Player"
 
 [node name="Head" type="Area3D" parent="." unique_id=1659543030 groups=["Head"]]
@@ -52,6 +63,7 @@ shape = SubResource("SphereShape3D_yf5fn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=611670651]
+visible = false
 shape = SubResource("CapsuleShape3D_g4v7s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=2006629955]
@@ -71,6 +83,7 @@ transform = Transform3D(0.2736207, 0, 0, 0, 0.24710345, 0, 0, 0, 0.35145175, 0, 
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=748557078]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -0.62500006)
+current = true
 
 [node name="Positions" type="Node3D" parent="." unique_id=49002885]
 
@@ -230,13 +243,7 @@ transform = Transform3D(-2.141858e-08, -0.49, 0, 0.49, -2.141858e-08, 0, 0, 0, 0
 
 [node name="Vision" type="RayCast3D" parent="." unique_id=2083609846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.423539, 0)
-target_position = Vector3(0, 0, -4.195)
-collision_mask = 3
-collide_with_areas = true
-
-[node name="lookingForGravity" type="RayCast3D" parent="." unique_id=1563852902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7787213, -0.08254099)
-target_position = Vector3(0, -2, 0)
+target_position = Vector3(0, 0, -2.505)
 collision_mask = 3
 collide_with_areas = true
 
@@ -259,8 +266,31 @@ collision_layer = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5871876, -0.092285156)
 shape = SubResource("BoxShape3D_yntvc")
 
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1381357386]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=349257590]
+stream = ExtResource("10_ad58j")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=547062279]
+layer = 10
+
+[node name="flash_rect" type="ColorRect" parent="CanvasLayer2" unique_id=2093539861]
+material = SubResource("ShaderMaterial_6m58v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("12_e1poy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1283264614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_yntvc")
+
 [connection signal="fired" from="hand/revolver" to="." method="_on_revolver_fired"]
 [connection signal="pressed" from="UI/BodyPartAim/head/Head" to="." method="_on_head_pressed"]
 [connection signal="pressed" from="UI/BodyPartAim/Body/body" to="." method="_on_body_pressed"]
 [connection signal="pressed" from="UI/BodyPartAim/Hand/hand" to="." method="_on_hand_pressed"]
 [connection signal="pressed" from="UI/BodyPartAim/Self" to="." method="_on_self_pressed"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

@@ -1,4 +1,4 @@
-class_name Duelist extends Node3D
+class_name Duelist extends CharacterBody3D
 
 @export var max_health: float = 100.0
 var current_health: float = max_health
