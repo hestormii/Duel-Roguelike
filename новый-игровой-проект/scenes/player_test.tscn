@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cf3635j58lx6p" path="res://scenes/shooting-a-short-gun.mp3" id="10_ad58j"]
 [ext_resource type="Shader" uid="uid://qxywqjou004f" path="res://shadera/flash!.gdshader" id="11_l6nol"]
 [ext_resource type="Script" uid="uid://dq5oo5gjr0jlb" path="res://scripts/color_rect.gd" id="12_e1poy"]
+[ext_resource type="PackedScene" uid="uid://b5rn3ctfeijts" path="res://scenes/menu.tscn" id="13_e1poy"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
 
@@ -247,10 +248,10 @@ target_position = Vector3(0, 0, -2.505)
 collision_mask = 3
 collide_with_areas = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=735614002]
+[node name="Monochrome" type="CanvasLayer" parent="." unique_id=735614002]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=532867638]
+[node name="ColorRect" type="ColorRect" parent="Monochrome" unique_id=532867638]
 material = SubResource("ShaderMaterial_yntvc")
 anchors_preset = 15
 anchor_right = 1.0
@@ -271,10 +272,10 @@ shape = SubResource("BoxShape3D_yntvc")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=349257590]
 stream = ExtResource("10_ad58j")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=547062279]
+[node name="Flash" type="CanvasLayer" parent="." unique_id=547062279]
 layer = 10
 
-[node name="flash_rect" type="ColorRect" parent="CanvasLayer2" unique_id=2093539861]
+[node name="flash_rect" type="ColorRect" parent="Flash" unique_id=2093539861]
 material = SubResource("ShaderMaterial_6m58v")
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,6 +288,9 @@ script = ExtResource("12_e1poy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1283264614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_yntvc")
+
+[node name="Menu" parent="." unique_id=961772943 instance=ExtResource("13_e1poy")]
+visible = false
 
 [connection signal="fired" from="hand/revolver" to="." method="_on_revolver_fired"]
 [connection signal="pressed" from="UI/BodyPartAim/head/Head" to="." method="_on_head_pressed"]

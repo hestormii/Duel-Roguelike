@@ -41,11 +41,13 @@ var bob_offset := 0.0
 const EFFECT_ICON_SCENE := preload("res://resources/effects/effectsStuff/EffectInUiSprite.tscn")
 @onready var walking_sounds: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
-@onready var flash_rect: ColorRect = $CanvasLayer2/flash_rect
+@onready var flash_rect: ColorRect = $Flash/flash_rect
 @onready var apartment_corridor: Node3D = $"../TrencbroomRooms and Just rooms/ApartmentCorridor"
 @onready var office_door_enter: Area3D = $"../Doors/office door/OfficeDoorEnter"
 @onready var exit_office_door: Area3D = $"../Doors/ExitOfficeDoor"
-
+@onready var menu: Control = $Menu
+var in_menu: bool = false
+@onready var ui: Control = $UI
 
 
 enum View {
@@ -59,8 +61,12 @@ var state = States.Free
 enum States {
 	Free,
 	Locked,
-	Shop
+	Shop,
+	Menu
 }
+
+var previous_state: Array = []
+var current_state: Array = []
 
 var aim_offset := Vector2.ZERO
 
@@ -76,6 +82,7 @@ func _ready() -> void:
 	revolver.chambers_changed.connect(barrel_scene.refresh)
 	barrel_scene.hide()
 	duel_manager.shot_fired.connect(_on_shot_fired)
+	menu.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if state == States.Free and event is InputEventMouseMotion:
@@ -87,6 +94,8 @@ func _process(delta: float) -> void:
 	money.text = str(ItemInventory.money)
 	progress_bar.value = current_health
 	chage_view()
+	if Input.is_action_just_pressed("exit"):
+		change_Menu_state()
 	if state == States.Locked:
 		refresh_status_icons()
 		if Input.is_action_just_pressed("shoot_placeholder"):
@@ -105,7 +114,6 @@ func _process(delta: float) -> void:
 			$UI/Label.text = "Shot crystal aviable: " + str(shot_crystall)
 	if state == States.Free:
 		state_is_free(delta)
-
 	if state == States.Shop:
 		state_is_shop()
 
@@ -142,6 +150,20 @@ func change_DuelState_of_player():
 		state = States.Locked
 		revolver.chambers_changed.connect(barrel_scene.refresh)
 		print("locked")
+
+func change_Menu_state():
+	if in_menu == false and state != States.Shop and state == States.Free:
+		menu.show()
+		ui.hide()
+		in_menu = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		state = States.Menu
+	elif in_menu == true:
+		menu.hide()
+		ui.show()
+		in_menu = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		state = States.Free
 
 func enter_shop_state() -> void:
 	state = States.Shop

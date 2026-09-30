@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b5rn3ctfeijts"]
+
+[ext_resource type="Script" uid="uid://cdgxoctn1wjgn" path="res://scripts/menu.gd" id="1_yqeox"]
+
+[node name="Menu" type="Control" unique_id=961772943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqeox")
+
+[node name="Exit" type="Button" parent="." unique_id=2144279936]
+layout_mode = 0
+offset_left = 523.99994
+offset_top = 364.99997
+offset_right = 560.99994
+offset_bottom = 395.99997
+scale = Vector2(3.5, 3.5)
+text = "Exit"
+
+[node name="Resume" type="Button" parent="." unique_id=911929197]
+layout_mode = 1
+offset_left = 472.00003
+offset_top = 75.99999
+offset_right = 542.00006
+offset_bottom = 107.0
+scale = Vector2(3.5, 3.5)
+text = "Resume
+"
+
+[node name="Save" type="Button" parent="." unique_id=584253311]
+layout_mode = 0
+offset_left = 510.99997
+offset_top = 213.0
+offset_right = 555.0
+offset_bottom = 244.0
+scale = Vector2(3.5, 3.5)
+text = "Save"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
