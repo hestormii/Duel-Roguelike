@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dacs2jjpb1bfp"]
+
+[ext_resource type="Script" uid="uid://b1aj23wirtwdi" path="res://resources/ItemTypes.gd" id="1_ybfx0"]
+[ext_resource type="Script" uid="uid://ms1qw56jxksf" path="res://resources/ItemData.gd" id="2_5srii"]
+[ext_resource type="Resource" uid="uid://bupnykudamxfe" path="res://resources/items/EmptyBarrel.tres" id="3_vqkcr"]
+[ext_resource type="Resource" uid="uid://cp72p4gvk867t" path="res://resources/items/Monocle.tres" id="4_aqd8m"]
+[ext_resource type="Resource" uid="uid://clfq58bqkp4cj" path="res://resources/items/NotEmptyBarrel.tres" id="5_vqkcr"]
+
+[node name="Item_types" type="Node" unique_id=1111545217]
+script = ExtResource("1_ybfx0")
+All_Items = Array[ExtResource("2_5srii")]([ExtResource("3_vqkcr"), ExtResource("4_aqd8m"), ExtResource("5_vqkcr")])

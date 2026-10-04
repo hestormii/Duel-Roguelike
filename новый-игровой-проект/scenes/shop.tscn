@@ -8,6 +8,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_yntvc"]
 size = Vector3(0.453125, 0.41308594, 0.11425781)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_c26uo"]
+size = Vector3(0.41992188, 0.34277344, 0.22558594)
+
 [node name="Shop" type="Node3D" unique_id=853290546]
 script = ExtResource("1_lx5au")
 
@@ -181,6 +184,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01832056, 0, 2.3841858e-07
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/bulletsOnDisplay/Sprite3D5/Area3D" unique_id=2101334582]
 shape = SubResource("BoxShape3D_yntvc")
 
+[node name="Item1" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=1078424628]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 1.0818977, 0.533616)
+texture = ExtResource("2_xfvoa")
+
+[node name="name5" type="Label3D" parent="shelves/bulletsOnDisplay/Item1" unique_id=1393003150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01646036, 0.34465075, 0)
+text = "Name"
+
+[node name="price5" type="Label3D" parent="shelves/bulletsOnDisplay/Item1" unique_id=209453742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04177499, -0.30729365, 0.19335175)
+text = "price"
+
+[node name="amount5" type="Label3D" parent="shelves/bulletsOnDisplay/Item1" unique_id=935147226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020947933, -0.009066582, 0.044025898)
+text = "amount"
+
+[node name="ItemArea" type="Area3D" parent="shelves/bulletsOnDisplay/Item1" unique_id=1259813252]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/bulletsOnDisplay/Item1/ItemArea" unique_id=2127634007]
+shape = SubResource("BoxShape3D_c26uo")
+
+[node name="Item2" type="Sprite3D" parent="shelves/bulletsOnDisplay" unique_id=1841326302]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 2.0818977, 0.533616)
+texture = ExtResource("2_xfvoa")
+
+[node name="name6" type="Label3D" parent="shelves/bulletsOnDisplay/Item2" unique_id=1686080134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01646036, 0.34465075, 0)
+text = "Name"
+
+[node name="price6" type="Label3D" parent="shelves/bulletsOnDisplay/Item2" unique_id=598619279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04177499, -0.30729365, 0.19335175)
+text = "price"
+
+[node name="amount6" type="Label3D" parent="shelves/bulletsOnDisplay/Item2" unique_id=959918775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020947933, -0.009066582, 0.044025898)
+text = "amount"
+
+[node name="ItemArea" type="Area3D" parent="shelves/bulletsOnDisplay/Item2" unique_id=1303786649]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/bulletsOnDisplay/Item2/ItemArea" unique_id=1217105]
+shape = SubResource("BoxShape3D_c26uo")
+
 [node name="ShelvesPos" type="Marker3D" parent="shelves" unique_id=1321327381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5674717, 1.7435765, 0)
 
@@ -201,4 +246,6 @@ text = "Reroll Shop for 10"
 [connection signal="input_event" from="shelves/bulletsOnDisplay/Sprite3D3/Area3D" to="." method="_on_area_3d_input_event" binds= [1]]
 [connection signal="input_event" from="shelves/bulletsOnDisplay/Sprite3D4/Area3D" to="." method="_on_area_3d_input_event" binds= [2]]
 [connection signal="input_event" from="shelves/bulletsOnDisplay/Sprite3D5/Area3D" to="." method="_on_area_3d_input_event" binds= [3]]
+[connection signal="input_event" from="shelves/bulletsOnDisplay/Item1/ItemArea" to="." method="_on_item_area_input_event" binds= [0]]
+[connection signal="input_event" from="shelves/bulletsOnDisplay/Item2/ItemArea" to="." method="_on_item_area_input_event" binds= [1]]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

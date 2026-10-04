@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://clfq58bqkp4cj"]
+
+[ext_resource type="Script" uid="uid://dgjwa1hd52mp4" path="res://resources/ItemEffects.gd" id="1_xbxgx"]
+[ext_resource type="Script" uid="uid://ms1qw56jxksf" path="res://resources/ItemData.gd" id="2_ctddh"]
+[ext_resource type="Script" uid="uid://du6ch2th4d0um" path="res://resources/items/ItemEffect/DamagePerFilled.gd" id="2_l25ft"]
+
+[sub_resource type="Resource" id="Resource_q47n7"]
+script = ExtResource("2_l25ft")
+metadata/_custom_type_script = "uid://du6ch2th4d0um"
+
+[resource]
+script = ExtResource("2_ctddh")
+id = &"NotEmptyBarrelIT"
+display_name = "Not Empty Barrel"
+item_effect = Array[ExtResource("1_xbxgx")]([SubResource("Resource_q47n7")])
+metadata/_custom_type_script = "uid://ms1qw56jxksf"

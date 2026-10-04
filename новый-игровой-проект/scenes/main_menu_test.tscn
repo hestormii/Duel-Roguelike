@@ -178,3 +178,4 @@ transform = Transform3D(1.8987723e-07, 0, -2.515, 0, 2.515, 0, 2.515, 0, 1.89877
 text = "Load"
 
 [connection signal="input_event" from="TVPlay" to="." method="_on_tv_play_input_event"]
+[connection signal="input_event" from="TVLoadSave" to="." method="_on_tv_load_save_input_event"]

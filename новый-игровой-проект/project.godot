@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Gunslinger Roguelike"
+run/main_scene="uid://7sjxxokj48qq"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/bulletSprites/icon.svg"
 
@@ -21,6 +22,8 @@ BulletTypes="*uid://ceo2c62a4gsj1"
 EnemyTypes="*uid://c0bxqt84g8805"
 ItemInventory="*uid://do887u6khjmkm"
 PosterInventory="*uid://bx888061nhbk3"
+SaveManager="*uid://dqfolata3nx6p"
+ItemTypes="*uid://dacs2jjpb1bfp"
 
 [display]
 

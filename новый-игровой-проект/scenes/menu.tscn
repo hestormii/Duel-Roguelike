@@ -41,3 +41,4 @@ text = "Save"
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]

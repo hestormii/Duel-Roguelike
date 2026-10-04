@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cp72p4gvk867t"]
+
+[ext_resource type="Script" uid="uid://dgjwa1hd52mp4" path="res://resources/ItemEffects.gd" id="1_ouji3"]
+[ext_resource type="Script" uid="uid://ms1qw56jxksf" path="res://resources/ItemData.gd" id="2_qdp3a"]
+[ext_resource type="Script" uid="uid://nxw2c5harelh" path="res://resources/items/ItemEffect/AccuracyUp.gd" id="2_xbdok"]
+[ext_resource type="Texture2D" uid="uid://jk0q7qd88r8g" path="res://assets/ItemSprites/Monocle.png" id="3_xbdok"]
+
+[sub_resource type="Resource" id="Resource_aqd8m"]
+script = ExtResource("2_xbdok")
+accuracy_bonus = 0.9
+metadata/_custom_type_script = "uid://nxw2c5harelh"
+
+[resource]
+script = ExtResource("2_qdp3a")
+id = &"MonocleIT"
+display_name = "Monocle"
+icon = ExtResource("3_xbdok")
+item_type = &"passive"
+item_effect = Array[ExtResource("1_ouji3")]([SubResource("Resource_aqd8m")])
+metadata/_custom_type_script = "uid://ms1qw56jxksf"

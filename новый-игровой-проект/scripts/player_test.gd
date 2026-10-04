@@ -48,6 +48,13 @@ const EFFECT_ICON_SCENE := preload("res://resources/effects/effectsStuff/EffectI
 @onready var menu: Control = $Menu
 var in_menu: bool = false
 @onready var ui: Control = $UI
+@export var full_hp: Texture
+@export var lower_than75: Texture
+@export var lower_than50: Texture
+@export var lower_than25: Texture
+@export var dead: Texture
+@export var got_hurt: Texture
+@onready var hurt_sprite: Sprite2D = $UI/HurtSprite
 
 
 enum View {
@@ -97,6 +104,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("exit"):
 		change_Menu_state()
 	if state == States.Locked:
+		hurt_sprites_and_states()
 		refresh_status_icons()
 		if Input.is_action_just_pressed("shoot_placeholder"):
 			duel_manager.player_react()
@@ -212,6 +220,7 @@ func _on_hand_pressed() -> void:
 	duel_manager.player_queue_shot("Hand")
 
 func state_is_free(delta: float):
+	hurt_sprite.hide()
 	actions_crystals.hide()
 	progress_bar.hide()
 	looking_at.show()
@@ -261,12 +270,13 @@ func state_is_shop():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func state_is_locked():
+	hurt_sprite.show()
 	barrel_scene.show()
 	bob_time = 0.0
 	bob_offset = 0.0
 	statuses.show()
 	actions_crystals.show()
-	progress_bar.show()
+	#progress_bar.show()
 	looking_at.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	suitcase.show()
@@ -330,3 +340,27 @@ func vision_doors_etc():
 				exit_office_door.leave_office()
 	else:
 		looking_at.hide()
+
+func hurt_sprites_and_states():
+	var ratio := float(current_health) / float(max_health)
+	if current_health <= 0:
+		hurt_sprite.texture = dead
+	elif ratio <= 0.25:
+		hurt_sprite.texture = lower_than25
+	elif ratio <= 0.5:
+		hurt_sprite.texture = lower_than50
+	elif ratio <= 0.75:
+		hurt_sprite.texture = lower_than75
+	else:
+		hurt_sprite.texture = full_hp
+
+
+func chamber_count() -> int:
+	return revolver.chambers.size()
+
+func empty_chamber_count() -> int:
+	var count := 0
+	for chamber in revolver.chambers:
+		if chamber == null:
+			count += 1
+	return count

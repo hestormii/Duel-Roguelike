@@ -8,11 +8,36 @@
 [ext_resource type="Shader" uid="uid://blto8q877lcw3" path="res://shadera/gray_world2.gdshader" id="4_ged13"]
 [ext_resource type="Texture2D" uid="uid://bgwuon42g7icv" path="res://assets/body.png" id="5_4fwf8"]
 [ext_resource type="Texture2D" uid="uid://dx6gny72tanfv" path="res://assets/hand.png" id="6_dxymg"]
+[ext_resource type="Texture2D" uid="uid://bcnu0kr4ujsld" path="res://assets/faceSprites/PlayerFace/PlayerFaceSheet.png" id="8_6m58v"]
 [ext_resource type="PackedScene" uid="uid://dafchsq6vb0uh" path="res://scenes/barrel_scene.tscn" id="8_k3741"]
 [ext_resource type="AudioStream" uid="uid://cf3635j58lx6p" path="res://scenes/shooting-a-short-gun.mp3" id="10_ad58j"]
 [ext_resource type="Shader" uid="uid://qxywqjou004f" path="res://shadera/flash!.gdshader" id="11_l6nol"]
 [ext_resource type="Script" uid="uid://dq5oo5gjr0jlb" path="res://scripts/color_rect.gd" id="12_e1poy"]
 [ext_resource type="PackedScene" uid="uid://b5rn3ctfeijts" path="res://scenes/menu.tscn" id="13_e1poy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fa0t"]
+atlas = ExtResource("8_6m58v")
+region = Rect2(1, 5, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6mep"]
+atlas = ExtResource("8_6m58v")
+region = Rect2(33, 5, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n36ir"]
+atlas = ExtResource("8_6m58v")
+region = Rect2(65, 5, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpa7s"]
+atlas = ExtResource("8_6m58v")
+region = Rect2(97, 5, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy58t"]
+atlas = ExtResource("8_6m58v")
+region = Rect2(129, 5, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8vky"]
+atlas = ExtResource("8_6m58v")
+region = Rect2(1, 37, 30, 23)
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
 
@@ -49,6 +74,12 @@ shader_parameter/vignette_power = 4.0
 [node name="PlayerTest" type="CharacterBody3D" unique_id=1895452795 groups=["Player"]]
 script = ExtResource("1_fdpfy")
 starting_bullet = ExtResource("2_l6nol")
+full_hp = SubResource("AtlasTexture_8fa0t")
+lower_than75 = SubResource("AtlasTexture_f6mep")
+lower_than50 = SubResource("AtlasTexture_n36ir")
+lower_than25 = SubResource("AtlasTexture_bpa7s")
+dead = SubResource("AtlasTexture_xy58t")
+got_hurt = SubResource("AtlasTexture_k8vky")
 _name = "Player"
 
 [node name="Head" type="Area3D" parent="." unique_id=1659543030 groups=["Head"]]
@@ -238,6 +269,10 @@ offset_left = 342.0
 offset_top = 564.0
 offset_right = 342.0
 offset_bottom = 564.0
+
+[node name="HurtSprite" type="Sprite2D" parent="UI" unique_id=921043969]
+position = Vector2(1052, 551)
+scale = Vector2(8.805, 8.805)
 
 [node name="suitcase" parent="." unique_id=511438795 instance=ExtResource("4_8ut53")]
 transform = Transform3D(-2.141858e-08, -0.49, 0, 0.49, -2.141858e-08, 0, 0, 0, 0.49, 2.3753257, 0.9436197, -0.7334814)

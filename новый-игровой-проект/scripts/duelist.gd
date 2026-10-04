@@ -76,3 +76,9 @@ func tick_effects() -> void:
 			entry["turns_left"] -= 1
 			if entry["turns_left"] <= 0:
 				active_effects.erase(entry)
+
+func chamber_count() -> int:
+	return 0
+
+func empty_chamber_count() -> int:
+	return 0

@@ -36,11 +36,21 @@ var steps: int = 0
 	$shelves/bulletsOnDisplay/Sprite3D5/amount4
 ]
 @onready var bullets_on_display: Node3D = $shelves/bulletsOnDisplay
+@onready var item_names: Array[Label3D] = [
+	$shelves/bulletsOnDisplay/Item1/name5,
+	$shelves/bulletsOnDisplay/Item2/name6
+]
+@onready var item_price: Array[Label3D] = [
+	$shelves/bulletsOnDisplay/Item1/price5,
+	$shelves/bulletsOnDisplay/Item2/price6
+]
 
 var offered: Array[BulletData] = []
 var offered_amounts: Array[int] = []
 var offered_price: Array[int] = []
 var reroll_price: int = 10
+var offered_items: Array[ItemData] = []
+var offered_items_price: Array[int] = []
 
 func _ready() -> void:
 	get_viewport().physics_object_picking = true
@@ -109,6 +119,19 @@ func populate() -> void:
 		offered_amounts.append(amount)
 		offered_price.append(price)
 
+func populate_items() -> void:
+	offered_items.clear()
+	offered_items_price.clear()
+	var pool := ItemTypes.All_Items.duplicate()
+	if pool.is_empty():
+		return
+	for i in item_names.size():
+		var item: ItemData = pool[randi() % pool.size()]
+		var price := randi_range(item.price_min, item.price_max)
+		item_names[i].text = item.display_name
+		item_price[i].text = "$%d" % price
+		offered_items.append(item)
+		offered_items_price.append(price)
 
 func _on_button_2_pressed() -> void:
 	steps = 1
@@ -152,12 +175,31 @@ func _buy_bullet(index: int) -> void:
 	print("bought ", amount, "x ", bullet.display_name, " for $", price)
 	bullet_sprites[index].hide()
 
-
 func _on_button_3_pressed() -> void:
 	if ItemInventory.money > reroll_price:
 		populate()
-		reroll_price = reroll_price * 1.5
+		populate_items()
+		reroll_price = int(reroll_price * 1.5)
 		for i in bullet_sprites.size():
 			bullet_sprites[i].show()
 		ItemInventory.spend_money(reroll_price)
 	else: print("Not enough money for reroll")
+
+func reset_rerroll_price():
+	reroll_price = 10
+
+
+func _on_item_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int, extra_arg_0: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_buy_item(extra_arg_0)
+
+func _buy_item(index: int) -> void:
+	if index >= offered_items.size():
+		return
+	var item: ItemData = offered_items[index]
+	var price: int = offered_items_price[index]
+	if not ItemInventory.spend_money(price):
+		print("not enough money")
+		return
+	ItemInventory.add(item, 1)
+	print("bought item")

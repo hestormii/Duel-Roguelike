@@ -19,6 +19,7 @@ func _ready() -> void:
 	shop.hide()
 	second.hide()
 	shop.populate()
+	shop.populate_items()
 
 
 func chose_the_bullet() -> void:
@@ -64,6 +65,8 @@ func _on_duel_ended(winner: Duelist) -> void:
 						print("Unlocked new bullet type: ", bullet.display_name)
 		chose_the_bullet()
 		shop.populate()
+		shop.reset_rerroll_price()
+		shop.populate_items()
 	else:
 		get_tree().quit()
 	if is_instance_valid(current_enemy):

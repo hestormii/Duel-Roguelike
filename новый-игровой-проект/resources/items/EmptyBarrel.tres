@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bupnykudamxfe"]
+
+[ext_resource type="Script" uid="uid://dgjwa1hd52mp4" path="res://resources/ItemEffects.gd" id="1_j5y38"]
+[ext_resource type="Script" uid="uid://ms1qw56jxksf" path="res://resources/ItemData.gd" id="2_rg0c0"]
+[ext_resource type="Script" uid="uid://nxs3wu8mv0d0" path="res://resources/items/ItemEffect/DamagePerEmpty.gd" id="2_s667g"]
+
+[sub_resource type="Resource" id="Resource_vqkcr"]
+script = ExtResource("2_s667g")
+metadata/_custom_type_script = "uid://nxs3wu8mv0d0"
+
+[resource]
+script = ExtResource("2_rg0c0")
+id = &"EmptyBarrelIT"
+display_name = "Empty Barrel"
+item_type = &"passive"
+item_effect = Array[ExtResource("1_j5y38")]([SubResource("Resource_vqkcr")])
+metadata/_custom_type_script = "uid://ms1qw56jxksf"

@@ -143,7 +143,11 @@ func _fire_queued_shots(shooter: Duelist, target: Duelist) -> void:
 			continue
 		var chance: float = BODY_PART_ACCURACY.get(body_part, 0.5)
 		if shooter == player:
-			chance += get_player_accuracy_bonus()
+			for item in ItemInventory.stock:
+				if item.item_type == "passive":
+					chance += item.item_effect.get(0).modify_accuracy(chance, shooter, body_part)
+			for entry in shooter.active_effects:
+				chance = entry["effect"].modify_accuracy(chance, shooter, body_part)
 		chance = clamp(chance, 0.0, 1.0)
 		var hit := randf() < chance
 		if hit:
