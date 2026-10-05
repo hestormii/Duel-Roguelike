@@ -3,10 +3,12 @@ extends Node3D
 @onready var tv_play: Area3D = $TVPlay
 @onready var tv_load_save: Area3D = $TVLoadSave
 @onready var tv_exit: Area3D = $TVExit
+@onready var what_does: Label = $WhatDoes
 
 
 func _ready() -> void:
 	get_viewport().physics_object_picking = true
+	what_does.hide()
 
 
 
@@ -23,3 +25,27 @@ func _on_tv_load_save_input_event(camera: Node, event: InputEvent, event_positio
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		SaveManager.load_game()
 		get_tree().change_scene_to_file("res://scenes/trenchbroomScenes/combined_maps.tscn")
+
+
+func _on_tv_play_mouse_entered() -> void:
+	what_does.show()
+	what_does.text = "Starts new game"
+func _on_tv_play_mouse_exited() -> void:
+	what_does.hide()
+
+
+func _on_tv_exit_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		get_tree().quit()
+func _on_tv_exit_mouse_entered() -> void:
+	what_does.show()
+	what_does.text = "Exits the game"
+func _on_tv_exit_mouse_exited() -> void:
+	what_does.hide()
+
+
+func _on_tv_load_save_mouse_entered() -> void:
+	what_does.show()
+	what_does.text = "Loads current save"
+func _on_tv_load_save_mouse_exited() -> void:
+	what_does.hide()

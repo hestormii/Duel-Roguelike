@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b45pd4np4ojis"]
+
+[ext_resource type="Texture2D" uid="uid://c6qfb3otwxbln" path="res://trenchbroom/textures/cherepitsa.jpg" id="1_kxbmj"]
+
+[resource]
+albedo_texture = ExtResource("1_kxbmj")
+metallic_specular = 0.0
+texture_filter = 2

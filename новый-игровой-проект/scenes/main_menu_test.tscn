@@ -86,7 +86,7 @@ size = Vector3(1, 1.6503906, 1.5080566)
 script = ExtResource("1_7ilnx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1742663283]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.09940815, 3.26644, 4.5070148)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.024630845, 3.26644, 4.5070148)
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=1639693770]
 script = ExtResource("1_wlbmf")
@@ -162,7 +162,7 @@ shape = SubResource("BoxShape3D_yntvc")
 
 [node name="Label3D" type="Label3D" parent="TVExit" unique_id=1668166919]
 transform = Transform3D(1.3249881e-07, 0, -1.755, 0, 1.755, 0, 1.755, 0, 1.3249881e-07, -0.70063365, 0.22411883, 0)
-text = "Settings"
+text = "Exit"
 
 [node name="TVLoadSave" type="Area3D" parent="." unique_id=1859909280]
 transform = Transform3D(0.25881898, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881898, 1.2949749, 3.8932548, 8.576043)
@@ -177,5 +177,27 @@ shape = SubResource("BoxShape3D_yntvc")
 transform = Transform3D(1.8987723e-07, 0, -2.515, 0, 2.515, 0, 2.515, 0, 1.8987723e-07, -0.70063365, 0.22411883, 0)
 text = "Load"
 
+[node name="WhatDoes" type="Label" parent="." unique_id=1017019796]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = 290.0
+offset_right = -77.0
+offset_bottom = 313.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+text = "text"
+
 [connection signal="input_event" from="TVPlay" to="." method="_on_tv_play_input_event"]
+[connection signal="mouse_entered" from="TVPlay" to="." method="_on_tv_play_mouse_entered"]
+[connection signal="mouse_exited" from="TVPlay" to="." method="_on_tv_play_mouse_exited"]
+[connection signal="input_event" from="TVExit" to="." method="_on_tv_exit_input_event"]
+[connection signal="mouse_entered" from="TVExit" to="." method="_on_tv_exit_mouse_entered"]
+[connection signal="mouse_exited" from="TVExit" to="." method="_on_tv_exit_mouse_exited"]
 [connection signal="input_event" from="TVLoadSave" to="." method="_on_tv_load_save_input_event"]
+[connection signal="mouse_entered" from="TVLoadSave" to="." method="_on_tv_load_save_mouse_entered"]
+[connection signal="mouse_exited" from="TVLoadSave" to="." method="_on_tv_load_save_mouse_exited"]
